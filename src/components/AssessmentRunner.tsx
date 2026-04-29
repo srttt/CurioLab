@@ -36,6 +36,7 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
 
+  const isDecisionStyle = assessment.slug === "decision-style-profile";
   const answeredCount = Object.keys(answers).length;
   const complete = answeredCount === assessment.questions.length;
   const currentQuestion = assessment.questions[questionIndex];
@@ -58,6 +59,32 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   }
 
   if (!started) {
+    if (isDecisionStyle) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Decision Style Profile</p>
+          <h2 className="mt-2 text-3xl font-black">How do you make choices when the answer is not obvious?</h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              This assessment looks at how you balance analysis, intuition, possible losses, information load, and
+              decision closure.
+            </p>
+            <p>
+              It is not a test of intelligence or rationality. It is a self-reflection tool for understanding your
+              decision habits.
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            Start Assessment
+          </button>
+        </section>
+      );
+    }
+
     return (
       <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
         <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Start Assessment</p>

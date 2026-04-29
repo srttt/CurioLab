@@ -230,37 +230,175 @@ export const assessments: AssessmentItem[] = [
     category: "Decision",
     duration: "5 min",
     description:
-      "A self-assessment for intuitive thinking, analytical thinking, risk sensitivity, loss sensitivity, and information overload.",
-    basis: "Inspired by dual process theory and cognitive bias research.",
-    disclaimer: assessmentDisclaimer,
+      "A self-assessment for how you make decisions under uncertainty, risk, information load, and competing choices.",
+    basis: "Inspired by dual process theory, decision style research, prospect theory, and cognitive bias research.",
+    disclaimer:
+      "CurioLab assessments are for learning and self-reflection. They are not medical, psychological, financial, or professional advice.",
     type: "assessment",
     dimensions: [
-      { id: "intuitive", label: "Intuitive Decision-Making", description: "Trust in fast impressions, gut feelings, and pattern recognition." },
-      { id: "analytical", label: "Analytical Decision-Making", description: "Preference for evidence, comparison, structure, and deliberate reasoning." },
-      { id: "risk-sensitivity", label: "Risk Sensitivity", description: "How strongly uncertainty or possible downside shapes choices." },
-      { id: "loss-sensitivity", label: "Loss Sensitivity", description: "How strongly potential loss, regret, or wasted effort pulls attention." },
-      { id: "information-overload", label: "Information Overload", description: "How easily too much information slows or clouds decisions." }
+      {
+        id: "analyticalDeliberation",
+        label: "Analytical Deliberation",
+        description: "How much you prefer structure, comparison, and evidence before choosing."
+      },
+      {
+        id: "intuitiveConfidence",
+        label: "Intuitive Confidence",
+        description: "How much you trust first impressions, gut feelings, and pattern recognition."
+      },
+      {
+        id: "lossSensitivity",
+        label: "Loss Sensitivity",
+        description: "How strongly possible losses, regret, or mistakes affect your choices."
+      },
+      {
+        id: "informationLoadSensitivity",
+        label: "Information Load Sensitivity",
+        description: "How easily too many options or too much information make decisions harder."
+      },
+      {
+        id: "decisionClosure",
+        label: "Decision Closure",
+        description: "How easily you commit to a choice and move forward after deciding."
+      }
     ],
     questions: [
-      { id: "decision-01", dimension: "intuitive", text: "My first impression is often useful when making a choice." },
-      { id: "decision-02", dimension: "intuitive", text: "I can usually sense which option fits before I can explain why." },
-      { id: "decision-03", dimension: "intuitive", text: "I distrust gut feelings and prefer to ignore them.", reverse: true },
-      { id: "decision-04", dimension: "analytical", text: "I like comparing options before I commit." },
-      { id: "decision-05", dimension: "analytical", text: "I feel better when I can see the reasons behind a decision." },
-      { id: "decision-06", dimension: "analytical", text: "I often decide without checking much information.", reverse: true },
-      { id: "decision-07", dimension: "risk-sensitivity", text: "Uncertain outcomes make me cautious." },
-      { id: "decision-08", dimension: "risk-sensitivity", text: "I notice possible downsides quickly." },
-      { id: "decision-09", dimension: "risk-sensitivity", text: "I am comfortable choosing even when the risks are unclear.", reverse: true },
-      { id: "decision-10", dimension: "loss-sensitivity", text: "The possibility of regret weighs heavily on my choices." },
-      { id: "decision-11", dimension: "loss-sensitivity", text: "I find it hard to walk away from something I have already invested in." },
-      { id: "decision-12", dimension: "loss-sensitivity", text: "I can usually cut losses without replaying the decision for long.", reverse: true },
-      { id: "decision-13", dimension: "information-overload", text: "Too many options can make it harder for me to choose." },
-      { id: "decision-14", dimension: "information-overload", text: "I can get stuck looking for one more piece of information." },
-      { id: "decision-15", dimension: "information-overload", text: "More information almost always makes decisions easier for me.", reverse: true }
+      {
+        id: "decision-01",
+        dimension: "analyticalDeliberation",
+        text: "I like to compare several options before making an important decision."
+      },
+      {
+        id: "decision-02",
+        dimension: "analyticalDeliberation",
+        text: "I often make a list of pros and cons when a choice matters."
+      },
+      {
+        id: "decision-03",
+        dimension: "analyticalDeliberation",
+        text: "I prefer to understand the facts before trusting my first reaction."
+      },
+      {
+        id: "decision-04",
+        dimension: "analyticalDeliberation",
+        text: "I feel more confident when I have a clear decision process."
+      },
+      {
+        id: "decision-05",
+        dimension: "analyticalDeliberation",
+        text: "I rarely need much information before choosing.",
+        reverse: true
+      },
+      {
+        id: "decision-06",
+        dimension: "intuitiveConfidence",
+        text: "My first impression is often useful when I make decisions."
+      },
+      {
+        id: "decision-07",
+        dimension: "intuitiveConfidence",
+        text: "I can usually sense which option feels right."
+      },
+      {
+        id: "decision-08",
+        dimension: "intuitiveConfidence",
+        text: "In familiar situations, I trust my gut feeling."
+      },
+      {
+        id: "decision-09",
+        dimension: "intuitiveConfidence",
+        text: "I often notice patterns before I can explain them clearly."
+      },
+      {
+        id: "decision-10",
+        dimension: "intuitiveConfidence",
+        text: "I do not trust intuition unless I can fully justify it.",
+        reverse: true
+      },
+      {
+        id: "decision-11",
+        dimension: "lossSensitivity",
+        text: "Before choosing, I often think about what could go wrong."
+      },
+      {
+        id: "decision-12",
+        dimension: "lossSensitivity",
+        text: "The possibility of regret strongly affects my decisions."
+      },
+      {
+        id: "decision-13",
+        dimension: "lossSensitivity",
+        text: "I usually pay more attention to possible losses than possible gains."
+      },
+      {
+        id: "decision-14",
+        dimension: "lossSensitivity",
+        text: "I find it hard to choose when a mistake could be costly."
+      },
+      {
+        id: "decision-15",
+        dimension: "lossSensitivity",
+        text: "I am comfortable making choices even when there is a real chance of loss.",
+        reverse: true
+      },
+      {
+        id: "decision-16",
+        dimension: "informationLoadSensitivity",
+        text: "Too many options make it harder for me to choose."
+      },
+      {
+        id: "decision-17",
+        dimension: "informationLoadSensitivity",
+        text: "The more I research, the more uncertain I sometimes become."
+      },
+      {
+        id: "decision-18",
+        dimension: "informationLoadSensitivity",
+        text: "I can feel mentally tired after comparing many similar options."
+      },
+      {
+        id: "decision-19",
+        dimension: "informationLoadSensitivity",
+        text: "I sometimes delay decisions because I want to keep looking for more information."
+      },
+      {
+        id: "decision-20",
+        dimension: "informationLoadSensitivity",
+        text: "I can usually ignore extra details and focus on what matters most.",
+        reverse: true
+      },
+      {
+        id: "decision-21",
+        dimension: "decisionClosure",
+        text: "Once I make a decision, I can usually move forward without much second-guessing."
+      },
+      {
+        id: "decision-22",
+        dimension: "decisionClosure",
+        text: "I can accept a good-enough choice instead of searching endlessly for the perfect one."
+      },
+      {
+        id: "decision-23",
+        dimension: "decisionClosure",
+        text: "After choosing, I usually stop comparing the alternatives."
+      },
+      {
+        id: "decision-24",
+        dimension: "decisionClosure",
+        text: "I often revisit decisions even after I have already made them.",
+        reverse: true
+      },
+      {
+        id: "decision-25",
+        dimension: "decisionClosure",
+        text: "I find it difficult to commit when several options seem reasonable.",
+        reverse: true
+      }
     ],
     relatedNotes: [
-      { label: "Read Dual Process Theory", href: "/lab-notes/dual-process-theory" },
-      { label: "Read Cognitive Biases", href: "/lab-notes/cognitive-biases" }
+      { label: "Dual Process Theory", href: "/lab-notes/dual-process-theory" },
+      { label: "Cognitive Biases", href: "/lab-notes/cognitive-biases" },
+      { label: "Yerkes-Dodson Law", href: "/lab-notes/yerkes-dodson-law" }
     ]
   },
   {

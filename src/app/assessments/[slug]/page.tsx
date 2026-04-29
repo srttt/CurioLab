@@ -14,6 +14,8 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
 
   if (!assessment) notFound();
 
+  const isDecisionStyle = assessment.slug === "decision-style-profile";
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <Link
@@ -40,31 +42,50 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
       <section className="mt-8 grid gap-5 lg:grid-cols-3">
         <div className="rounded-[1.5rem] border border-ink/10 bg-white/78 p-5 shadow-sm">
           <h2 className="text-xl font-black">What this measures</h2>
-          <div className="mt-4 space-y-3">
-            {assessment.dimensions.map((dimension) => (
-              <div className="rounded-2xl bg-mist px-4 py-3" key={dimension.id}>
-                <h3 className="font-black">{dimension.label}</h3>
-                <p className="mt-1 text-sm leading-6 text-ink/62">{dimension.description}</p>
-              </div>
-            ))}
-          </div>
+          {isDecisionStyle ? (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
+              This assessment measures five decision tendencies: analytical deliberation, intuitive confidence, loss
+              sensitivity, information load sensitivity, and decision closure.
+            </p>
+          ) : (
+            <div className="mt-4 space-y-3">
+              {assessment.dimensions.map((dimension) => (
+                <div className="rounded-2xl bg-mist px-4 py-3" key={dimension.id}>
+                  <h3 className="font-black">{dimension.label}</h3>
+                  <p className="mt-1 text-sm leading-6 text-ink/62">{dimension.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="rounded-[1.5rem] border border-ink/10 bg-white/78 p-5 shadow-sm">
           <h2 className="text-xl font-black">How it works</h2>
-          <div className="mt-4 space-y-3 text-sm font-medium leading-7 text-ink/68">
-            <p>{assessment.questions.length} statements using a 5-point Likert scale.</p>
-            <p>Each statement belongs to one dimension. Some items are reverse-scored to reduce one-direction answering.</p>
-            <p>Dimension averages are converted to a 0 to 100 profile score.</p>
-          </div>
+          {isDecisionStyle ? (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
+              You will answer 25 short statements using a 5-point scale from Strongly disagree to Strongly agree.
+              Your result shows a profile across five dimensions rather than a single decision type.
+            </p>
+          ) : (
+            <div className="mt-4 space-y-3 text-sm font-medium leading-7 text-ink/68">
+              <p>{assessment.questions.length} statements using a 5-point Likert scale.</p>
+              <p>
+                Each statement belongs to one dimension. Some items are reverse-scored to reduce one-direction
+                answering.
+              </p>
+              <p>Dimension averages are converted to a 0 to 100 profile score.</p>
+            </div>
+          )}
         </div>
 
         <div className="rounded-[1.5rem] border border-ink/10 bg-citron/35 p-5 shadow-sm">
           <h2 className="text-xl font-black">Important note</h2>
           <p className="mt-4 text-sm font-medium leading-7 text-ink/70">{assessment.disclaimer}</p>
-          <p className="mt-4 text-sm font-medium leading-7 text-ink/70">
-            Your result is a snapshot, not a permanent label.
-          </p>
+          {!isDecisionStyle && (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/70">
+              Your result is a snapshot, not a permanent label.
+            </p>
+          )}
         </div>
       </section>
 

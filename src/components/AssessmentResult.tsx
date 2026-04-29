@@ -12,6 +12,143 @@ function describeScore(score: number) {
   return "a low current signal";
 }
 
+function getTendencyBand(score: number) {
+  if (score >= 70) return "Higher tendency";
+  if (score >= 40) return "Moderate tendency";
+  return "Lower tendency";
+}
+
+function getDecisionInterpretation(score: DimensionScore) {
+  const band = getTendencyBand(score.score);
+  const level = score.score >= 70 ? "higher" : score.score >= 40 ? "moderate" : "lower";
+  const interpretations: Record<string, Record<string, string>> = {
+    analyticalDeliberation: {
+      lower: "You may prefer lighter structure or faster choices when deciding.",
+      moderate: "You may use structure and comparison when the situation calls for it.",
+      higher: "You may prefer clear structure, comparison, and evidence before choosing."
+    },
+    intuitiveConfidence: {
+      lower: "You may rely less on first impressions unless they are supported by reasons.",
+      moderate: "You may use intuition in some situations and analysis in others.",
+      higher: "You may trust first impressions, gut feelings, and pattern recognition."
+    },
+    lossSensitivity: {
+      lower: "Possible losses may not dominate your attention when choosing.",
+      moderate: "Possible losses may matter, especially when the stakes feel meaningful.",
+      higher: "Possible losses, regret, or mistakes may strongly shape your choices."
+    },
+    informationLoadSensitivity: {
+      lower: "Extra information may feel manageable or easy to filter.",
+      moderate: "Too much information may slow some choices, especially when options are similar.",
+      higher: "Too many options or details may make decisions feel heavier."
+    },
+    decisionClosure: {
+      lower: "You may need more time or support to commit and move forward.",
+      moderate: "You may close some decisions easily while revisiting others.",
+      higher: "You may commit to choices and move forward with less second-guessing."
+    }
+  };
+
+  return `${band}: ${interpretations[score.id]?.[level] ?? score.description}`;
+}
+
+function findDecisionScore(scores: DimensionScore[], id: string) {
+  return scores.find((score) => score.id === id)?.score ?? 0;
+}
+
+function getDecisionProfile(scores: DimensionScore[]) {
+  const high = (id: string) => findDecisionScore(scores, id) >= 70;
+  const low = (id: string) => findDecisionScore(scores, id) < 40;
+
+  if (high("analyticalDeliberation") && high("lossSensitivity") && high("informationLoadSensitivity")) {
+    return {
+      label: "Careful but easily overloaded",
+      summary:
+        "You tend to think carefully and pay attention to possible downsides. This can protect you from rushed choices, but too much information may make decisions feel heavier than they need to be."
+    };
+  }
+
+  if (high("intuitiveConfidence") && high("decisionClosure") && low("analyticalDeliberation")) {
+    return {
+      label: "Fast and action-oriented",
+      summary:
+        "You tend to move quickly from impression to action. This can be useful in familiar or low-risk situations, but important decisions may benefit from a short pause and a simple comparison."
+    };
+  }
+
+  if (high("analyticalDeliberation") && high("decisionClosure")) {
+    return {
+      label: "Structured and decisive",
+      summary:
+        "You tend to think through options, then move forward once a decision is made. This balance can work well for complex choices, especially when you avoid over-checking after the decision."
+    };
+  }
+
+  if (low("decisionClosure") && high("informationLoadSensitivity")) {
+    return {
+      label: "Prone to decision drag",
+      summary:
+        "You may find it difficult to finish decisions when options are similar or information keeps expanding. The challenge may not be judgment, but closure."
+    };
+  }
+
+  if (high("intuitiveConfidence") && high("analyticalDeliberation")) {
+    return {
+      label: "Hybrid decision-maker",
+      summary:
+        "You may use both fast impressions and deliberate analysis. This can be powerful when you know which mode fits the situation."
+    };
+  }
+
+  return {
+    label: "Balanced decision style",
+    summary:
+      "Your answers suggest a mixed decision style. You may shift between analysis, intuition, caution, and action depending on the situation."
+  };
+}
+
+function getDecisionReflections(scores: DimensionScore[]) {
+  const high = (id: string) => findDecisionScore(scores, id) >= 70;
+  const low = (id: string) => findDecisionScore(scores, id) < 40;
+  const reflections: string[] = [];
+
+  if (high("informationLoadSensitivity")) {
+    reflections.push("Define your top 2-3 criteria before researching more.");
+    reflections.push("Set a stopping rule for information gathering.");
+  }
+
+  if (high("lossSensitivity")) {
+    reflections.push("Compare the cost of acting with the cost of waiting.");
+    reflections.push("Ask whether the risk is reversible or irreversible.");
+  }
+
+  if (high("analyticalDeliberation")) {
+    reflections.push("Use analysis for important decisions, but avoid turning small choices into major projects.");
+  }
+
+  if (high("intuitiveConfidence")) {
+    reflections.push("Use intuition in familiar situations, but add a short evidence check for high-stakes choices.");
+  }
+
+  if (low("decisionClosure")) {
+    reflections.push("Set a decision deadline.");
+    reflections.push("Choose the best next step instead of waiting for the perfect final answer.");
+  }
+
+  if (high("decisionClosure")) {
+    reflections.push("Your ability to move forward is a strength; just make sure speed does not prevent useful review.");
+  }
+
+  if (reflections.length === 0) {
+    return [
+      "Notice which kinds of choices invite analysis, intuition, caution, or quick action.",
+      "Match your decision process to the stakes instead of using the same method for every choice."
+    ];
+  }
+
+  return reflections.slice(0, 3);
+}
+
 export default function AssessmentResult({
   assessment,
   onRetake,
@@ -25,12 +162,82 @@ export default function AssessmentResult({
   const strongest = sortedScores[0];
   const quietest = sortedScores[sortedScores.length - 1];
   const showBigFiveRadar = assessment.slug === "big-five-personality-profile" && scores.length === 5;
+  const showDecisionProfile = assessment.slug === "decision-style-profile";
 
   const reflections = [
     `Notice where ${strongest.label} shows up as ${describeScore(strongest.score)} in your day-to-day choices.`,
     `Look at ${quietest.label} with curiosity. A lower score may reflect context, energy, support, or timing.`,
     "Repeat this assessment later if your mood, sleep, workload, or environment changes."
   ];
+
+  if (showDecisionProfile) {
+    const profile = getDecisionProfile(scores);
+    const decisionReflections = getDecisionReflections(scores);
+
+    return (
+      <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Your Profile</p>
+        <h2 className="mt-2 text-3xl font-black">Your Decision Style Profile</h2>
+
+        <div className="mt-6 grid gap-4">
+          {scores.map((score) => (
+            <DimensionScoreBar
+              description={getDecisionInterpretation(score)}
+              key={score.id}
+              label={score.label}
+              score={score.score}
+            />
+          ))}
+        </div>
+
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <section className="rounded-[1.5rem] border border-ink/10 bg-mist p-5">
+            <h3 className="font-black">Profile Summary</h3>
+            <p className="mt-3 text-lg font-black text-ink">{profile.label}</p>
+            <p className="mt-2 leading-7 text-ink/70">{profile.summary}</p>
+          </section>
+
+          <section className="rounded-[1.5rem] border border-ink/10 bg-citron/35 p-5">
+            <h3 className="font-black">Reflection</h3>
+            <ul className="mt-3 space-y-2 leading-7 text-ink/70">
+              {decisionReflections.map((reflection) => (
+                <li key={reflection}>- {reflection}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
+        <section className="mt-6 rounded-2xl bg-white p-4 text-sm font-medium leading-7 text-ink/68">
+          <h3 className="font-black text-ink">Keep in Mind</h3>
+          <p className="mt-2">
+            This result is a snapshot, not a permanent label. Your answers may change with mood, sleep, stress,
+            experience, and context.
+          </p>
+        </section>
+
+        <div className="mt-6">
+          <RelatedNotes links={assessment.relatedNotes} title="Explore related content" />
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button
+            className="focus-ring inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-bold transition hover:border-ink/35"
+            onClick={onRetake}
+            type="button"
+          >
+            <RotateCcw size={16} aria-hidden="true" />
+            Retake
+          </button>
+          <Link
+            className="focus-ring inline-flex rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            href="/assessments"
+          >
+            Explore Assessments
+          </Link>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
