@@ -23,12 +23,14 @@ export type TestResult = {
 
 export type Note = ContentItem & {
   intro: string;
+  takeaways: string[];
+  reflectionPrompt: string;
   related?: {
     label: string;
     href: string;
   }[];
   sections: {
     heading: string;
-    body: string;
+    body: string[];
   }[];
 };

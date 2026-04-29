@@ -7,12 +7,18 @@ export const notes: Note[] = [
     title: "Big Five Personality: The Five Major Traits",
     slug: "big-five-personality",
     category: "Personality",
-    duration: "4 min",
+    duration: "5 min",
     description:
-      "A simple guide to the five major personality dimensions: openness, conscientiousness, extraversion, agreeableness, and neuroticism.",
+      "A friendly guide to the five major personality dimensions: openness, conscientiousness, extraversion, agreeableness, and emotional sensitivity.",
     type: "note",
     intro:
-      "The Big Five is one of the most widely used ways to describe personality, but it works more like a set of sliders than a set of boxes.",
+      "The Big Five is useful because it describes personality as a profile of tendencies, not a box you have to live inside.",
+    takeaways: [
+      "Personality traits are dimensions, not fixed types.",
+      "Each trait can be helpful or tricky depending on the situation.",
+      "A profile is more useful than a single label."
+    ],
+    reflectionPrompt: "Which trait feels most visible in your everyday decisions right now?",
     related: [
       { label: "Try Thinking Style Test", href: "/tests/thinking-style" },
       { label: "Try Social Battery Test", href: "/tests/social-battery" }
@@ -20,28 +26,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "The Big Five describes personality across five broad dimensions: openness, conscientiousness, extraversion, agreeableness, and neuroticism, sometimes called emotional sensitivity. Instead of saying you are one fixed type, it asks where your usual patterns tend to sit on each dimension."
+        body: [
+          "The Big Five describes personality through five broad dimensions: openness, conscientiousness, extraversion, agreeableness, and neuroticism, which is often easier to think of as emotional sensitivity.",
+          "Instead of saying a person is one type forever, it asks where their usual patterns tend to land. Someone can be highly curious, moderately organized, socially selective, warm with trusted people, and sensitive under pressure. That mix is more realistic than a single label."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "Someone might be very open to new ideas, moderately organized, socially flexible, warm in close relationships, and sensitive under stress. That profile says more than a single label because it leaves room for mixed, changing, human patterns."
+        body: [
+          "Imagine two people planning a weekend. One wants to try a strange museum, wander without a plan, and see what happens. The other wants a clear schedule, known restaurants, and enough time to rest. Neither person is better. They are leaning on different trait patterns.",
+          "The same trait can look different across contexts. High openness may become creativity in a studio and distraction in a crowded inbox. High conscientiousness may become reliability on a team and perfectionism when the stakes feel too high."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "Big Five thinking can help you notice what environments fit you. High openness may enjoy novelty. High conscientiousness may like clear plans. Extraversion can shape social energy, agreeableness can affect cooperation, and neuroticism can influence how strongly stress is felt."
+        body: [
+          "The model is useful because it gives you a softer way to ask practical questions. What kind of work setting helps you focus? How much novelty do you need? What kind of social rhythm restores your energy?",
+          "It also makes room for change. Traits are stable enough to notice, but not so fixed that they erase growth, culture, habits, mood, or the situation."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "The Thinking Style Test and Social Battery Test both touch parts of this model. They are playful prompts, not formal personality measurement, but they can help you notice your everyday preferences."
+        body: [
+          "The Thinking Style Test touches openness and conscientiousness through questions about planning, novelty, and problem solving. The Social Battery Test touches extraversion and social recovery.",
+          "Use the result as a small mirror. If it gives you language for something real, keep it. If it feels too narrow, let it go."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "A trait is not a destiny. Culture, sleep, stress, relationships, and the situation all change how personality shows up. Use the Big Five as a map for reflection, not a permanent name tag."
+        body: [
+          "A trait is not a destiny. People adapt, mask, stretch, and change. Good personality language should help you understand your patterns without shrinking your sense of possibility.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -49,10 +65,16 @@ export const notes: Note[] = [
     title: "Why MBTI Feels Accurate",
     slug: "why-mbti-feels-accurate",
     category: "Personality",
-    duration: "3 min",
+    duration: "4 min",
     description: "Why type-based personality tests often feel personal, memorable, and surprisingly accurate.",
     type: "note",
-    intro: "Type labels feel good because they turn messy self-knowledge into a short, memorable story.",
+    intro: "Type labels feel powerful because they turn messy self-knowledge into a neat story you can remember and share.",
+    takeaways: [
+      "Types are easier to remember than trait scores.",
+      "Broad, positive descriptions can feel very personal.",
+      "MBTI works best as conversation language, not strict diagnosis."
+    ],
+    reflectionPrompt: "When a personality label feels accurate, what part of your life does it help you explain?",
     related: [
       { label: "Read Big Five Personality", href: "/lab-notes/big-five-personality" },
       { label: "Try Thinking Style Test", href: "/tests/thinking-style" }
@@ -60,28 +82,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "MBTI-style systems group people into personality types. They are popular because types are easy to remember, easy to share, and often written in language that feels personal and positive."
+        body: [
+          "MBTI-style systems sort people into memorable personality types. That format is easy to talk about: you can send a result to a friend, compare types, and quickly build a story about how you think, work, or connect.",
+          "This is one reason type systems spread so well. A type feels like a small identity card. It is shorter than a full personality profile and warmer than a spreadsheet of scores."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "A description like you are thoughtful, independent, and sometimes misunderstood can feel very specific, even though many people can recognize themselves in it. This is related to the Barnum effect: broad statements can feel custom-made when they match something we already believe."
+        body: [
+          "A description like you are thoughtful, independent, and sometimes misunderstood can feel very specific. Many people can recognize themselves in it, especially when the wording is broad, kind, and flexible.",
+          "That feeling is related to the Barnum effect: people often accept general descriptions as personally accurate when the description is meaningful enough and leaves room for interpretation."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "Type systems can be useful as conversation tools. They give people language for habits, needs, and social differences. That can make it easier to say, I need quiet time, or I like to think before I answer."
+        body: [
+          "MBTI can still be useful when used lightly. It can help people talk about preferences, work rhythms, decision styles, and social needs. It can make invisible habits easier to name.",
+          "The risk appears when a type becomes a cage. A label should not decide what you can learn, who you can date, what job you can do, or how much you can change."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "Use MBTI-like ideas lightly. The Thinking Style Test is designed for reflection, not diagnosis. For a more flexible model, compare it with the Big Five note."
+        body: [
+          "The Thinking Style Test uses playful questions to invite reflection. Compare your result with the Big Five note if you want a model that treats personality more like a set of sliders.",
+          "A good result should make you curious, not trapped. Ask what the label helps you notice, then keep testing it against real life."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "MBTI should not be treated as a strict scientific diagnosis or a hiring filter. A type can start a useful question, but it should not decide your worth, ability, relationships, or future."
+        body: [
+          "MBTI is not a clinical tool or a strict scientific diagnosis. It is better treated as a language for self-expression and conversation.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -89,11 +121,18 @@ export const notes: Note[] = [
     title: "Attachment Theory: How We Connect with Others",
     slug: "attachment-theory",
     category: "Social",
-    duration: "4 min",
+    duration: "5 min",
     description:
-      "A simple explanation of how early connection patterns can shape the way people seek closeness, safety, and emotional support.",
+      "A simple explanation of how connection patterns can shape closeness, safety, distance, and emotional support.",
     type: "note",
-    intro: "Attachment theory looks at how people seek closeness, safety, and reassurance in important relationships.",
+    intro:
+      "Attachment theory is about the way people look for safety in relationships, especially when closeness feels uncertain.",
+    takeaways: [
+      "Attachment styles describe patterns, not permanent identities.",
+      "Different people use different safety strategies under stress.",
+      "Secure connection can be learned and supported over time."
+    ],
+    reflectionPrompt: "When you feel unsure in a relationship, do you usually move closer, step back, or freeze?",
     related: [
       { label: "Try Social Battery Test", href: "/tests/social-battery" },
       { label: "Try Rest Type Test", href: "/tests/rest-type" }
@@ -101,28 +140,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "Attachment theory describes patterns people may develop around connection. Common tendencies include secure, anxious, avoidant, and disorganized attachment. These are not permanent labels, but broad patterns in how closeness and distance can feel."
+        body: [
+          "Attachment theory explores how people seek closeness, reassurance, and safety with others. Common patterns include secure, anxious, avoidant, and disorganized attachment.",
+          "These words are best understood as tendencies. They are not personality verdicts. A person can feel secure with one friend, anxious in a romance, and avoidant at work."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "If a message goes unanswered, one person may assume everything is fine, another may worry they did something wrong, and another may pull away before feeling rejected. The same moment can activate different safety strategies."
+        body: [
+          "Imagine sending a message and getting no reply for hours. A secure pattern might think, they are probably busy. An anxious pattern might worry, I did something wrong. An avoidant pattern might pull back first. A disorganized pattern might feel both a strong need for closeness and a strong urge to escape.",
+          "The event is small, but the nervous system may treat it like a signal about safety."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "Attachment patterns can influence relationships, social safety, reactions to being ignored, and the need for space or reassurance. Noticing the pattern can make reactions feel less mysterious and more workable."
+        body: [
+          "Attachment patterns can affect how people handle distance, conflict, ignored messages, reassurance, and repair after tension. Naming the pattern can make reactions easier to understand.",
+          "The goal is not to sort everyone into boxes. The goal is to notice what helps connection feel safer, clearer, and less exhausting."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "The Social Battery Test and Rest Type Test can help you reflect on what kind of connection or recovery feels supportive right now."
+        body: [
+          "The Social Battery Test can help you reflect on how much connection you want right now. The Rest Type Test can help you ask whether you need quiet, reassurance, structure, or company.",
+          "Neither test measures attachment. They simply give you a playful way to notice your current social needs."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "No one is only one attachment style in every relationship. Patterns can change with trust, context, skill, and support. This note is for reflection, not relationship diagnosis."
+        body: [
+          "Attachment patterns can change with trust, communication, therapy, friendship, and repeated experiences of repair. Avoid using attachment language to diagnose someone else from a distance.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -130,10 +179,17 @@ export const notes: Note[] = [
     title: "Emotion Regulation: How Feelings Change",
     slug: "emotion-regulation",
     category: "Mood",
-    duration: "4 min",
+    duration: "5 min",
     description: "How emotions are shaped by situations, attention, interpretation, body state, and response.",
     type: "note",
-    intro: "Emotions usually unfold through a process, which means there are often several places where they can shift.",
+    intro:
+      "Emotions can feel sudden, but they usually unfold through a chain of attention, meaning, body signals, and action.",
+    takeaways: [
+      "Emotion regulation is not the same as suppressing feelings.",
+      "Changing attention or interpretation can change the emotional path.",
+      "Body state, sleep, hunger, and stress matter more than people expect."
+    ],
+    reflectionPrompt: "What part of your current mood may be coming from the situation, and what part may be coming from your body?",
     related: [
       { label: "Try Mood Color Test", href: "/tests/mood-color" },
       { label: "Try Rest Type Test", href: "/tests/rest-type" }
@@ -141,28 +197,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "Emotion regulation is the way feelings are shaped by situation, attention, interpretation, and response. It is not the same as suppressing emotion. It is more like understanding the route a feeling took to arrive."
+        body: [
+          "Emotion regulation is the process of understanding and influencing how feelings unfold. A feeling may be shaped by the situation, where your attention goes, how you interpret what happened, what your body is doing, and how you respond.",
+          "Regulation does not mean pretending everything is fine. It means creating more room between the feeling and the next move."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "If someone replies with a short message, you might interpret it as irritation, busyness, or simple efficiency. Each interpretation can create a different emotional reaction, even though the message stayed the same."
+        body: [
+          "A friend replies with a short message. One interpretation is they are angry. Another is they are busy. A third is they are tired. Each story can create a different emotional tone, even though the message itself did not change.",
+          "Your body can tilt the story too. The same message may feel neutral after a good meal and sleep, but sharp after a stressful day."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "When you understand the process, you have more options. You might change the situation, shift attention, test your interpretation, calm your body, or choose a response that fits your values."
+        body: [
+          "When you can see the chain, you get more options. You might leave a tense setting, look for more evidence, name the feeling, take a breath, move your body, or choose a response that fits your values.",
+          "That small pause can prevent one difficult moment from turning into a full story about who you are or what others think of you."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "The Mood Color Test offers a quick check-in. The Rest Type Test can help you ask what kind of recovery your current state may need."
+        body: [
+          "The Mood Color Test gives you a low-pressure check-in. The Rest Type Test helps you ask what kind of support might fit the state you are in.",
+          "Treat the result as a starting point for noticing, not as a final explanation."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "Regulating emotion does not mean forcing yourself to feel fine. Some feelings are signals that need care, boundaries, or help. CurioLab is not a substitute for professional support."
+        body: [
+          "Some emotions need attention, boundaries, or professional support. Regulation is not about forcing yourself to be calm when something is genuinely wrong.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -170,10 +236,16 @@ export const notes: Note[] = [
     title: "Yerkes-Dodson Law: Pressure and Performance",
     slug: "yerkes-dodson-law",
     category: "Mood",
-    duration: "3 min",
-    description: "Why a little pressure can help performance, but too much pressure can make focus and memory worse.",
+    duration: "4 min",
+    description: "Why a little pressure can sharpen performance, while too much can disrupt focus, memory, and judgment.",
     type: "note",
-    intro: "Pressure can help or hurt depending on how much of it your mind and body are carrying.",
+    intro: "The pressure-performance curve explains why more urgency is not always better.",
+    takeaways: [
+      "Performance often improves with moderate arousal.",
+      "Too little pressure can feel flat, while too much can overload attention.",
+      "Difficult tasks usually need more calm than simple tasks."
+    ],
+    reflectionPrompt: "Are you currently under-stimulated, in the useful middle, or overloaded?",
     related: [
       { label: "Play Reaction Speed Test", href: "/games/reaction-speed" },
       { label: "Play Stroop Color Challenge", href: "/games/stroop-color" },
@@ -182,28 +254,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "The Yerkes-Dodson law describes a curved relationship between arousal and performance. Too little pressure can feel flat. A moderate amount can sharpen attention. Too much can overload focus, memory, and judgment."
+        body: [
+          "The Yerkes-Dodson law describes a curved relationship between arousal and performance. Low arousal can feel sleepy or unmotivated. Moderate arousal can sharpen attention. High arousal can make thinking noisy and brittle.",
+          "People often draw the idea as an inverted U. The useful zone is somewhere in the middle."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "A small deadline may help you start. A huge deadline with no sleep may make the same task feel impossible. The idea is often drawn as an inverted U, with the best performance somewhere in the middle."
+        body: [
+          "A small deadline might help you start a simple task. A huge deadline, poor sleep, and unclear instructions can make the same task feel impossible.",
+          "This is why pressure can feel motivating in one situation and paralyzing in another. The task difficulty and your current state both matter."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "This model explains why motivation is not simply more pressure. For difficult or unfamiliar tasks, people usually need more calm and structure. For simple tasks, a little urgency may help."
+        body: [
+          "The model pushes back against the idea that stress is always the answer. For routine tasks, a little urgency may help. For complex tasks, too much pressure can harm memory, creativity, and flexible thinking.",
+          "Sometimes the best performance move is not more force. It is clearer steps, a calmer setting, or a real break."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "Reaction Speed and Stroop Color Challenge both show how alertness and attention interact. Rest Type Test can help you think about when the pressure meter is too high."
+        body: [
+          "Reaction Speed Test and Stroop Color Challenge both show how alertness and attention interact. A faster score is not always about trying harder; it can be about being in a good arousal zone.",
+          "Rest Type Test can help you notice when your system may need recovery rather than more pressure."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "The curve is a useful simplification, not a personal diagnosis. Chronic stress, burnout, or panic deserves real support, not just productivity advice."
+        body: [
+          "The curve is a simple model, not a complete explanation of stress. Long-term stress, panic, or burnout deserves support beyond productivity tips.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -211,36 +293,52 @@ export const notes: Note[] = [
     title: "Stroop Effect: When Words Fight Colors",
     slug: "stroop-effect",
     category: "Attention",
-    duration: "3 min",
-    description: "Why your brain struggles when the meaning of a word conflicts with the color you see.",
+    duration: "4 min",
+    description: "Why your brain slows down when a word's meaning conflicts with the color you see.",
     type: "note",
-    intro: "The Stroop effect is a tiny attention conflict you can feel almost instantly.",
+    intro: "The Stroop effect is a classic attention conflict that makes the invisible work of focus easy to feel.",
+    takeaways: [
+      "Automatic reading can interfere with color naming.",
+      "Attention is active selection, not passive seeing.",
+      "Slower responses can reveal healthy mental competition."
+    ],
+    reflectionPrompt: "What task in your day feels harder because another habit keeps pulling your attention?",
     related: [{ label: "Play Stroop Color Challenge", href: "/games/stroop-color" }],
     sections: [
       {
         heading: "What is it?",
-        body:
-          "The Stroop effect appears when the meaning of a word conflicts with the color it is printed in. If the word BLUE appears in red, naming the ink color can take longer than expected."
+        body: [
+          "The Stroop effect appears when the meaning of a word conflicts with its ink color. If the word BLUE appears in red, naming the ink color takes more effort than expected.",
+          "Your reading system is fast and automatic. The task asks you to ignore meaning and choose color, so two signals compete for control."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "Your goal is to say red, but your reading system automatically notices BLUE. The two signals compete for a moment, and your attention has to choose the task-relevant one."
+        body: [
+          "Try saying the color of a word instead of reading it. When the word and color match, the task feels smooth. When they clash, there is a tiny pause.",
+          "That pause is the interesting part. It shows your mind resolving conflict in real time."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "The effect shows that the mind is not a simple camera. Some mental processes, like reading, become automatic. Attention control helps manage conflicts between what is automatic and what the task asks for."
+        body: [
+          "The Stroop effect shows that attention is not just noticing what is present. It is choosing which signal matters for the current goal.",
+          "That same kind of control shows up when you ignore notifications, stay with a hard sentence, or keep listening while your mind wants to jump ahead."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "The Stroop Color Challenge turns this classic effect into a quick game. Slower answers are not failure; they are the effect doing exactly what it does."
+        body: [
+          "The Stroop Color Challenge turns the effect into a quick game. It is meant to feel a little unfair because the conflict is the point.",
+          "If you slow down, it does not mean your attention is broken. It means your brain is doing several practiced things at once."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "A game score is not a measure of intelligence or attention health. Fatigue, device speed, color perception, and distraction can all change performance."
+        body: [
+          "Game scores are affected by device speed, screen size, fatigue, color perception, and distraction. They are not a diagnostic measure of attention.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -248,36 +346,52 @@ export const notes: Note[] = [
     title: "Working Memory: Your Mind's Temporary Workspace",
     slug: "working-memory",
     category: "Attention",
-    duration: "4 min",
-    description: "Working memory is the mental space you use to hold and process information for a short time.",
+    duration: "5 min",
+    description: "Working memory is the mental space you use to hold, update, and work with information for a short time.",
     type: "note",
-    intro: "Working memory is the small mental workspace you use while thinking in real time.",
+    intro: "Working memory is the small desk your mind uses while thinking in real time.",
+    takeaways: [
+      "Working memory holds information briefly while you use it.",
+      "Capacity is limited and easy to crowd.",
+      "Stress, fatigue, and interruption can shrink the workspace."
+    ],
+    reflectionPrompt: "What is currently taking up space on your mental desk?",
     related: [{ label: "Play Memory Flip Game", href: "/games/memory-flip" }],
     sections: [
       {
         heading: "What is it?",
-        body:
-          "Working memory is not long-term memory. It is the short-term workspace you use to hold information while doing something with it, like remembering a number long enough to type it or keeping track of steps in a problem."
+        body: [
+          "Working memory is not the same as long-term memory. It is the short-term workspace you use to hold information while doing something with it.",
+          "You use it when you remember a number long enough to type it, follow a multi-step instruction, compare two options, or hold the start of a sentence while reading the end."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "When you do mental math, follow a long sentence, compare two options, or remember where matching cards are, working memory is active. It holds the pieces while you arrange them."
+        body: [
+          "In a memory card game, you are not only remembering where a card was. You are updating the map as new cards appear, comparing possible matches, and deciding what to flip next.",
+          "That active holding-and-updating is working memory. It feels simple until the desk gets crowded."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "Working memory has limited capacity. Stress, fatigue, noise, and interruptions can crowd the workspace, which is why a simple task can feel harder when you are overloaded."
+        body: [
+          "Working memory is limited. Too many open loops, tabs, messages, decisions, or worries can leave less space for the task in front of you.",
+          "This is why reducing friction can help. Writing things down, grouping steps, muting interruptions, and taking breaks can make a hard task feel lighter."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "Memory Flip Game gives a playful version of this challenge. A future focus challenge could explore the same idea with distraction and attention switching."
+        body: [
+          "Memory Flip Game gives a playful version of this challenge. It asks you to hold positions, update guesses, and resist random clicking.",
+          "A future focus challenge could explore the same idea through distraction and attention switching."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "A memory game is a snapshot of one moment, not a full cognitive profile. Sleep, practice, screen size, and distractions all matter."
+        body: [
+          "A quick game is a snapshot, not a full cognitive profile. Sleep, practice, screen size, stress, and distraction all affect performance.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -285,10 +399,16 @@ export const notes: Note[] = [
     title: "Dual Process Theory: Fast Thinking and Slow Thinking",
     slug: "dual-process-theory",
     category: "Decision",
-    duration: "4 min",
+    duration: "5 min",
     description: "A simple way to understand intuitive fast thinking and slower, more deliberate reasoning.",
     type: "note",
-    intro: "Dual process theory gives a simple language for two modes of thought: quick intuition and slower analysis.",
+    intro: "Dual process theory gives you a useful language for intuition, analysis, and knowing when to slow down.",
+    takeaways: [
+      "Fast thinking is automatic, intuitive, and efficient.",
+      "Slow thinking is deliberate, effortful, and flexible.",
+      "The best mode depends on the task, not on which one sounds smarter."
+    ],
+    reflectionPrompt: "Where in your life do you trust intuition, and where do you need a deliberate pause?",
     related: [
       { label: "Try Decision Style Test", href: "/tests/decision-style" },
       { label: "Read Cognitive Biases", href: "/lab-notes/cognitive-biases" }
@@ -296,28 +416,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "The theory is often described as System 1 and System 2. System 1 is fast, automatic, and intuitive. System 2 is slower, effortful, and more analytical. Both are useful."
+        body: [
+          "Dual process theory is often explained through System 1 and System 2. System 1 is fast, automatic, emotional, and pattern-based. System 2 is slower, effortful, analytical, and more deliberate.",
+          "Both systems are useful. The point is not to defeat intuition. The point is to notice when a decision needs more checking."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "You may instantly sense that a room feels tense. That is fast thinking. But comparing budgets, checking assumptions, or solving a logic puzzle usually asks for slower thinking."
+        body: [
+          "You may instantly sense that a room feels tense. That fast read can be valuable. But comparing contracts, planning a budget, or checking a difficult assumption usually needs slower thinking.",
+          "Fast thinking saves time. Slow thinking saves you when the first answer is too easy."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "Fast thinking is not bad, and slow thinking is not always better. The skill is knowing when intuition is enough and when the situation deserves a pause, a calculation, or a second view."
+        body: [
+          "Many decisions fail because the wrong mode is in charge. We overanalyze simple choices and rush complex ones. We trust a gut feeling when evidence is thin, or we ignore a useful intuition built from experience.",
+          "A practical question is: what would make this decision worth slowing down for?"
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "Decision Style Test explores how you approach uncertainty. Cognitive Biases shows where mental shortcuts can help or mislead."
+        body: [
+          "The Decision Style Test explores how you approach uncertainty. Cognitive Biases shows how shortcuts can help, then mislead, when they run too quietly in the background.",
+          "Use both notes together: one explains the speed of thinking, the other explains common turns it can take."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "Real thinking is messier than two neat systems. Treat the model as a helpful lens, not a complete map of the mind."
+        body: [
+          "Real thinking is more blended than two neat systems. This model is a useful sketch, not a full map of the mind.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -325,10 +455,16 @@ export const notes: Note[] = [
     title: "Cognitive Biases: The Shortcuts of the Mind",
     slug: "cognitive-biases",
     category: "Decision",
-    duration: "5 min",
+    duration: "6 min",
     description: "How mental shortcuts help us decide quickly, but sometimes lead us in the wrong direction.",
     type: "note",
-    intro: "Cognitive biases are mental shortcuts that can be useful, but not always accurate.",
+    intro: "Cognitive biases are not proof that people are foolish. They are the tradeoffs of a mind built to move fast.",
+    takeaways: [
+      "Biases are shortcuts that can be useful or misleading.",
+      "They become risky when stakes are high and evidence is thin.",
+      "Better decisions often come from better review, not perfect objectivity."
+    ],
+    reflectionPrompt: "Which bias shows up most often when you are tired, rushed, or emotionally invested?",
     related: [
       { label: "Try Decision Style Test", href: "/tests/decision-style" },
       { label: "Read Dual Process Theory", href: "/lab-notes/dual-process-theory" }
@@ -336,28 +472,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "A cognitive bias is not proof that people are foolish. It is often a side effect of the brain trying to make quick judgments with limited time, limited information, and limited energy."
+        body: [
+          "A cognitive bias is a predictable shortcut in judgment. The brain uses shortcuts because it cannot inspect every detail from scratch. Most of the time, that efficiency is useful.",
+          "The trouble starts when a shortcut feels like certainty. A quick impression can become a conclusion before the slower parts of thinking have a chance to check it."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "Confirmation bias makes us notice evidence that supports what we already think. Anchoring makes an early number pull later judgments. Availability bias makes vivid examples feel more common. Sunk cost fallacy keeps us invested because we already spent effort. Spotlight effect makes us overestimate how much others notice us. Halo effect lets one good trait color the whole picture."
+        body: [
+          "Confirmation bias makes us notice evidence that supports what we already think. Anchoring lets the first number pull later judgments. Availability bias makes vivid examples feel more common than they are.",
+          "Sunk cost fallacy keeps us invested because we already spent effort. Spotlight effect makes us overestimate how much others notice us. Halo effect lets one good trait color the whole picture."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "Biases can be useful shortcuts in familiar situations, but they can mislead decisions when emotions are high, evidence is thin, or the stakes are large."
+        body: [
+          "Biases matter because they usually feel normal from the inside. You do not experience confirmation bias as bias. You experience it as seeing the obvious truth.",
+          "That is why good decision design helps. Ask what evidence would change your mind, get a second view, write down assumptions, and revisit important choices after the emotional peak passes."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "Decision Style Test can help you notice how you choose under uncertainty. Dual Process Theory explains why some shortcuts happen quickly and automatically."
+        body: [
+          "Decision Style Test can help you notice how you choose under uncertainty. Dual Process Theory explains why many shortcuts run quickly and automatically.",
+          "The goal is not to become bias-free. It is to become easier to correct."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "Knowing a bias does not make anyone bias-free. The practical move is to slow down, seek disconfirming evidence, and make important decisions easier to review."
+        body: [
+          "Calling something a bias should not become a way to dismiss another person. Everyone uses shortcuts, and context often explains why a shortcut was tempting.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   },
@@ -365,10 +511,16 @@ export const notes: Note[] = [
     title: "Self-Determination Theory: What Motivation Needs",
     slug: "self-determination-theory",
     category: "Motivation",
-    duration: "4 min",
+    duration: "5 min",
     description: "Why motivation grows when people feel autonomy, competence, and connection.",
     type: "note",
-    intro: "Self-determination theory says motivation grows best when three basic needs are supported.",
+    intro: "Self-determination theory explains why motivation often needs more than pressure or rewards.",
+    takeaways: [
+      "Motivation grows when autonomy, competence, and relatedness are supported.",
+      "Low motivation can be a signal about the environment, not just willpower.",
+      "Small changes in choice, progress, and connection can make effort feel different."
+    ],
+    reflectionPrompt: "Which need feels lowest right now: autonomy, competence, or connection?",
     related: [
       { label: "Try Rest Type Test", href: "/tests/rest-type" },
       { label: "Try Mood Color Test", href: "/tests/mood-color" }
@@ -376,28 +528,38 @@ export const notes: Note[] = [
     sections: [
       {
         heading: "What is it?",
-        body:
-          "Self-determination theory focuses on motivation. It highlights three psychological needs: autonomy, the sense that you have meaningful choice; competence, the sense that you can make progress; and relatedness, the sense that you are connected to others."
+        body: [
+          "Self-determination theory focuses on the conditions that help motivation grow. It highlights three needs: autonomy, competence, and relatedness.",
+          "Autonomy means feeling some meaningful choice. Competence means feeling able to make progress. Relatedness means feeling connected to others or to a shared purpose."
+        ]
       },
       {
         heading: "Simple example",
-        body:
-          "A project feels different when you chose the goal, understand how to improve, and feel supported by people around you. Without those pieces, even a simple task can feel heavy."
+        body: [
+          "A project feels different when you chose the goal, understand the next step, and feel supported by someone around you. The same project can feel heavy when it is forced, confusing, and lonely.",
+          "The task may not have changed. The motivational environment did."
+        ]
       },
       {
         heading: "Why it matters",
-        body:
-          "When autonomy, competence, and relatedness are supported, people are more likely to feel internal motivation. When they are missing, people may feel tired, resistant, or disconnected."
+        body: [
+          "This model makes motivation less moralistic. Feeling stuck does not always mean you are lazy. It may mean one of the basic needs is underfed.",
+          "A practical fix might be smaller choices, clearer feedback, easier progress, or more connection. Tiny changes can make the same effort feel more alive."
+        ]
       },
       {
         heading: "Try it on CurioLab",
-        body:
-          "Rest Type Test can help you reflect on what kind of need may be underfed right now. Mood Color Test offers a quick emotional check-in before choosing your next step."
+        body: [
+          "Rest Type Test can help you reflect on what kind of support you may need before pushing forward. Mood Color Test can give a quick emotional snapshot before you choose the next step.",
+          "Use the result to ask what would make effort feel more possible, not to judge yourself."
+        ]
       },
       {
         heading: "Keep in mind",
-        body:
-          "Motivation is not only willpower. Environment, health, support, and pressure all matter. This model is a guide for reflection, not a judgment."
+        body: [
+          "Motivation is shaped by health, environment, pressure, money, relationships, and support. It is not just an inner switch.",
+          "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
       }
     ]
   }
