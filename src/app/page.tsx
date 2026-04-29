@@ -13,8 +13,8 @@ const featured: ContentItem[] = [
   tests[1],
   tests[2],
   games[0],
-  games[2],
-  notes[0]
+  notes.find((note) => note.slug === "why-mbti-feels-accurate") ?? notes[0],
+  notes.find((note) => note.slug === "stroop-effect") ?? notes[0]
 ];
 
 const columns = [
@@ -30,7 +30,11 @@ const columns = [
   },
   {
     title: "Latest Lab Notes",
-    items: [notes[0], notes[4], notes[3]],
+    items: [
+      notes.find((note) => note.slug === "why-mbti-feels-accurate") ?? notes[0],
+      notes.find((note) => note.slug === "stroop-effect") ?? notes[0],
+      notes.find((note) => note.slug === "self-determination-theory") ?? notes[0]
+    ],
     path: "/lab-notes"
   }
 ];

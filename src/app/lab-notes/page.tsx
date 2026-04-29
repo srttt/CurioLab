@@ -1,5 +1,5 @@
-import ContentCard from "@/components/ContentCard";
-import { notes } from "@/data/notes";
+import LabNotesBrowser from "@/components/LabNotesBrowser";
+import { noteCategories, notes } from "@/data/notes";
 
 export default function LabNotesPage() {
   return (
@@ -9,11 +9,7 @@ export default function LabNotesPage() {
       <p className="mt-4 max-w-2xl text-lg leading-8 text-ink/68">
         Short psychology notes that explain the ideas behind CurioLab tests and games.
       </p>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {notes.map((item) => (
-          <ContentCard item={item} key={item.slug} />
-        ))}
-      </div>
+      <LabNotesBrowser categories={noteCategories} notes={notes} />
     </div>
   );
 }
