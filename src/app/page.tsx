@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BiInline, BiText } from "@/components/BilingualText";
 import CategoryNav from "@/components/CategoryNav";
 import ContentCard from "@/components/ContentCard";
 import Hero from "@/components/Hero";
@@ -75,8 +76,12 @@ export default function Home() {
         <section className="mt-14">
           <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/48">Start here</p>
-              <h2 className="mt-2 text-3xl font-black">Featured Experiments</h2>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/48">
+                <BiInline text="Start here" />
+              </p>
+              <h2 className="mt-2 text-3xl font-black">
+                <BiText text="Featured Experiments" />
+              </h2>
             </div>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -89,7 +94,9 @@ export default function Home() {
         <section className="mt-14 grid gap-5 lg:grid-cols-3">
           {columns.map((column) => (
             <div className="rounded-[1.5rem] border border-ink/10 bg-white/70 p-5" key={column.title}>
-              <h2 className="text-xl font-black">{column.title}</h2>
+              <h2 className="text-xl font-black">
+                <BiText text={column.title} />
+              </h2>
               <div className="mt-4 divide-y divide-ink/10">
                 {column.items.map((item) => (
                   <Link
@@ -97,8 +104,12 @@ export default function Home() {
                     href={`${column.path}/${item.slug}`}
                     key={item.slug}
                   >
-                    <span className="font-bold">{item.title}</span>
-                    <span className="mt-1 block text-sm text-ink/58">{item.duration}</span>
+                    <span className="font-bold">
+                      <BiText text={item.title} />
+                    </span>
+                    <span className="mt-1 block text-sm text-ink/58">
+                      <BiInline text={item.duration} />
+                    </span>
                   </Link>
                 ))}
               </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { BiInline } from "@/components/BilingualText";
 
 const symbols = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
@@ -59,8 +60,8 @@ export default function MemoryFlipGame() {
   return (
     <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft">
       <div className="mb-5 flex flex-wrap gap-3 text-sm font-bold">
-        <span className="rounded-full bg-mist px-4 py-2">Moves: {moves}</span>
-        <span className="rounded-full bg-mist px-4 py-2">Time: {seconds}s</span>
+        <span className="rounded-full bg-mist px-4 py-2">Moves / 步数: {moves}</span>
+        <span className="rounded-full bg-mist px-4 py-2">Time / 时间: {seconds}s</span>
       </div>
       <div className="grid grid-cols-4 gap-3">
         {cards.map((card, index) => {
@@ -81,9 +82,9 @@ export default function MemoryFlipGame() {
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <button className="focus-ring rounded-full bg-ink px-5 py-3 text-sm font-bold text-white" onClick={reset} type="button">
-          Start Game
+          <BiInline text="Start Game" />
         </button>
-        {complete && <p className="rounded-full bg-citron/45 px-4 py-2 font-bold">You finished in {moves} moves.</p>}
+        {complete && <p className="rounded-full bg-citron/45 px-4 py-2 font-bold">You finished in {moves} moves. / 你用 {moves} 步完成。</p>}
       </div>
     </section>
   );

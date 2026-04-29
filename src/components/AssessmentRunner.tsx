@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import AssessmentResult from "@/components/AssessmentResult";
+import { BiInline, BiText } from "@/components/BilingualText";
 import type { AssessmentItem, DimensionScore } from "@/types/assessment";
 
 const likertOptions = [
@@ -36,8 +37,12 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
 
+  const isBigFive = assessment.slug === "big-five-personality-profile";
+  const isStressRecovery = assessment.slug === "stress-recovery-profile";
   const isDecisionStyle = assessment.slug === "decision-style-profile";
   const isWellBeingCheck = assessment.slug === "well-being-check";
+  const isSocialEnergy = assessment.slug === "social-energy-profile";
+  const isMotivationNeeds = assessment.slug === "motivation-needs-profile";
   const answeredCount = Object.keys(answers).length;
   const complete = answeredCount === assessment.questions.length;
   const currentQuestion = assessment.questions[questionIndex];
@@ -60,19 +65,21 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   }
 
   if (!started) {
-    if (isWellBeingCheck) {
+    if (isBigFive) {
       return (
         <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Well-being Check</p>
-          <h2 className="mt-2 text-3xl font-black">How have you been doing recently?</h2>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Big Five Personality Profile" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="Which trait patterns are most visible right now?" />
+          </h2>
           <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
             <p>
-              This assessment looks at recent positive mood, calmness, energy, interest and engagement, and daily
-              functioning.
+              <BiText text="This assessment looks at openness, conscientiousness, extraversion, agreeableness, and emotional sensitivity as five broad trait tendencies." />
             </p>
             <p>
-              It is not a diagnosis or a judgment of how you should feel. It is a self-reflection tool for noticing
-              current patterns and support needs.
+              <BiText text="It is not a personality box. It is a dimensional snapshot for noticing patterns, preferences, and contexts." />
             </p>
           </div>
           <button
@@ -80,7 +87,63 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
             onClick={() => setStarted(true)}
             type="button"
           >
-            Start Assessment
+            <BiInline text="Start Assessment" />
+          </button>
+        </section>
+      );
+    }
+
+    if (isWellBeingCheck) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Well-being Check" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="How have you been doing recently?" />
+          </h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              <BiText text="This assessment looks at recent positive mood, calmness, energy, interest and engagement, and daily functioning." />
+            </p>
+            <p>
+              <BiText text="It is not a diagnosis or a judgment of how you should feel. It is a self-reflection tool for noticing current patterns and support needs." />
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            <BiInline text="Start Assessment" />
+          </button>
+        </section>
+      );
+    }
+
+    if (isStressRecovery) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Stress & Recovery Profile" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="How are pressure and recovery showing up recently?" />
+          </h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              <BiText text="This assessment looks at perceived pressure, recovery capacity, emotional load, physical fatigue, and sense of control." />
+            </p>
+            <p>
+              <BiText text="It is not a stress diagnosis. It is a self-reflection tool for noticing current load, resources, and recovery needs." />
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            <BiInline text="Start Assessment" />
           </button>
         </section>
       );
@@ -89,16 +152,18 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
     if (isDecisionStyle) {
       return (
         <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Decision Style Profile</p>
-          <h2 className="mt-2 text-3xl font-black">How do you make choices when the answer is not obvious?</h2>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Decision Style Profile" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="How do you make choices when the answer is not obvious?" />
+          </h2>
           <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
             <p>
-              This assessment looks at how you balance analysis, intuition, possible losses, information load, and
-              decision closure.
+              <BiText text="This assessment looks at how you balance analysis, intuition, possible losses, information load, and decision closure." />
             </p>
             <p>
-              It is not a test of intelligence or rationality. It is a self-reflection tool for understanding your
-              decision habits.
+              <BiText text="It is not a test of intelligence or rationality. It is a self-reflection tool for understanding your decision habits." />
             </p>
           </div>
           <button
@@ -106,7 +171,63 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
             onClick={() => setStarted(true)}
             type="button"
           >
-            Start Assessment
+            <BiInline text="Start Assessment" />
+          </button>
+        </section>
+      );
+    }
+
+    if (isSocialEnergy) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Social Energy Profile" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="How does connection affect your energy?" />
+          </h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              <BiText text="This assessment looks at how you initiate contact, handle group stimulation, seek depth, notice boundaries, and recover after social time." />
+            </p>
+            <p>
+              <BiText text="It is not a label for introversion or extraversion. It is a self-reflection tool for understanding your current social rhythm." />
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            <BiInline text="Start Assessment" />
+          </button>
+        </section>
+      );
+    }
+
+    if (isMotivationNeeds) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Motivation Needs Profile" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="What helps effort feel possible?" />
+          </h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              <BiText text="This assessment looks at choice, capability, connection, purpose, and momentum." />
+            </p>
+            <p>
+              <BiText text="It is not a willpower test. It is a self-reflection tool for noticing which motivation supports may need more attention." />
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            <BiInline text="Start Assessment" />
           </button>
         </section>
       );
@@ -114,18 +235,21 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
 
     return (
       <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
-        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Start Assessment</p>
-        <h2 className="mt-2 text-3xl font-black">Answer with your recent pattern in mind</h2>
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+          <BiInline text="Start Assessment" />
+        </p>
+        <h2 className="mt-2 text-3xl font-black">
+          <BiText text="Answer with your recent pattern in mind" />
+        </h2>
         <p className="mt-4 max-w-2xl leading-8 text-ink/68">
-          Use the 5-point scale for each statement. There are no right answers. The result is a dimensional profile
-          for self-reflection, not a diagnosis.
+          <BiText text="Use the 5-point scale for each statement. There are no right answers. The result is a dimensional profile for self-reflection, not a diagnosis." />
         </p>
         <button
           className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
           onClick={() => setStarted(true)}
           type="button"
         >
-          Start Assessment
+          <BiInline text="Start Assessment" />
         </button>
       </section>
     );
@@ -140,7 +264,12 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
       <div className="mb-6">
         <div className="flex items-center justify-between gap-4 text-sm font-bold text-ink/58">
           <span>
-            Question {questionIndex + 1} of {assessment.questions.length}
+            <span>
+              Question {questionIndex + 1} of {assessment.questions.length}
+              <span className="ml-2 text-ink/40">
+                / 第 {questionIndex + 1} 题，共 {assessment.questions.length} 题
+              </span>
+            </span>
           </span>
           <span>{progress}%</span>
         </div>
@@ -151,9 +280,11 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
 
       <div className="rounded-[1.5rem] bg-mist p-5">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/46">
-          {assessment.dimensions.find((dimension) => dimension.id === currentQuestion.dimension)?.label}
+          <BiInline text={assessment.dimensions.find((dimension) => dimension.id === currentQuestion.dimension)?.label ?? ""} />
         </p>
-        <h2 className="mt-2 text-2xl font-black">{currentQuestion.text}</h2>
+        <h2 className="mt-2 text-2xl font-black">
+          <BiText text={currentQuestion.text} />
+        </h2>
       </div>
 
       <div className="mt-6 grid gap-3">
@@ -164,7 +295,9 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
             onClick={() => selectAnswer(option.value)}
             type="button"
           >
-            <span>{option.label}</span>
+            <span>
+              <BiText text={option.label} />
+            </span>
             <span className="rounded-full bg-mist px-3 py-1 text-sm text-ink/58">{option.value}</span>
           </button>
         ))}
@@ -177,9 +310,11 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
           onClick={goBack}
           type="button"
         >
-          Back
+          <BiInline text="Back" />
         </button>
-        <p className="self-center text-sm font-medium text-ink/50">Strongly disagree to strongly agree</p>
+        <p className="self-center text-sm font-medium text-ink/50">
+          <BiInline text="Strongly disagree to strongly agree" />
+        </p>
       </div>
     </section>
   );

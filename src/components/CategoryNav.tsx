@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BiInline, BiText } from "@/components/BilingualText";
 
 const motivations = [
   { label: "I want to know myself", href: "/assessments" },
@@ -11,7 +12,9 @@ const motivations = [
 export default function CategoryNav() {
   return (
     <section className="rounded-[1.75rem] border border-ink/10 bg-ink p-6 text-white shadow-soft">
-      <h2 className="text-2xl font-black">What are you curious about today?</h2>
+      <h2 className="text-2xl font-black">
+        <BiText text="What are you curious about today?" zhClassName="mt-1 block text-[0.82em] font-bold text-white/70" />
+      </h2>
       <div className="mt-5 flex flex-wrap gap-3">
         {motivations.map((item) => (
           <Link
@@ -19,7 +22,7 @@ export default function CategoryNav() {
             href={item.href}
             key={item.label}
           >
-            {item.label}
+            <BiInline text={item.label} />
           </Link>
         ))}
       </div>

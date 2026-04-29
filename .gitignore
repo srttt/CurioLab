@@ -13,9 +13,21 @@ build/
 *.tsbuildinfo
 next-env.d.ts
 
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # Tests and coverage
 coverage/
 .nyc_output/
+playwright-report/
+test-results/
 
 # Logs
 logs/
@@ -34,9 +46,15 @@ pnpm-debug.log*
 # Vercel
 .vercel/
 
+# Cloudflare
+.wrangler/
+.dev.vars
+
 # Local tooling
 .codex
 .codex/
+.cache/
+.turbo/
 
 # Editor and OS files
 .DS_Store

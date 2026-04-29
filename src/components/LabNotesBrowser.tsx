@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, BookOpen } from "lucide-react";
+import { BiInline, BiText } from "@/components/BilingualText";
 import type { Note } from "@/types/content";
 
 export default function LabNotesBrowser({
@@ -34,7 +35,9 @@ export default function LabNotesBrowser({
               onClick={() => setSelectedCategory(category)}
               type="button"
             >
-              <span>{category}</span>
+              <span>
+                <BiInline text={category} />
+              </span>
               <span className={active ? "text-white/70" : "text-ink/42"}>{count}</span>
             </button>
           );
@@ -49,17 +52,25 @@ export default function LabNotesBrowser({
             <div className="mb-4 flex flex-wrap gap-2 text-xs font-bold">
               <span className="inline-flex items-center gap-1 rounded-full bg-citron/45 px-3 py-1">
                 <BookOpen size={13} aria-hidden="true" />
-                Lab Note
+                <BiInline text="Lab Note" />
               </span>
-              <span className="rounded-full bg-mist px-3 py-1 text-ink/68">{note.category}</span>
-              <span className="rounded-full bg-white px-3 py-1 text-ink/58">{note.duration}</span>
+              <span className="rounded-full bg-mist px-3 py-1 text-ink/68">
+                <BiInline text={note.category} />
+              </span>
+              <span className="rounded-full bg-white px-3 py-1 text-ink/58">
+                <BiInline text={note.duration} />
+              </span>
             </div>
-            <h3 className="text-xl font-black leading-snug">{note.title}</h3>
-            <p className="mt-3 leading-7 text-ink/66">{note.description}</p>
+            <h3 className="text-xl font-black leading-snug">
+              <BiText text={note.title} />
+            </h3>
+            <p className="mt-3 leading-7 text-ink/66">
+              <BiText text={note.description} />
+            </p>
             <ul className="mt-4 flex-1 space-y-2">
               {note.takeaways.slice(0, 2).map((takeaway) => (
                 <li className="rounded-2xl bg-mist px-3 py-2 text-sm font-medium leading-6 text-ink/64" key={takeaway}>
-                  {takeaway}
+                  <BiText text={takeaway} />
                 </li>
               ))}
             </ul>
@@ -67,7 +78,7 @@ export default function LabNotesBrowser({
               className="focus-ring mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-bold transition hover:border-ink/35"
               href={`/lab-notes/${note.slug}`}
             >
-              Read
+              <BiInline text="Read" />
               <ArrowRight size={15} aria-hidden="true" />
             </Link>
           </article>

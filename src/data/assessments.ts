@@ -21,7 +21,7 @@ export const assessments: AssessmentItem[] = [
     duration: "8 min",
     description:
       "A dimensional personality profile based on five broad traits: openness, conscientiousness, extraversion, agreeableness, and emotional sensitivity.",
-    basis: "Inspired by Big Five personality trait research.",
+    basis: "Inspired by Big Five trait research, lexical trait models, and contemporary personality psychology.",
     disclaimer: assessmentDisclaimer,
     type: "assessment",
     dimensions: [
@@ -101,7 +101,8 @@ export const assessments: AssessmentItem[] = [
     ],
     relatedNotes: [
       { label: "Read Big Five Personality", href: "/lab-notes/big-five-personality" },
-      { label: "Read Why MBTI Feels Accurate", href: "/lab-notes/why-mbti-feels-accurate" }
+      { label: "Read Why MBTI Feels Accurate", href: "/lab-notes/why-mbti-feels-accurate" },
+      { label: "Read Emotion Regulation", href: "/lab-notes/emotion-regulation" }
     ]
   },
   {
@@ -291,33 +292,43 @@ export const assessments: AssessmentItem[] = [
     category: "Stress",
     duration: "5 min",
     description:
-      "A self-assessment for perceived pressure, recovery capacity, emotional load, physical fatigue, and sense of control.",
-    basis: "Inspired by stress appraisal, recovery, and performance psychology.",
+      "A self-assessment for how pressure, recovery, emotional load, body fatigue, and control are showing up recently.",
+    basis: "Inspired by stress appraisal theory, allostatic load, recovery psychology, and self-regulation research.",
     disclaimer: assessmentDisclaimer,
     type: "assessment",
     dimensions: [
-      { id: "perceived-pressure", label: "Perceived Pressure", description: "How intense recent demands and expectations feel." },
-      { id: "recovery-capacity", label: "Recovery Capacity", description: "How much your current routines help you restore energy." },
-      { id: "emotional-load", label: "Emotional Load", description: "The amount of emotional material your mind is carrying." },
-      { id: "physical-fatigue", label: "Physical Fatigue", description: "Body-level tiredness, heaviness, and need for rest." },
-      { id: "sense-of-control", label: "Sense of Control", description: "How much agency and choice you feel in your current situation." }
+      { id: "perceivedPressure", label: "Perceived Pressure", description: "How intense recent demands, deadlines, and expectations feel." },
+      { id: "recoveryCapacity", label: "Recovery Capacity", description: "How much your current routines help you reset and restore energy." },
+      { id: "emotionalLoad", label: "Emotional Load", description: "How much worry, tension, or emotional material your mind is carrying." },
+      { id: "physicalFatigue", label: "Physical Fatigue", description: "Body-level tiredness, tension, heaviness, and need for rest." },
+      { id: "senseOfControl", label: "Sense of Control", description: "How much agency and choice you feel in your current situation." }
     ],
     questions: [
-      { id: "stress-01", dimension: "perceived-pressure", text: "My current responsibilities feel heavier than usual." },
-      { id: "stress-02", dimension: "perceived-pressure", text: "I feel like several things need my attention at once." },
-      { id: "stress-03", dimension: "perceived-pressure", text: "I have enough breathing room around my responsibilities.", reverse: true },
-      { id: "stress-04", dimension: "recovery-capacity", text: "Rest or downtime has actually helped me recover lately.", reverse: true },
-      { id: "stress-05", dimension: "recovery-capacity", text: "Even after resting, I still feel mentally on call." },
-      { id: "stress-06", dimension: "recovery-capacity", text: "I have routines that help me reset when pressure rises.", reverse: true },
-      { id: "stress-07", dimension: "emotional-load", text: "I am carrying emotions that feel difficult to put down." },
-      { id: "stress-08", dimension: "emotional-load", text: "Small setbacks have felt more emotionally intense than usual." },
-      { id: "stress-09", dimension: "emotional-load", text: "I can usually name what I am feeling and what I need.", reverse: true },
-      { id: "stress-10", dimension: "physical-fatigue", text: "My body has felt tired, tense, or heavy." },
-      { id: "stress-11", dimension: "physical-fatigue", text: "I have had enough physical energy for ordinary tasks.", reverse: true },
-      { id: "stress-12", dimension: "physical-fatigue", text: "I notice stress showing up in my body." },
-      { id: "stress-13", dimension: "sense-of-control", text: "I can influence at least some parts of my current situation.", reverse: true },
-      { id: "stress-14", dimension: "sense-of-control", text: "My days feel mostly controlled by outside demands." },
-      { id: "stress-15", dimension: "sense-of-control", text: "I can choose a useful next step when things feel crowded.", reverse: true }
+      { id: "stress-01", dimension: "perceivedPressure", text: "My current responsibilities feel heavier than usual." },
+      { id: "stress-02", dimension: "perceivedPressure", text: "I feel like several things need my attention at once." },
+      { id: "stress-03", dimension: "perceivedPressure", text: "Deadlines or expectations have been hard to mentally put down." },
+      { id: "stress-04", dimension: "perceivedPressure", text: "I have enough breathing room around my responsibilities.", reverse: true },
+      { id: "stress-05", dimension: "perceivedPressure", text: "I can usually separate urgent demands from things that can wait.", reverse: true },
+      { id: "stress-06", dimension: "recoveryCapacity", text: "Rest or downtime has actually helped me recover lately." },
+      { id: "stress-07", dimension: "recoveryCapacity", text: "I have routines that help me reset when pressure rises." },
+      { id: "stress-08", dimension: "recoveryCapacity", text: "After a break, I can usually return with a little more capacity." },
+      { id: "stress-09", dimension: "recoveryCapacity", text: "Even after resting, I still feel mentally on call.", reverse: true },
+      { id: "stress-10", dimension: "recoveryCapacity", text: "My recovery time often gets crowded out by more demands.", reverse: true },
+      { id: "stress-11", dimension: "emotionalLoad", text: "I am carrying emotions that feel difficult to put down." },
+      { id: "stress-12", dimension: "emotionalLoad", text: "Small setbacks have felt more emotionally intense than usual." },
+      { id: "stress-13", dimension: "emotionalLoad", text: "I have been replaying worries or conversations in my mind." },
+      { id: "stress-14", dimension: "emotionalLoad", text: "I can usually name what I am feeling and what I need.", reverse: true },
+      { id: "stress-15", dimension: "emotionalLoad", text: "Emotional tension has been easy to set aside when I need to focus.", reverse: true },
+      { id: "stress-16", dimension: "physicalFatigue", text: "My body has felt tired, tense, or heavy." },
+      { id: "stress-17", dimension: "physicalFatigue", text: "I notice stress showing up in my body." },
+      { id: "stress-18", dimension: "physicalFatigue", text: "I have felt physically worn down before the day is over." },
+      { id: "stress-19", dimension: "physicalFatigue", text: "I have had enough physical energy for ordinary tasks.", reverse: true },
+      { id: "stress-20", dimension: "physicalFatigue", text: "My body has felt relaxed or restored enough to keep going.", reverse: true },
+      { id: "stress-21", dimension: "senseOfControl", text: "I can influence at least some parts of my current situation." },
+      { id: "stress-22", dimension: "senseOfControl", text: "I can choose a useful next step when things feel crowded." },
+      { id: "stress-23", dimension: "senseOfControl", text: "I know which demands are mine to carry and which are not." },
+      { id: "stress-24", dimension: "senseOfControl", text: "My days feel mostly controlled by outside demands.", reverse: true },
+      { id: "stress-25", dimension: "senseOfControl", text: "I feel stuck with very little room to adjust.", reverse: true }
     ],
     relatedNotes: [
       { label: "Read Emotion Regulation", href: "/lab-notes/emotion-regulation" },
@@ -330,45 +341,69 @@ export const assessments: AssessmentItem[] = [
     slug: "social-energy-profile",
     category: "Social",
     duration: "5 min",
-    description: "A profile of how you use, spend, and recover social energy.",
-    basis: "Inspired by personality and social energy concepts.",
+    description:
+      "A self-assessment for how you initiate connection, handle social stimulation, seek depth, set boundaries, and recover after interaction.",
+    basis: "Inspired by Big Five extraversion research, social connection research, interpersonal needs, and recovery psychology.",
     disclaimer: assessmentDisclaimer,
     type: "assessment",
     dimensions: [
-      { id: "social-initiation", label: "Social Initiation", description: "Comfort starting contact, conversation, or shared plans." },
-      { id: "recovery-need", label: "Recovery Need", description: "How much downtime you need after interaction." },
       {
-        id: "group-stimulation",
+        id: "socialInitiation",
+        label: "Social Initiation",
+        description: "How comfortable you feel starting contact, conversation, or shared plans."
+      },
+      {
+        id: "groupStimulation",
         label: "Group Stimulation Tolerance",
         description: "How well you handle lively, crowded, or fast-moving social settings."
       },
       {
-        id: "deep-conversation",
+        id: "connectionDepth",
         label: "Deep Conversation Preference",
-        description: "Preference for meaningful, focused, or one-on-one exchange."
+        description: "How much you prefer meaningful, focused, or one-on-one exchange."
       },
-      { id: "solitude-recovery", label: "Solitude Recovery", description: "How strongly alone time restores your energy." }
+      {
+        id: "boundaryAwareness",
+        label: "Boundary Awareness",
+        description: "How clearly you notice social limits, needs, and signals to pause."
+      },
+      {
+        id: "recoveryRhythm",
+        label: "Recovery Rhythm",
+        description: "How well your current rhythm restores energy after interaction."
+      }
     ],
     questions: [
-      { id: "social-01", dimension: "social-initiation", text: "I often feel comfortable being the first person to reach out." },
-      { id: "social-02", dimension: "social-initiation", text: "Starting conversations usually feels natural to me." },
-      { id: "social-03", dimension: "social-initiation", text: "I usually wait for others to initiate social plans.", reverse: true },
-      { id: "social-04", dimension: "recovery-need", text: "After social time, I often need quiet before I feel like myself again." },
-      { id: "social-05", dimension: "recovery-need", text: "Back-to-back social plans can drain me quickly." },
-      { id: "social-06", dimension: "recovery-need", text: "I can usually move from one social setting to another without much reset.", reverse: true },
-      { id: "social-07", dimension: "group-stimulation", text: "Large or lively groups can feel energizing." },
-      { id: "social-08", dimension: "group-stimulation", text: "Noisy social environments become overwhelming quickly.", reverse: true },
-      { id: "social-09", dimension: "group-stimulation", text: "I can keep my energy in group settings for a while." },
-      { id: "social-10", dimension: "deep-conversation", text: "I prefer a few meaningful conversations over many light ones." },
-      { id: "social-11", dimension: "deep-conversation", text: "I feel most connected when a conversation has depth." },
-      { id: "social-12", dimension: "deep-conversation", text: "I enjoy keeping most conversations casual and surface-level.", reverse: true },
-      { id: "social-13", dimension: "solitude-recovery", text: "Time alone helps me restore my social energy." },
-      { id: "social-14", dimension: "solitude-recovery", text: "I need regular unscheduled time to feel balanced." },
-      { id: "social-15", dimension: "solitude-recovery", text: "Being alone for a while usually leaves me more restless than restored.", reverse: true }
+      { id: "social-01", dimension: "socialInitiation", text: "I often feel comfortable being the first person to reach out." },
+      { id: "social-02", dimension: "socialInitiation", text: "Starting conversations usually feels natural to me." },
+      { id: "social-03", dimension: "socialInitiation", text: "I can suggest plans without worrying too much about being rejected." },
+      { id: "social-04", dimension: "socialInitiation", text: "I usually wait for others to initiate social plans.", reverse: true },
+      { id: "social-05", dimension: "socialInitiation", text: "It takes a lot of effort for me to begin social contact.", reverse: true },
+      { id: "social-06", dimension: "groupStimulation", text: "Large or lively groups can feel energizing." },
+      { id: "social-07", dimension: "groupStimulation", text: "I can keep my energy in group settings for a while." },
+      { id: "social-08", dimension: "groupStimulation", text: "Fast-moving conversations are usually manageable for me." },
+      { id: "social-09", dimension: "groupStimulation", text: "Noisy social environments become overwhelming quickly.", reverse: true },
+      { id: "social-10", dimension: "groupStimulation", text: "I often shut down when several people are talking at once.", reverse: true },
+      { id: "social-11", dimension: "connectionDepth", text: "I prefer a few meaningful conversations over many light ones." },
+      { id: "social-12", dimension: "connectionDepth", text: "I feel most connected when a conversation has depth." },
+      { id: "social-13", dimension: "connectionDepth", text: "I value conversations where people can be honest and specific." },
+      { id: "social-14", dimension: "connectionDepth", text: "Surface-level conversation is usually enough for me.", reverse: true },
+      { id: "social-15", dimension: "connectionDepth", text: "I rarely need conversations to go beyond practical updates.", reverse: true },
+      { id: "social-16", dimension: "boundaryAwareness", text: "I can usually tell when I am reaching my social limit." },
+      { id: "social-17", dimension: "boundaryAwareness", text: "I can say no or leave early when I need to protect my energy." },
+      { id: "social-18", dimension: "boundaryAwareness", text: "I notice the difference between wanting connection and feeling obligated." },
+      { id: "social-19", dimension: "boundaryAwareness", text: "I often stay in social situations longer than feels good for me.", reverse: true },
+      { id: "social-20", dimension: "boundaryAwareness", text: "I ignore early signs that I need a break.", reverse: true },
+      { id: "social-21", dimension: "recoveryRhythm", text: "Time alone helps me restore my social energy." },
+      { id: "social-22", dimension: "recoveryRhythm", text: "After social time, I usually know what helps me reset." },
+      { id: "social-23", dimension: "recoveryRhythm", text: "I plan enough space between social commitments when I can." },
+      { id: "social-24", dimension: "recoveryRhythm", text: "Back-to-back social plans can drain me quickly.", reverse: true },
+      { id: "social-25", dimension: "recoveryRhythm", text: "Even after quiet time, I often still feel socially depleted.", reverse: true }
     ],
     relatedNotes: [
       { label: "Read Attachment Theory", href: "/lab-notes/attachment-theory" },
-      { label: "Read Big Five Personality", href: "/lab-notes/big-five-personality" }
+      { label: "Read Big Five Personality", href: "/lab-notes/big-five-personality" },
+      { label: "Read Emotion Regulation", href: "/lab-notes/emotion-regulation" }
     ]
   },
   {
@@ -552,33 +587,58 @@ export const assessments: AssessmentItem[] = [
     title: "Motivation Needs Profile",
     slug: "motivation-needs-profile",
     category: "Motivation",
-    duration: "4 min",
-    description: "A self-assessment based on three motivation needs: autonomy, competence, and relatedness.",
-    basis: "Inspired by self-determination theory.",
+    duration: "5 min",
+    description:
+      "A self-assessment for what helps effort feel possible: choice, capability, connection, meaning, and momentum.",
+    basis: "Inspired by self-determination theory, self-efficacy research, expectancy-value theory, and goal-setting research.",
     disclaimer: assessmentDisclaimer,
     type: "assessment",
     dimensions: [
       { id: "autonomy", label: "Autonomy", description: "Feeling that you have meaningful choice and ownership." },
       { id: "competence", label: "Competence", description: "Feeling capable, effective, and able to make progress." },
-      { id: "relatedness", label: "Relatedness", description: "Feeling connected, supported, and part of something with others." }
+      { id: "relatedness", label: "Relatedness", description: "Feeling connected, supported, and part of something with others." },
+      {
+        id: "purposeAlignment",
+        label: "Purpose Alignment",
+        description: "How clearly your effort connects to values, meaning, or a personally important reason."
+      },
+      {
+        id: "progressMomentum",
+        label: "Progress Momentum",
+        description: "How easily you start, continue, and restart effort when friction appears."
+      }
     ],
     questions: [
       { id: "motivation-01", dimension: "autonomy", text: "I have meaningful choice in how I approach important tasks." },
       { id: "motivation-02", dimension: "autonomy", text: "My current goals feel connected to what matters to me." },
       { id: "motivation-03", dimension: "autonomy", text: "I often feel pushed by demands that do not feel like mine.", reverse: true },
       { id: "motivation-04", dimension: "autonomy", text: "I can adjust my path when something is not working." },
-      { id: "motivation-05", dimension: "competence", text: "I can see signs that I am improving in areas that matter." },
-      { id: "motivation-06", dimension: "competence", text: "I know what the next useful step is most of the time." },
-      { id: "motivation-07", dimension: "competence", text: "I often feel ineffective even when I try.", reverse: true },
+      { id: "motivation-05", dimension: "autonomy", text: "I have little say in the goals I am expected to pursue.", reverse: true },
+      { id: "motivation-06", dimension: "competence", text: "I can see signs that I am improving in areas that matter." },
+      { id: "motivation-07", dimension: "competence", text: "I know what the next useful step is most of the time." },
       { id: "motivation-08", dimension: "competence", text: "Feedback usually helps me understand how to get better." },
-      { id: "motivation-09", dimension: "relatedness", text: "I feel supported by at least a few people around me." },
-      { id: "motivation-10", dimension: "relatedness", text: "My efforts feel connected to people, values, or a shared purpose." },
-      { id: "motivation-11", dimension: "relatedness", text: "I often feel like I am doing things completely alone.", reverse: true },
-      { id: "motivation-12", dimension: "relatedness", text: "It is easy for me to ask for support or perspective when I need it." }
+      { id: "motivation-09", dimension: "competence", text: "I often feel ineffective even when I try.", reverse: true },
+      { id: "motivation-10", dimension: "competence", text: "Tasks often feel too unclear for me to know whether I am progressing.", reverse: true },
+      { id: "motivation-11", dimension: "relatedness", text: "I feel supported by at least a few people around me." },
+      { id: "motivation-12", dimension: "relatedness", text: "My efforts feel connected to people, values, or a shared purpose." },
+      { id: "motivation-13", dimension: "relatedness", text: "It is easy for me to ask for support or perspective when I need it." },
+      { id: "motivation-14", dimension: "relatedness", text: "I often feel like I am doing things completely alone.", reverse: true },
+      { id: "motivation-15", dimension: "relatedness", text: "The people around me rarely understand what I am trying to do.", reverse: true },
+      { id: "motivation-16", dimension: "purposeAlignment", text: "I can name why my current goals matter to me." },
+      { id: "motivation-17", dimension: "purposeAlignment", text: "My effort feels connected to a larger direction I care about." },
+      { id: "motivation-18", dimension: "purposeAlignment", text: "Even difficult tasks feel more possible when I can see their purpose." },
+      { id: "motivation-19", dimension: "purposeAlignment", text: "My current tasks often feel disconnected from what I value.", reverse: true },
+      { id: "motivation-20", dimension: "purposeAlignment", text: "I struggle to see the point of what I am working on.", reverse: true },
+      { id: "motivation-21", dimension: "progressMomentum", text: "Once I begin, I can usually build some momentum." },
+      { id: "motivation-22", dimension: "progressMomentum", text: "Small wins help me keep going." },
+      { id: "motivation-23", dimension: "progressMomentum", text: "When I get stuck, I can usually restart with a smaller step." },
+      { id: "motivation-24", dimension: "progressMomentum", text: "Starting often feels like the hardest part.", reverse: true },
+      { id: "motivation-25", dimension: "progressMomentum", text: "Interruptions make it very hard for me to return to a task.", reverse: true }
     ],
     relatedNotes: [
       { label: "Read Self-Determination Theory", href: "/lab-notes/self-determination-theory" },
-      { label: "Read Emotion Regulation", href: "/lab-notes/emotion-regulation" }
+      { label: "Read Emotion Regulation", href: "/lab-notes/emotion-regulation" },
+      { label: "Read Working Memory", href: "/lab-notes/working-memory" }
     ]
   }
 ];

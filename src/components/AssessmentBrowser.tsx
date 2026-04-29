@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AssessmentCard from "@/components/AssessmentCard";
+import { BiInline } from "@/components/BilingualText";
 import type { AssessmentCategory, AssessmentItem } from "@/types/assessment";
 
 export default function AssessmentBrowser({
@@ -36,7 +37,9 @@ export default function AssessmentBrowser({
               onClick={() => setSelectedCategory(category)}
               type="button"
             >
-              <span>{category}</span>
+              <span>
+                <BiInline text={category} />
+              </span>
               <span className={active ? "text-white/70" : "text-ink/42"}>{count}</span>
             </button>
           );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { BiInline, BiText } from "@/components/BilingualText";
 
 const colors = [
   { name: "RED", className: "text-red-500" },
@@ -50,7 +51,9 @@ export default function StroopColorGame() {
   return (
     <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft">
       <div className="flex min-h-56 flex-col items-center justify-center rounded-[1.5rem] bg-mist p-6 text-center">
-        <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-ink/48">Choose the text color</p>
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-ink/48">
+          <BiInline text="Choose the text color" />
+        </p>
         <strong className={`text-6xl font-black ${round.ink.className}`}>{round.word.name}</strong>
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-4">
@@ -62,21 +65,21 @@ export default function StroopColorGame() {
             onClick={() => choose(color.name)}
             type="button"
           >
-            {color.name}
+            <BiInline text={color.name} />
           </button>
         ))}
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <button className="focus-ring rounded-full bg-ink px-5 py-3 text-sm font-bold text-white" onClick={start} type="button">
-          Start Game
+          <BiInline text="Start Game" />
         </button>
         <span className="rounded-full bg-mist px-4 py-2 text-sm font-bold">
-          {correct}/{count} correct
+          {correct}/{count} correct / 正确
         </span>
-        {done && <span className="rounded-full bg-citron/45 px-4 py-2 font-bold">Average: {average}ms</span>}
+        {done && <span className="rounded-full bg-citron/45 px-4 py-2 font-bold">Average / 平均: {average}ms</span>}
       </div>
       <p className="mt-5 leading-7 text-ink/68">
-        The Stroop effect shows how automatic reading can interfere with color recognition.
+        <BiText text="The Stroop effect shows how automatic reading can interfere with color recognition." />
       </p>
     </section>
   );

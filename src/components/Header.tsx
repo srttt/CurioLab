@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { FlaskConical } from "lucide-react";
+import { BiInline } from "@/components/BilingualText";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const navItems = [
   { label: "Assessments", href: "/assessments" },
   { label: "Mind Games", href: "/games" },
-  { label: "Lab Notes", href: "/lab-notes" },
-  { label: "About", href: "/about" }
+  { label: "Lab Notes", href: "/lab-notes" }
 ];
 
 export default function Header() {
@@ -18,17 +19,20 @@ export default function Header() {
           </span>
           <span className="text-lg font-bold">CurioLab</span>
         </Link>
-        <nav aria-label="Main navigation" className="flex flex-wrap gap-2 text-sm font-medium text-ink/72">
-          {navItems.map((item) => (
-            <Link
-              className="focus-ring rounded-full px-3 py-2 transition hover:bg-white hover:text-ink"
-              href={item.href}
-              key={item.href}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex flex-wrap items-center gap-3">
+          <nav aria-label="Main navigation" className="flex flex-wrap gap-2 text-sm font-medium text-ink/72">
+            {navItems.map((item) => (
+              <Link
+                className="focus-ring rounded-full px-3 py-2 transition hover:bg-white hover:text-ink"
+                href={item.href}
+                key={item.href}
+              >
+                <BiInline text={item.label} />
+              </Link>
+            ))}
+          </nav>
+          <LanguageSelector />
+        </div>
       </div>
     </header>
   );

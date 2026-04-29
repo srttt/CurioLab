@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, NotebookText } from "lucide-react";
+import { BiInline, BiText } from "@/components/BilingualText";
 import type { RelatedLink } from "@/types/assessment";
 
 export default function RelatedNotes({
@@ -15,7 +16,9 @@ export default function RelatedNotes({
     <section className="rounded-[1.5rem] border border-ink/10 bg-white/76 p-5 shadow-sm">
       <div className="flex items-center gap-2">
         <NotebookText size={18} aria-hidden="true" />
-        <h2 className="font-black">{title}</h2>
+        <h2 className="font-black">
+          <BiInline text={title} />
+        </h2>
       </div>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {links.map((link) => (
@@ -24,7 +27,9 @@ export default function RelatedNotes({
             href={link.href}
             key={link.href}
           >
-            <span>{link.label}</span>
+            <span>
+              <BiText text={link.label} />
+            </span>
             <ArrowRight size={16} aria-hidden="true" />
           </Link>
         ))}

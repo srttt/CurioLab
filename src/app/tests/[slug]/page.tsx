@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BiInline, BiText } from "@/components/BilingualText";
 import { assessments } from "@/data/assessments";
 
 const oldSlugMap: Record<string, string> = {
@@ -24,16 +25,20 @@ export default function TestDetailRedirectPage({ params }: { params: { slug: str
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
       <meta httpEquiv="refresh" content={`0; url=${href}`} />
       <div className="rounded-[2rem] border border-ink/10 bg-white/78 p-8 shadow-soft">
-        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/48">Redirecting</p>
-        <h1 className="mt-2 text-4xl font-black">This test moved</h1>
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/48">
+          <BiInline text="Redirecting" />
+        </p>
+        <h1 className="mt-2 text-4xl font-black">
+          <BiText text="This test moved" />
+        </h1>
         <p className="mt-4 text-lg leading-8 text-ink/68">
-          CurioLab Tests have been upgraded into CurioLab Assessments.
+          <BiText text="CurioLab Tests have been upgraded into CurioLab Assessments." />
         </p>
         <Link
           className="focus-ring mt-6 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
           href={href}
         >
-          Open Assessment
+          <BiInline text="Open Assessment" />
         </Link>
       </div>
     </div>

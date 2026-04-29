@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { BiInline, BiText } from "@/components/BilingualText";
 
 type GameState = "idle" | "waiting" | "ready" | "done" | "early";
 
@@ -54,19 +55,25 @@ export default function ReactionSpeedGame() {
         onClick={handleTap}
         type="button"
       >
-        {panelText}
+        <BiInline text={panelText} />
       </button>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <button className="focus-ring rounded-full bg-ink px-5 py-3 text-sm font-bold text-white" onClick={start} type="button">
-          Start Game
+          <BiInline text="Start Game" />
         </button>
         {reactionTime !== null && (
-          <p className="rounded-full bg-citron/45 px-4 py-2 font-bold">Your reaction time: {reactionTime}ms</p>
+          <p className="rounded-full bg-citron/45 px-4 py-2 font-bold">
+            Your reaction time: {reactionTime}ms / 你的反应时间：{reactionTime} 毫秒
+          </p>
         )}
-        {state === "early" && <p className="font-semibold text-coral">Wait until the screen changes color.</p>}
+        {state === "early" && (
+          <p className="font-semibold text-coral">
+            <BiInline text="Wait until the screen changes color." />
+          </p>
+        )}
       </div>
       <p className="mt-5 leading-7 text-ink/68">
-        Reaction time can be affected by attention, fatigue, expectation, and practice.
+        <BiText text="Reaction time can be affected by attention, fatigue, expectation, and practice." />
       </p>
     </section>
   );

@@ -1,3 +1,6 @@
+"use client";
+
+import { BiInline, BiText, getZh, useLanguage } from "@/components/BilingualText";
 import type { DimensionScore } from "@/types/assessment";
 
 function polarPoint(center: number, radius: number, index: number, total: number) {
@@ -19,11 +22,23 @@ function pointsFor(scores: DimensionScore[], center: number, radius: number) {
 }
 
 function splitLabel(label: string) {
-  if (label === "Emotional Sensitivity") return ["Emotional", "Sensitivity"];
-  return [label];
+  const words = label.split(" ");
+  const lines: string[] = [];
+
+  words.forEach((word) => {
+    const lastLine = lines[lines.length - 1];
+    if (!lastLine || `${lastLine} ${word}`.length > 15) {
+      lines.push(word);
+    } else {
+      lines[lines.length - 1] = `${lastLine} ${word}`;
+    }
+  });
+
+  return lines.slice(0, 3);
 }
 
 export default function BigFiveRadarChart({ scores }: { scores: DimensionScore[] }) {
+  const { mode } = useLanguage();
   const center = 180;
   const radius = 94;
   const rings = [20, 40, 60, 80, 100];
@@ -33,14 +48,20 @@ export default function BigFiveRadarChart({ scores }: { scores: DimensionScore[]
     <section className="rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-sm">
       <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h3 className="text-xl font-black">Big Five Radar</h3>
-          <p className="mt-1 text-sm leading-6 text-ink/58">A five-trait view of your current profile.</p>
+          <h3 className="text-xl font-black">
+            <BiText text="Profile Radar" />
+          </h3>
+          <p className="mt-1 text-sm leading-6 text-ink/58">
+            <BiText text="A five-dimension view of your current profile." />
+          </p>
         </div>
-        <span className="w-fit rounded-full bg-mist px-3 py-1 text-xs font-bold text-ink/58">0-100 profile</span>
+        <span className="w-fit rounded-full bg-mist px-3 py-1 text-xs font-bold text-ink/58">
+          <BiInline text="0-100 profile" />
+        </span>
       </div>
 
       <div className="mt-4 overflow-hidden rounded-[1.25rem] bg-mist/70">
-        <svg aria-label="Big Five radar chart" className="h-auto w-full" role="img" viewBox="0 0 360 336">
+        <svg aria-label="Profile radar chart" className="h-auto w-full" role="img" viewBox="0 0 360 348">
           <defs>
             <linearGradient id="big-five-radar-fill" x1="0%" x2="100%" y1="0%" y2="100%">
               <stop offset="0%" stopColor="#ff7a70" stopOpacity="0.42" />
@@ -99,6 +120,7 @@ export default function BigFiveRadarChart({ scores }: { scores: DimensionScore[]
             const labelPoint = polarPoint(center, 130, index, scores.length);
             const anchor = Math.abs(labelPoint.x - center) < 12 ? "middle" : labelPoint.x > center ? "start" : "end";
             const lines = splitLabel(score.label);
+            const zhLabel = getZh(score.label);
 
             return (
               <text
@@ -115,6 +137,11 @@ export default function BigFiveRadarChart({ scores }: { scores: DimensionScore[]
                     {line}
                   </tspan>
                 ))}
+                {mode === "bilingual" && zhLabel && (
+                  <tspan dy="14" fill="rgba(23,32,42,0.72)" fontSize="11" fontWeight="700" x={labelPoint.x}>
+                    {zhLabel}
+                  </tspan>
+                )}
                 <tspan dy="16" fill="rgba(23,32,42,0.58)" fontSize="11" fontWeight="700" x={labelPoint.x}>
                   {score.score}
                 </tspan>
