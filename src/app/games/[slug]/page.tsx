@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import GamePanel from "@/components/GamePanel";
+import { getAssessment } from "@/data/assessments";
 import { games, getGame } from "@/data/games";
-import { notes } from "@/data/notes";
+import { getNote } from "@/data/notes";
 
 export function generateStaticParams() {
   return games.map((game) => ({ slug: game.slug }));
@@ -13,7 +14,18 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
 
   if (!game) notFound();
 
-  const note = game.slug === "stroop-color" ? notes.find((item) => item.slug === "stroop-effect") : notes[4];
+  const noteSlugByGame: Record<string, string> = {
+    "reaction-speed": "yerkes-dodson-law",
+    "memory-flip": "working-memory",
+    "stroop-color": "stroop-effect"
+  };
+  const assessmentSlugByGame: Record<string, string> = {
+    "reaction-speed": "stress-recovery-profile",
+    "memory-flip": "decision-style-profile",
+    "stroop-color": "stress-recovery-profile"
+  };
+  const note = getNote(noteSlugByGame[game.slug]);
+  const assessment = getAssessment(assessmentSlugByGame[game.slug]);
   const nextGame = games.find((item) => item.slug !== game.slug) ?? games[0];
 
   return (
@@ -33,12 +45,20 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
       <div className="mt-8">
         <GamePanel slug={game.slug} />
       </div>
-      <aside className="mt-8 grid gap-4 sm:grid-cols-2">
+      <aside className="mt-8 grid gap-4 sm:grid-cols-3">
         {note && (
           <div className="rounded-[1.5rem] border border-ink/10 bg-white/70 p-5">
             <h2 className="font-black">Related Lab Note</h2>
             <Link className="focus-ring mt-3 block rounded-2xl bg-mist p-4 font-bold" href={`/lab-notes/${note.slug}`}>
               {note.title}
+            </Link>
+          </div>
+        )}
+        {assessment && (
+          <div className="rounded-[1.5rem] border border-ink/10 bg-white/70 p-5">
+            <h2 className="font-black">Related Assessment</h2>
+            <Link className="focus-ring mt-3 block rounded-2xl bg-mist p-4 font-bold" href={`/assessments/${assessment.slug}`}>
+              {assessment.title}
             </Link>
           </div>
         )}

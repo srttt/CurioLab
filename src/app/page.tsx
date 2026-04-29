@@ -3,25 +3,25 @@ import CategoryNav from "@/components/CategoryNav";
 import ContentCard from "@/components/ContentCard";
 import Hero from "@/components/Hero";
 import SectionCard from "@/components/SectionCard";
+import { assessments } from "@/data/assessments";
 import { games } from "@/data/games";
 import { notes } from "@/data/notes";
-import { tests } from "@/data/tests";
 import type { ContentItem } from "@/types/content";
 
 const featured: ContentItem[] = [
-  tests[0],
-  tests[1],
-  tests[2],
+  assessments.find((assessment) => assessment.slug === "big-five-personality-profile") ?? assessments[0],
+  assessments.find((assessment) => assessment.slug === "well-being-check") ?? assessments[1],
+  assessments.find((assessment) => assessment.slug === "stress-recovery-profile") ?? assessments[2],
   games[0],
-  notes.find((note) => note.slug === "why-mbti-feels-accurate") ?? notes[0],
-  notes.find((note) => note.slug === "stroop-effect") ?? notes[0]
+  games[2],
+  notes.find((note) => note.slug === "why-mbti-feels-accurate") ?? notes[0]
 ];
 
 const columns = [
   {
-    title: "Popular Tests",
-    items: tests.slice(0, 3),
-    path: "/tests"
+    title: "CurioLab Assessments",
+    items: assessments.slice(0, 3),
+    path: "/assessments"
   },
   {
     title: "Quick Mind Games",
@@ -46,11 +46,11 @@ export default function Home() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <section className="grid gap-5 md:grid-cols-3">
           <SectionCard
-            cta="Explore Tests"
-            description="Discover your mood, personality, thinking style, and social energy."
-            href="/tests"
-            icon="tests"
-            title="Tests"
+            cta="Explore Assessments"
+            description="Evidence-informed self-assessments for personality, well-being, stress, social energy, decision style, and motivation."
+            href="/assessments"
+            icon="assessments"
+            title="Assessments"
           />
           <SectionCard
             cta="Play Games"
@@ -61,7 +61,7 @@ export default function Home() {
           />
           <SectionCard
             cta="Read Notes"
-            description="Read short psychology notes behind the tests and games."
+            description="Read short psychology notes behind the assessments and games."
             href="/lab-notes"
             icon="notes"
             title="Lab Notes"

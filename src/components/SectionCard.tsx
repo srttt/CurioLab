@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, BrainCircuit, Gamepad2, NotebookText } from "lucide-react";
 
 const icons = {
-  tests: BrainCircuit,
+  assessments: BrainCircuit,
   games: Gamepad2,
   notes: NotebookText
 };

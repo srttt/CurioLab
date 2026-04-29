@@ -1,0 +1,7 @@
+/tests/mood-color /assessments/well-being-check 301
+/tests/thinking-style /assessments/big-five-personality-profile 301
+/tests/social-battery /assessments/social-energy-profile 301
+/tests/decision-style /assessments/decision-style-profile 301
+/tests/rest-type /assessments/stress-recovery-profile 301
+/tests/:slug /assessments/:slug 301
+/tests /assessments 301

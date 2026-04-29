@@ -1,42 +1,41 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import TestRunner from "@/components/TestRunner";
-import { getTest, tests } from "@/data/tests";
+import { assessments } from "@/data/assessments";
+
+const oldSlugMap: Record<string, string> = {
+  "mood-color": "well-being-check",
+  "thinking-style": "big-five-personality-profile",
+  "social-battery": "social-energy-profile",
+  "decision-style": "decision-style-profile",
+  "rest-type": "stress-recovery-profile"
+};
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return tests.map((test) => ({ slug: test.slug }));
+  const slugs = new Set([...assessments.map((assessment) => assessment.slug), ...Object.keys(oldSlugMap)]);
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
-export default function TestDetailPage({ params }: { params: { slug: string } }) {
-  const test = getTest(params.slug);
-
-  if (!test) notFound();
-
-  const nextTest = tests.find((item) => item.slug !== test.slug) ?? tests[0];
+export default function TestDetailRedirectPage({ params }: { params: { slug: string } }) {
+  const targetSlug = oldSlugMap[params.slug] ?? params.slug;
+  const href = `/assessments/${targetSlug}`;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-      <Link className="focus-ring rounded-full text-sm font-bold text-ink/60 hover:text-ink" href="/tests">
-        Back to Tests
-      </Link>
-      <div className="mt-5">
-        <h1 className="text-4xl font-black">{test.title}</h1>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-ink/68">{test.description}</p>
-        <div className="mt-5 flex flex-wrap gap-2 text-sm font-bold text-ink/64">
-          <span className="rounded-full bg-white px-4 py-2">{test.duration}</span>
-          <span className="rounded-full bg-white px-4 py-2">{test.category}</span>
-          <span className="rounded-full bg-white px-4 py-2">Just for fun</span>
-        </div>
-      </div>
-      <div className="mt-8">
-        <TestRunner slug={test.slug} />
-      </div>
-      <aside className="mt-8 rounded-[1.5rem] border border-ink/10 bg-white/70 p-5">
-        <h2 className="font-black">Recommended next</h2>
-        <Link className="focus-ring mt-3 block rounded-2xl bg-mist p-4 font-bold" href={`/tests/${nextTest.slug}`}>
-          {nextTest.title}
+    <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      <meta httpEquiv="refresh" content={`0; url=${href}`} />
+      <div className="rounded-[2rem] border border-ink/10 bg-white/78 p-8 shadow-soft">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/48">Redirecting</p>
+        <h1 className="mt-2 text-4xl font-black">This test moved</h1>
+        <p className="mt-4 text-lg leading-8 text-ink/68">
+          CurioLab Tests have been upgraded into CurioLab Assessments.
+        </p>
+        <Link
+          className="focus-ring mt-6 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+          href={href}
+        >
+          Open Assessment
         </Link>
-      </aside>
+      </div>
     </div>
   );
 }

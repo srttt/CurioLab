@@ -6,10 +6,10 @@ export default function AboutPage() {
         <div className="mt-6 space-y-5 text-lg leading-8 text-ink/72">
           <p>CurioLab is a tiny digital playground for curious minds.</p>
           <p>
-            We make playful quizzes, quick games, and short psychology notes that help you explore
-            personality, mood, attention, choices, and imagination.
+            We make evidence-informed self-assessments, quick games, and short psychology notes that help you
+            explore personality, mood, attention, choices, and imagination.
           </p>
-          <p>Nothing here is a diagnosis.</p>
+          <p>CurioLab Assessments are designed for learning and self-reflection, not diagnosis.</p>
           <p>Everything here is a starting point for curiosity.</p>
         </div>
       </div>

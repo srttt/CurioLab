@@ -1,4 +1,4 @@
-export type ContentType = "test" | "game" | "note";
+export type ContentType = "assessment" | "game" | "note";
 
 export type ContentItem = {
   title: string;
@@ -7,18 +7,6 @@ export type ContentItem = {
   duration: string;
   description: string;
   type: ContentType;
-};
-
-export type TestQuestion = {
-  prompt: string;
-  options: string[];
-};
-
-export type TestResult = {
-  name: string;
-  traits: string[];
-  strength: string;
-  watchOut: string;
 };
 
 export type Note = ContentItem & {

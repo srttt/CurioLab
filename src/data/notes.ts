@@ -20,8 +20,8 @@ export const notes: Note[] = [
     ],
     reflectionPrompt: "Which trait feels most visible in your everyday decisions right now?",
     related: [
-      { label: "Try Thinking Style Test", href: "/tests/thinking-style" },
-      { label: "Try Social Battery Test", href: "/tests/social-battery" }
+      { label: "Start Big Five Personality Profile", href: "/assessments/big-five-personality-profile" },
+      { label: "Start Social Energy Profile", href: "/assessments/social-energy-profile" }
     ],
     sections: [
       {
@@ -48,7 +48,7 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "The Thinking Style Test touches openness and conscientiousness through questions about planning, novelty, and problem solving. The Social Battery Test touches extraversion and social recovery.",
+          "The Big Five Personality Profile touches openness and conscientiousness through questions about planning, novelty, and problem solving. The Social Energy Profile touches extraversion and social recovery.",
           "Use the result as a small mirror. If it gives you language for something real, keep it. If it feels too narrow, let it go."
         ]
       },
@@ -77,7 +77,7 @@ export const notes: Note[] = [
     reflectionPrompt: "When a personality label feels accurate, what part of your life does it help you explain?",
     related: [
       { label: "Read Big Five Personality", href: "/lab-notes/big-five-personality" },
-      { label: "Try Thinking Style Test", href: "/tests/thinking-style" }
+      { label: "Start Big Five Personality Profile", href: "/assessments/big-five-personality-profile" }
     ],
     sections: [
       {
@@ -104,7 +104,7 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "The Thinking Style Test uses playful questions to invite reflection. Compare your result with the Big Five note if you want a model that treats personality more like a set of sliders.",
+          "The Big Five Personality Profile uses dimensional questions to invite reflection. Compare your result with this note if you want a model that treats personality more like a set of sliders.",
           "A good result should make you curious, not trapped. Ask what the label helps you notice, then keep testing it against real life."
         ]
       },
@@ -134,8 +134,8 @@ export const notes: Note[] = [
     ],
     reflectionPrompt: "When you feel unsure in a relationship, do you usually move closer, step back, or freeze?",
     related: [
-      { label: "Try Social Battery Test", href: "/tests/social-battery" },
-      { label: "Try Rest Type Test", href: "/tests/rest-type" }
+      { label: "Start Social Energy Profile", href: "/assessments/social-energy-profile" },
+      { label: "Start Stress & Recovery Profile", href: "/assessments/stress-recovery-profile" }
     ],
     sections: [
       {
@@ -162,8 +162,8 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "The Social Battery Test can help you reflect on how much connection you want right now. The Rest Type Test can help you ask whether you need quiet, reassurance, structure, or company.",
-          "Neither test measures attachment. They simply give you a playful way to notice your current social needs."
+          "The Social Energy Profile can help you reflect on how much connection you want right now. The Stress & Recovery Profile can help you ask whether you need quiet, reassurance, structure, or company.",
+          "Neither assessment measures attachment directly. They simply give you a structured way to notice your current social needs."
         ]
       },
       {
@@ -191,8 +191,8 @@ export const notes: Note[] = [
     ],
     reflectionPrompt: "What part of your current mood may be coming from the situation, and what part may be coming from your body?",
     related: [
-      { label: "Try Mood Color Test", href: "/tests/mood-color" },
-      { label: "Try Rest Type Test", href: "/tests/rest-type" }
+      { label: "Start Well-being Check", href: "/assessments/well-being-check" },
+      { label: "Start Stress & Recovery Profile", href: "/assessments/stress-recovery-profile" }
     ],
     sections: [
       {
@@ -219,7 +219,7 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "The Mood Color Test gives you a low-pressure check-in. The Rest Type Test helps you ask what kind of support might fit the state you are in.",
+          "The Well-being Check gives you a low-pressure check-in. The Stress & Recovery Profile helps you ask what kind of support might fit the state you are in.",
           "Treat the result as a starting point for noticing, not as a final explanation."
         ]
       },
@@ -249,7 +249,7 @@ export const notes: Note[] = [
     related: [
       { label: "Play Reaction Speed Test", href: "/games/reaction-speed" },
       { label: "Play Stroop Color Challenge", href: "/games/stroop-color" },
-      { label: "Try Rest Type Test", href: "/tests/rest-type" }
+      { label: "Start Stress & Recovery Profile", href: "/assessments/stress-recovery-profile" }
     ],
     sections: [
       {
@@ -277,7 +277,7 @@ export const notes: Note[] = [
         heading: "Try it on CurioLab",
         body: [
           "Reaction Speed Test and Stroop Color Challenge both show how alertness and attention interact. A faster score is not always about trying harder; it can be about being in a good arousal zone.",
-          "Rest Type Test can help you notice when your system may need recovery rather than more pressure."
+          "The Stress & Recovery Profile can help you notice when your system may need recovery rather than more pressure."
         ]
       },
       {
@@ -410,7 +410,7 @@ export const notes: Note[] = [
     ],
     reflectionPrompt: "Where in your life do you trust intuition, and where do you need a deliberate pause?",
     related: [
-      { label: "Try Decision Style Test", href: "/tests/decision-style" },
+      { label: "Start Decision Style Profile", href: "/assessments/decision-style-profile" },
       { label: "Read Cognitive Biases", href: "/lab-notes/cognitive-biases" }
     ],
     sections: [
@@ -438,7 +438,7 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "The Decision Style Test explores how you approach uncertainty. Cognitive Biases shows how shortcuts can help, then mislead, when they run too quietly in the background.",
+          "The Decision Style Profile explores how you approach uncertainty. Cognitive Biases shows how shortcuts can help, then mislead, when they run too quietly in the background.",
           "Use both notes together: one explains the speed of thinking, the other explains common turns it can take."
         ]
       },
@@ -466,7 +466,7 @@ export const notes: Note[] = [
     ],
     reflectionPrompt: "Which bias shows up most often when you are tired, rushed, or emotionally invested?",
     related: [
-      { label: "Try Decision Style Test", href: "/tests/decision-style" },
+      { label: "Start Decision Style Profile", href: "/assessments/decision-style-profile" },
       { label: "Read Dual Process Theory", href: "/lab-notes/dual-process-theory" }
     ],
     sections: [
@@ -494,7 +494,7 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "Decision Style Test can help you notice how you choose under uncertainty. Dual Process Theory explains why many shortcuts run quickly and automatically.",
+          "The Decision Style Profile can help you notice how you choose under uncertainty. Dual Process Theory explains why many shortcuts run quickly and automatically.",
           "The goal is not to become bias-free. It is to become easier to correct."
         ]
       },
@@ -522,8 +522,8 @@ export const notes: Note[] = [
     ],
     reflectionPrompt: "Which need feels lowest right now: autonomy, competence, or connection?",
     related: [
-      { label: "Try Rest Type Test", href: "/tests/rest-type" },
-      { label: "Try Mood Color Test", href: "/tests/mood-color" }
+      { label: "Start Motivation Needs Profile", href: "/assessments/motivation-needs-profile" },
+      { label: "Start Well-being Check", href: "/assessments/well-being-check" }
     ],
     sections: [
       {
@@ -550,7 +550,7 @@ export const notes: Note[] = [
       {
         heading: "Try it on CurioLab",
         body: [
-          "Rest Type Test can help you reflect on what kind of support you may need before pushing forward. Mood Color Test can give a quick emotional snapshot before you choose the next step.",
+          "The Motivation Needs Profile can help you reflect on what kind of support you may need before pushing forward. Well-being Check can give a quick emotional snapshot before you choose the next step.",
           "Use the result to ask what would make effort feel more possible, not to judge yourself."
         ]
       },

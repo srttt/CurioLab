@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const motivations = [
-  { label: "I want to know myself", href: "/tests" },
+  { label: "I want to know myself", href: "/assessments" },
   { label: "I want a quick challenge", href: "/games" },
-  { label: "I want to understand my mood", href: "/tests" },
-  { label: "I want something weird", href: "/tests" },
+  { label: "I want to understand my mood", href: "/assessments" },
+  { label: "I want a profile", href: "/assessments" },
   { label: "I want to learn a tiny idea", href: "/lab-notes" }
 ];
 

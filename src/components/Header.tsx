@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FlaskConical } from "lucide-react";
 
 const navItems = [
-  { label: "Tests", href: "/tests" },
+  { label: "Assessments", href: "/assessments" },
   { label: "Mind Games", href: "/games" },
   { label: "Lab Notes", href: "/lab-notes" },
   { label: "About", href: "/about" }

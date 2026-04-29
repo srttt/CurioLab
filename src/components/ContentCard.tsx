@@ -3,19 +3,19 @@ import { ArrowRight } from "lucide-react";
 import type { ContentItem } from "@/types/content";
 
 const typeLabel = {
-  test: "Test",
+  assessment: "Assessment",
   game: "Game",
   note: "Lab Note"
 };
 
 const ctaLabel = {
-  test: "Try it",
+  assessment: "Start Assessment",
   game: "Play",
   note: "Read"
 };
 
 const basePath = {
-  test: "/tests",
+  assessment: "/assessments",
   game: "/games",
   note: "/lab-notes"
 };

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "CurioLab",
-  description: "Tiny tests, mind games, and curious psychology."
+  description: "Evidence-informed assessments, mind games, and curious psychology."
 };
 
 export default function RootLayout({

@@ -1,10 +1,10 @@
 # CurioLab
 
-CurioLab is a Next.js app for bite-sized psychology tests, quick mind games, and short lab notes.
+CurioLab is a Next.js app for evidence-informed self-assessments, quick mind games, and short lab notes.
 
 ## Features
 
-- Psychology-style tests for mood, thinking style, social energy, decisions, and rest.
+- CurioLab Assessments for personality, well-being, stress, social energy, decision style, and motivation.
 - Quick browser games for reaction speed, memory, and attention.
 - Lab notes that explain the ideas behind the content.
 - Responsive UI built with reusable cards, navigation, and content data modules.
@@ -46,8 +46,8 @@ npm run lint
 
 ```text
 src/app/          App Router pages and global styles
-src/components/   Shared UI and interactive game/test components
-src/data/         Content definitions for tests, games, and notes
+src/components/   Shared UI and interactive assessment/game components
+src/data/         Content definitions for assessments, games, and notes
 src/types/        Shared TypeScript types
 ```
 

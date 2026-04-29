@@ -2,9 +2,9 @@ import Link from "next/link";
 import { ArrowRight, BrainCircuit, Gamepad2, NotebookText } from "lucide-react";
 
 const actions = [
-  { label: "Take a Test", href: "/tests", icon: BrainCircuit },
-  { label: "Play a Game", href: "/games", icon: Gamepad2 },
-  { label: "Read a Note", href: "/lab-notes", icon: NotebookText }
+  { label: "Start an Assessment", href: "/assessments", icon: BrainCircuit },
+  { label: "Play a Mind Game", href: "/games", icon: Gamepad2 },
+  { label: "Read a Lab Note", href: "/lab-notes", icon: NotebookText }
 ];
 
 export default function Hero() {
@@ -13,11 +13,11 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:py-20">
         <div className="flex flex-col justify-center">
           <p className="mb-4 w-fit rounded-full border border-ink/10 bg-white/70 px-4 py-2 text-sm font-semibold text-ink/70">
-            Tiny tests, mind games, and curious psychology.
+            Assessments, mind games, and curious psychology.
           </p>
           <h1 className="max-w-3xl text-5xl font-black leading-tight sm:text-6xl lg:text-7xl">CurioLab</h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-ink/72">
-            Explore yourself through playful tests, quick games, and short psychology notes.
+            Explore yourself through evidence-informed self-assessments, quick games, and short psychology notes.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {actions.map((action) => {
@@ -45,7 +45,7 @@ export default function Hero() {
               <span className="h-3 w-3 rounded-full bg-coral" aria-hidden="true" />
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {["Mood", "Memory", "Attention", "Personality"].map((label, index) => (
+              {["Well-being", "Memory", "Attention", "Personality"].map((label, index) => (
                 <div
                   className="flex min-h-28 flex-col justify-between rounded-3xl border border-ink/10 bg-white/82 p-4"
                   key={label}
