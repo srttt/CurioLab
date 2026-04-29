@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { RotateCcw } from "lucide-react";
+import BigFiveRadarChart from "@/components/BigFiveRadarChart";
 import DimensionScoreBar from "@/components/DimensionScoreBar";
 import RelatedNotes from "@/components/RelatedNotes";
 import type { AssessmentItem, DimensionScore } from "@/types/assessment";
@@ -23,6 +24,7 @@ export default function AssessmentResult({
   const sortedScores = [...scores].sort((a, b) => b.score - a.score);
   const strongest = sortedScores[0];
   const quietest = sortedScores[sortedScores.length - 1];
+  const showBigFiveRadar = assessment.slug === "big-five-personality-profile" && scores.length === 5;
 
   const reflections = [
     `Notice where ${strongest.label} shows up as ${describeScore(strongest.score)} in your day-to-day choices.`,
@@ -35,15 +37,18 @@ export default function AssessmentResult({
       <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Your Profile</p>
       <h2 className="mt-2 text-3xl font-black">{assessment.title}</h2>
 
-      <div className="mt-6 grid gap-4">
-        {scores.map((score) => (
-          <DimensionScoreBar
-            description={score.description}
-            key={score.id}
-            label={score.label}
-            score={score.score}
-          />
-        ))}
+      <div className={`mt-6 grid gap-5 ${showBigFiveRadar ? "lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]" : ""}`}>
+        {showBigFiveRadar && <BigFiveRadarChart scores={scores} />}
+        <div className="grid gap-4">
+          {scores.map((score) => (
+            <DimensionScoreBar
+              description={score.description}
+              key={score.id}
+              label={score.label}
+              score={score.score}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
