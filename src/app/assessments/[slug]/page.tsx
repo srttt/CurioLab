@@ -15,6 +15,7 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
   if (!assessment) notFound();
 
   const isDecisionStyle = assessment.slug === "decision-style-profile";
+  const isWellBeingCheck = assessment.slug === "well-being-check";
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -47,6 +48,11 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
               This assessment measures five decision tendencies: analytical deliberation, intuitive confidence, loss
               sensitivity, information load sensitivity, and decision closure.
             </p>
+          ) : isWellBeingCheck ? (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
+              This assessment measures five recent well-being signals: positive mood, calmness, energy, interest and
+              engagement, and daily functioning.
+            </p>
           ) : (
             <div className="mt-4 space-y-3">
               {assessment.dimensions.map((dimension) => (
@@ -66,6 +72,11 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
               You will answer 25 short statements using a 5-point scale from Strongly disagree to Strongly agree.
               Your result shows a profile across five dimensions rather than a single decision type.
             </p>
+          ) : isWellBeingCheck ? (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
+              You will answer 25 short statements using a 5-point scale from Strongly disagree to Strongly agree.
+              Your result shows a current profile across five dimensions, not a diagnosis or overall life score.
+            </p>
           ) : (
             <div className="mt-4 space-y-3 text-sm font-medium leading-7 text-ink/68">
               <p>{assessment.questions.length} statements using a 5-point Likert scale.</p>
@@ -81,7 +92,7 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
         <div className="rounded-[1.5rem] border border-ink/10 bg-citron/35 p-5 shadow-sm">
           <h2 className="text-xl font-black">Important note</h2>
           <p className="mt-4 text-sm font-medium leading-7 text-ink/70">{assessment.disclaimer}</p>
-          {!isDecisionStyle && (
+          {!isDecisionStyle && !isWellBeingCheck && (
             <p className="mt-4 text-sm font-medium leading-7 text-ink/70">
               Your result is a snapshot, not a permanent label.
             </p>

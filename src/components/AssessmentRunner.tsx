@@ -37,6 +37,7 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   const [answers, setAnswers] = useState<Record<string, number>>({});
 
   const isDecisionStyle = assessment.slug === "decision-style-profile";
+  const isWellBeingCheck = assessment.slug === "well-being-check";
   const answeredCount = Object.keys(answers).length;
   const complete = answeredCount === assessment.questions.length;
   const currentQuestion = assessment.questions[questionIndex];
@@ -59,6 +60,32 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   }
 
   if (!started) {
+    if (isWellBeingCheck) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">Well-being Check</p>
+          <h2 className="mt-2 text-3xl font-black">How have you been doing recently?</h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              This assessment looks at recent positive mood, calmness, energy, interest and engagement, and daily
+              functioning.
+            </p>
+            <p>
+              It is not a diagnosis or a judgment of how you should feel. It is a self-reflection tool for noticing
+              current patterns and support needs.
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            Start Assessment
+          </button>
+        </section>
+      );
+    }
+
     if (isDecisionStyle) {
       return (
         <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">

@@ -108,34 +108,181 @@ export const assessments: AssessmentItem[] = [
     title: "Well-being Check",
     slug: "well-being-check",
     category: "Well-being",
-    duration: "3 min",
+    duration: "5 min",
     description:
-      "A brief self-reflection check for recent positive mood, calmness, energy, interest, and daily functioning.",
-    basis: "Inspired by well-being self-report frameworks.",
-    disclaimer: assessmentDisclaimer,
+      "A self-assessment for recent positive mood, calmness, energy, engagement, daily functioning, and support.",
+    basis: "Inspired by the WHO-5 Well-Being Index, subjective well-being research, stress recovery, and social connection research.",
+    disclaimer:
+      "CurioLab assessments are for learning and self-reflection. They are not medical or psychological diagnosis, treatment, or advice.",
     type: "assessment",
     dimensions: [
-      { id: "positive-mood", label: "Positive Mood", description: "Recent access to pleasant, hopeful, or warm emotional states." },
-      { id: "calmness", label: "Calmness", description: "A sense of steadiness, ease, and room to breathe." },
-      { id: "energy", label: "Energy", description: "Felt vitality and available effort for everyday tasks." },
-      { id: "interest", label: "Interest", description: "Curiosity, engagement, and connection to activities." },
-      { id: "daily-functioning", label: "Daily Functioning", description: "How manageable ordinary routines have felt recently." }
+      {
+        id: "positiveMood",
+        label: "Positive Mood",
+        description: "Recent access to pleasant, hopeful, or warm emotional states."
+      },
+      {
+        id: "calmness",
+        label: "Calmness",
+        description: "A sense of steadiness, ease, and room to breathe."
+      },
+      {
+        id: "energy",
+        label: "Energy",
+        description: "Felt vitality, rest, and available effort for everyday tasks."
+      },
+      {
+        id: "interestEngagement",
+        label: "Interest & Engagement",
+        description: "Curiosity, meaning, and connection to activities or goals."
+      },
+      {
+        id: "dailyFunctioning",
+        label: "Daily Functioning",
+        description: "How manageable ordinary routines, responsibilities, and support have felt recently."
+      }
     ],
     questions: [
-      { id: "well-being-01", dimension: "positive-mood", text: "Recently, I have had moments of genuine enjoyment." },
-      { id: "well-being-02", dimension: "positive-mood", text: "It has been hard to notice anything pleasant lately.", reverse: true },
-      { id: "well-being-03", dimension: "calmness", text: "I have felt able to settle my mind when I need to." },
-      { id: "well-being-04", dimension: "calmness", text: "My days have felt constantly tense or rushed.", reverse: true },
-      { id: "well-being-05", dimension: "energy", text: "I have had enough energy for the basics of my day." },
-      { id: "well-being-06", dimension: "energy", text: "Even small tasks have felt unusually effortful.", reverse: true },
-      { id: "well-being-07", dimension: "interest", text: "I have felt interested in at least a few things I do." },
-      { id: "well-being-08", dimension: "interest", text: "Most activities have felt flat or disconnected.", reverse: true },
-      { id: "well-being-09", dimension: "daily-functioning", text: "My usual routines have felt mostly manageable." },
-      { id: "well-being-10", dimension: "daily-functioning", text: "I have struggled to keep up with ordinary routines.", reverse: true }
+      {
+        id: "well-being-01",
+        dimension: "positiveMood",
+        text: "Recently, I have had moments of genuine enjoyment."
+      },
+      {
+        id: "well-being-02",
+        dimension: "positiveMood",
+        text: "I have noticed small things that felt pleasant or comforting."
+      },
+      {
+        id: "well-being-03",
+        dimension: "positiveMood",
+        text: "I have felt hopeful about at least some part of my near future."
+      },
+      {
+        id: "well-being-04",
+        dimension: "positiveMood",
+        text: "Warm or light moments have been easy to miss lately.",
+        reverse: true
+      },
+      {
+        id: "well-being-05",
+        dimension: "positiveMood",
+        text: "I have felt emotionally flat most of the time.",
+        reverse: true
+      },
+      {
+        id: "well-being-06",
+        dimension: "calmness",
+        text: "I have felt able to settle my mind when I need to."
+      },
+      {
+        id: "well-being-07",
+        dimension: "calmness",
+        text: "I have had moments where I could breathe, pause, or reset."
+      },
+      {
+        id: "well-being-08",
+        dimension: "calmness",
+        text: "My days have felt constantly tense or rushed.",
+        reverse: true
+      },
+      {
+        id: "well-being-09",
+        dimension: "calmness",
+        text: "I have been able to recover after stressful moments."
+      },
+      {
+        id: "well-being-10",
+        dimension: "calmness",
+        text: "Small problems have stayed in my mind for a long time.",
+        reverse: true
+      },
+      {
+        id: "well-being-11",
+        dimension: "energy",
+        text: "I have had enough energy for the basics of my day."
+      },
+      {
+        id: "well-being-12",
+        dimension: "energy",
+        text: "Rest has helped me feel at least somewhat refreshed."
+      },
+      {
+        id: "well-being-13",
+        dimension: "energy",
+        text: "Even small tasks have felt unusually effortful.",
+        reverse: true
+      },
+      {
+        id: "well-being-14",
+        dimension: "energy",
+        text: "My body has felt ready for ordinary activities."
+      },
+      {
+        id: "well-being-15",
+        dimension: "energy",
+        text: "I have felt worn down before the day really begins.",
+        reverse: true
+      },
+      {
+        id: "well-being-16",
+        dimension: "interestEngagement",
+        text: "I have felt interested in at least a few things I do."
+      },
+      {
+        id: "well-being-17",
+        dimension: "interestEngagement",
+        text: "Some activities have felt meaningful or worth my attention."
+      },
+      {
+        id: "well-being-18",
+        dimension: "interestEngagement",
+        text: "Most activities have felt flat or disconnected.",
+        reverse: true
+      },
+      {
+        id: "well-being-19",
+        dimension: "interestEngagement",
+        text: "I have felt curious or engaged, even in small ways."
+      },
+      {
+        id: "well-being-20",
+        dimension: "interestEngagement",
+        text: "It has been difficult to care about things I usually value.",
+        reverse: true
+      },
+      {
+        id: "well-being-21",
+        dimension: "dailyFunctioning",
+        text: "My usual routines have felt mostly manageable."
+      },
+      {
+        id: "well-being-22",
+        dimension: "dailyFunctioning",
+        text: "I have been able to take care of basic responsibilities."
+      },
+      {
+        id: "well-being-23",
+        dimension: "dailyFunctioning",
+        text: "I have struggled to keep up with ordinary routines.",
+        reverse: true
+      },
+      {
+        id: "well-being-24",
+        dimension: "dailyFunctioning",
+        text: "I have had at least some support, structure, or connection to lean on."
+      },
+      {
+        id: "well-being-25",
+        dimension: "dailyFunctioning",
+        text: "My days have felt too disorganized to handle the basics.",
+        reverse: true
+      }
     ],
     relatedNotes: [
-      { label: "Read Emotion Regulation", href: "/lab-notes/emotion-regulation" },
-      { label: "Read Self-Determination Theory", href: "/lab-notes/self-determination-theory" }
+      { label: "Emotion Regulation", href: "/lab-notes/emotion-regulation" },
+      { label: "Self-Determination Theory", href: "/lab-notes/self-determination-theory" },
+      { label: "Attachment Theory", href: "/lab-notes/attachment-theory" }
     ]
   },
   {
