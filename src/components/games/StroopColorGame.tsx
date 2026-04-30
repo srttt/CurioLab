@@ -41,7 +41,9 @@ export default function StroopColorGame() {
 
   function choose(name: string) {
     if (!started || done) return;
-    setTimes((current) => [...current, Math.round(performance.now() - startedAt.current)]);
+    const elapsed = Math.max(0, Math.round(performance.now() - startedAt.current));
+
+    setTimes((current) => [...current, elapsed]);
     if (name === round.ink.name) setCorrect((current) => current + 1);
     setCount((current) => current + 1);
     setRound(randomRound());
