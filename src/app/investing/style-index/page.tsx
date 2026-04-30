@@ -156,7 +156,6 @@ export default function InvestmentStyleIndexPage() {
                   description=""
                   framed={false}
                   scores={getMasterDimensionScores(master)}
-                  showLabels={false}
                   title=""
                 />
               </div>
