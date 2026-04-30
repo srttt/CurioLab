@@ -10,6 +10,22 @@ export const games: ContentItem[] = [
     type: "game"
   },
   {
+    title: "3D Reaction Orb",
+    slug: "reaction-orb-3d",
+    category: "Reaction",
+    duration: "1 min",
+    description: "Tap the glowing orb when it changes color.",
+    type: "game"
+  },
+  {
+    title: "Sky Lane Runner",
+    slug: "sky-lane-runner",
+    category: "Action",
+    duration: "2 min",
+    description: "Guide a cube along a floating road and dodge incoming obstacles.",
+    type: "game"
+  },
+  {
     title: "Memory Flip Game",
     slug: "memory-flip",
     category: "Memory",

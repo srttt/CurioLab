@@ -45,7 +45,7 @@ export default function Home() {
     <>
       <Hero />
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <section className="grid gap-5 md:grid-cols-3">
+        <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <SectionCard
             cta="Explore Assessments"
             description="Evidence-informed self-assessments for personality, well-being, stress, social energy, decision style, and motivation."
@@ -66,6 +66,13 @@ export default function Home() {
             href="/lab-notes"
             icon="notes"
             title="Lab Notes"
+          />
+          <SectionCard
+            cta="Explore Investing"
+            description="Build investing literacy through risk, behavior, allocation, and decision journals without recommendations or predictions."
+            href="/investing"
+            icon="investing"
+            title="Investing"
           />
         </section>
 

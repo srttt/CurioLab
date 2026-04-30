@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, BrainCircuit, Gamepad2, NotebookText } from "lucide-react";
+import { ArrowRight, BrainCircuit, Gamepad2, LineChart, NotebookText } from "lucide-react";
 import { BiInline, BiText } from "@/components/BilingualText";
 
 const icons = {
   assessments: BrainCircuit,
   games: Gamepad2,
-  notes: NotebookText
+  notes: NotebookText,
+  investing: LineChart
 };
 
 type SectionCardProps = {

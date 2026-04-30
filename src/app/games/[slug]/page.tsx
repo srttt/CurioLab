@@ -17,11 +17,15 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
 
   const noteSlugByGame: Record<string, string> = {
     "reaction-speed": "yerkes-dodson-law",
+    "reaction-orb-3d": "yerkes-dodson-law",
+    "sky-lane-runner": "yerkes-dodson-law",
     "memory-flip": "working-memory",
     "stroop-color": "stroop-effect"
   };
   const assessmentSlugByGame: Record<string, string> = {
     "reaction-speed": "stress-recovery-profile",
+    "reaction-orb-3d": "stress-recovery-profile",
+    "sky-lane-runner": "stress-recovery-profile",
     "memory-flip": "decision-style-profile",
     "stroop-color": "stress-recovery-profile"
   };

@@ -1,6 +1,6 @@
 import type { Note } from "@/types/content";
 
-export const noteCategories = ["All", "Personality", "Mood", "Attention", "Decision", "Social", "Motivation"] as const;
+export const noteCategories = ["All", "Personality", "Mood", "Attention", "Decision", "Social", "Motivation", "Investing"] as const;
 
 export const notes: Note[] = [
   {
@@ -503,6 +503,82 @@ export const notes: Note[] = [
         body: [
           "Calling something a bias should not become a way to dismiss another person. Everyone uses shortcuts, and context often explains why a shortcut was tempting.",
           "CurioLab notes are for playful learning and self-reflection. They are not medical or psychological diagnosis."
+        ]
+      }
+    ]
+  },
+  {
+    title: "Modern Investment Masters: Ideas and Styles",
+    slug: "modern-investment-masters",
+    category: "Investing",
+    duration: "8 min",
+    description:
+      "A learning note on several highly influential modern investors and the core ideas behind their styles.",
+    type: "note",
+    intro:
+      "Influential investors are useful to study because each one turns uncertainty into a different decision process.",
+    takeaways: [
+      "Great investors often differ less in opinions than in discipline, time horizon, and risk control.",
+      "Most famous styles are frameworks, not formulas you can copy directly.",
+      "The useful question is not who is right forever, but which idea fits which kind of decision."
+    ],
+    reflectionPrompt:
+      "Which style are you most tempted to copy, and what risk might appear if you copied it without the full context?",
+    related: [
+      { label: "Explore Investing", href: "/investing" },
+      { label: "Start Decision Style Profile", href: "/assessments/decision-style-profile" },
+      { label: "Read Cognitive Biases", href: "/lab-notes/cognitive-biases" }
+    ],
+    sections: [
+      {
+        heading: "Benjamin Graham: defensive value",
+        body: [
+          "Benjamin Graham shaped modern value investing by treating stocks as partial ownership of businesses rather than moving symbols on a screen. His core idea was to estimate value carefully, then demand a margin of safety before acting.",
+          "Style: conservative, analytical, price-sensitive, and skeptical of stories. Graham's approach is most useful when the main risk is overpaying for uncertain future promises."
+        ]
+      },
+      {
+        heading: "Warren Buffett and Charlie Munger: quality value",
+        body: [
+          "Warren Buffett extended Graham's value discipline toward durable businesses, strong economics, capable managers, and long holding periods. Charlie Munger pushed the style further by emphasizing mental models, incentives, patience, and avoiding obvious mistakes.",
+          "Style: long-term, business-focused, quality-aware, and selective. Their lesson is not simply buy cheap; it is understand the business, stay within a circle of competence, and let compounding work when the evidence is strong."
+        ]
+      },
+      {
+        heading: "John Bogle: low-cost indexing",
+        body: [
+          "John Bogle changed investing by making broad, low-cost index funds a practical default for ordinary investors. His central argument was that many investors are better served by owning diversified markets at low cost than by constantly trying to beat them.",
+          "Style: passive, diversified, cost-conscious, and behaviorally humble. Bogle's influence is partly philosophical: if you cannot reliably identify winners in advance, control costs, taxes, turnover, and your own behavior."
+        ]
+      },
+      {
+        heading: "Peter Lynch: knowable growth",
+        body: [
+          "Peter Lynch popularized the idea that everyday observation can sometimes lead to investment insight, especially when paired with research. He looked for understandable companies, growth at a reasonable price, and evidence that a story was becoming real in the numbers.",
+          "Style: active, curious, company-specific, and flexible across categories. The simplified phrase buy what you know is incomplete; Lynch's deeper lesson is to understand what you own and verify the story with fundamentals."
+        ]
+      },
+      {
+        heading: "George Soros and Ray Dalio: macro systems",
+        body: [
+          "George Soros is associated with reflexivity: the idea that market participants' beliefs can change prices, and changing prices can then change the fundamentals people are reacting to. This makes bubbles, crashes, and feedback loops central to his style.",
+          "Ray Dalio represents a more systematic macro style: balance exposure across economic environments, diversify return streams, and avoid depending on a single forecast. His All Weather and risk-parity ideas focus on what happens if growth and inflation surprise in different directions.",
+          "Style: macro-aware, systems-oriented, and focused on regimes. The lesson is that markets are not only spreadsheets; they are feedback systems shaped by expectations, policy, leverage, and crowd behavior."
+        ]
+      },
+      {
+        heading: "Howard Marks: risk and cycles",
+        body: [
+          "Howard Marks is known for emphasizing risk control, cycles, market psychology, and second-level thinking. A first-level thinker asks whether something is good. A second-level thinker asks what expectations are already in the price.",
+          "Style: contrarian, cycle-aware, risk-first, and probabilistic. Marks is useful because he treats risk less as volatility on a chart and more as the possibility of permanent loss, poor positioning, or being forced to sell at the wrong time."
+        ]
+      },
+      {
+        heading: "What to learn, not copy",
+        body: [
+          "These investors disagree in method. Graham looks for safety in price, Buffett and Munger in business quality, Bogle in market ownership and low cost, Lynch in knowable companies, Soros and Dalio in macro feedback, and Marks in risk and cycles.",
+          "The common thread is process. Each style defines what it will ignore, what evidence matters, what risks are unacceptable, and how decisions should be reviewed. That is more transferable than any single holding, trade, or market call.",
+          "This note is for learning and self-reflection. It is not financial advice, investment advice, or a recommendation to buy or sell anything."
         ]
       }
     ]
