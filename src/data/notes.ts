@@ -533,6 +533,20 @@ export const notes: Note[] = [
     ],
     sections: [
       {
+        heading: "Skill-based lens from master30",
+        body: [
+          "The master30 project is useful because it treats each investor as a reusable thinking skill rather than only a biography. Its structure turns public books, interviews, letters, and strategy material into mental models, decision heuristics, trigger phrases, and boundaries for use.",
+          "That changes how to read these lab notes. Instead of asking which investor is right, ask what behavior can be reused: how the investor filters information, what they refuse to do, what evidence changes their mind, and what kind of mistake their system is designed to prevent.",
+          "The project groups masters into value, growth, and hybrid styles. CurioLab keeps a smaller set for now, but this note now uses the same skill-oriented lens: ideas should become rules, rules should become practice, and practice should remain clearly separated from financial advice."
+        ],
+        links: [
+          {
+            label: "master30 GitHub project",
+            href: "https://github.com/hgsz2003/master30"
+          }
+        ]
+      },
+      {
         heading: "Benjamin Graham: defensive value",
         body: [
           "Benjamin Graham is often treated as the starting point for modern value investing. His work turned stock selection into a discipline of business analysis, balance-sheet caution, and emotional restraint rather than a game of price prediction.",
@@ -772,8 +786,20 @@ export const notes: Note[] = [
         body: [
           "What to learn: insist on evidence, demand a cushion, and remember that the market's mood is not the same thing as value. What not to copy blindly: buying something only because it looks cheap without understanding why it is cheap.",
           "A Graham-style question is useful before any exciting idea: if the story disappoints, what protects the decision?"
+        ]
+      },
+      {
+        heading: "Reusable skill translation",
+        body: [
+          "The master30 Graham skill frames him as a defensive operating system built around six reusable ideas: margin of safety, intrinsic value, Mr. Market, the strict line between investment and speculation, the defensive versus enterprising investor, and quantitative discipline.",
+          "Turned into a practical rule, Graham asks you to write the filter before you look at the story: valuation anchor, balance-sheet safety, debt limits, earnings stability, dividend signal, and an explicit reason why the current price protects you from being wrong.",
+          "The useful anti-pattern is just as important: do not let a cheap-looking price override deteriorating business quality, excessive leverage, or a narrative you cannot verify with numbers."
         ],
         links: [
+          {
+            label: "master30 Graham SKILL.md",
+            href: "https://github.com/hgsz2003/master30/blob/main/master-graham-perspective/SKILL.md"
+          },
           {
             label: "The Intelligent Investor - Harper Academic",
             href: "https://www.harperacademic.com/book/9780061745171/the-intelligent-investor-rev-ed/"
@@ -827,8 +853,20 @@ export const notes: Note[] = [
         body: [
           "What to learn: patience, selectivity, business literacy, and the power of compounding. What not to copy blindly: concentrating heavily without Buffett's knowledge, temperament, deal access, insurance float, and decades-long time horizon.",
           "A Buffett-style question is useful when an idea looks attractive: would I still want to own this if the quote disappeared for several years?"
+        ]
+      },
+      {
+        heading: "Reusable skill translation",
+        body: [
+          "The master30 Buffett skill turns the Buffett lens into a three-part research workflow: first decide whether the business can be understood, then study business quality and people, then ask whether the price requires a perfect story.",
+          "As a reusable rule, put every idea through the sequence: circle of competence, moat durability, owner earnings, management incentives, capital allocation record, and margin of safety. If one step is vague, the idea moves to the too-hard pile.",
+          "The anti-pattern is false familiarity. A brand you know, a company you admire, or a stock that has fallen is not enough unless the business economics and price can be explained plainly."
         ],
         links: [
+          {
+            label: "master30 Buffett SKILL.md",
+            href: "https://github.com/hgsz2003/master30/blob/main/master-buffett-perspective/SKILL.md"
+          },
           {
             label: "Berkshire Hathaway Annual Reports",
             href: "https://www.berkshirehathaway.com/reports.html"
@@ -996,8 +1034,20 @@ export const notes: Note[] = [
         body: [
           "What to learn: start with what you can understand, then verify it. What not to copy blindly: confusing familiarity with analysis. Liking a product is not the same as understanding the company, valuation, balance sheet, and competitive future.",
           "A Lynch-style question is useful after you notice something interesting: what evidence would show that this observation is actually becoming business performance?"
+        ]
+      },
+      {
+        heading: "Reusable skill translation",
+        body: [
+          "The master30 Lynch skill makes Lynch's process more operational: begin with ordinary observation, classify the stock, verify the story through financial evidence, then keep checking whether the original thesis is still happening.",
+          "A reusable Lynch rule is: observation is only a lead. Before acting, classify the company as a slow grower, stalwart, fast grower, cyclical, turnaround, or asset play, because each category needs a different expectation and sell discipline.",
+          "The anti-pattern is turning buy what you know into buy what you like. Lynch-style curiosity becomes useful only after the product, valuation, balance sheet, growth rate, competition, and field evidence agree with each other."
         ],
         links: [
+          {
+            label: "master30 Lynch SKILL.md",
+            href: "https://github.com/hgsz2003/master30/blob/main/master-lynch-perspective/SKILL.md"
+          },
           {
             label: "One Up On Wall Street - Simon & Schuster",
             href: "https://www.simonandschuster.com/books/One-Up-On-Wall-Street/Peter-Lynch/9780743200400"
