@@ -511,19 +511,19 @@ export const notes: Note[] = [
     title: "Modern Investment Masters: Ideas and Styles",
     slug: "modern-investment-masters",
     category: "Investing",
-    duration: "8 min",
+    duration: "15 min",
     description:
-      "A learning note on several highly influential modern investors and the core ideas behind their styles.",
+      "A field guide to influential modern investors, their decision styles, and learning resources for deeper study.",
     type: "note",
     intro:
-      "Influential investors are useful to study because each one turns uncertainty into a different decision process.",
+      "Influential investors are useful to study because each one turns uncertainty into a different decision process, risk discipline, and way of learning from markets.",
     takeaways: [
-      "Great investors often differ less in opinions than in discipline, time horizon, and risk control.",
-      "Most famous styles are frameworks, not formulas you can copy directly.",
-      "The useful question is not who is right forever, but which idea fits which kind of decision."
+      "Each investor is best studied as a decision system, not as a source of hot tips.",
+      "The transferable lessons are process, temperament, risk control, and review habits.",
+      "A style that works for one person may fail when copied without the same time horizon, constraints, and emotional discipline."
     ],
     reflectionPrompt:
-      "Which style are you most tempted to copy, and what risk might appear if you copied it without the full context?",
+      "Which investor's style feels most natural to you, and what blind spot might come with that attraction?",
     related: [
       { label: "Explore Investing", href: "/investing" },
       { label: "Start Decision Style Profile", href: "/assessments/decision-style-profile" },
@@ -533,51 +533,165 @@ export const notes: Note[] = [
       {
         heading: "Benjamin Graham: defensive value",
         body: [
-          "Benjamin Graham shaped modern value investing by treating stocks as partial ownership of businesses rather than moving symbols on a screen. His core idea was to estimate value carefully, then demand a margin of safety before acting.",
-          "Style: conservative, analytical, price-sensitive, and skeptical of stories. Graham's approach is most useful when the main risk is overpaying for uncertain future promises."
+          "Benjamin Graham is often treated as the starting point for modern value investing. His work turned stock selection into a discipline of business analysis, balance-sheet caution, and emotional restraint rather than a game of price prediction.",
+          "His core idea is margin of safety: do not rely on a perfect forecast. Estimate value conservatively, then leave room for error, bad luck, and human overconfidence. This is why Graham is useful for people who are easily pulled into exciting stories.",
+          "Graham's style is defensive, analytical, diversified, and price-sensitive. He separates investing from speculation by asking whether the buyer has done enough analysis and whether the price already protects against disappointment.",
+          "What to learn: insist on evidence, demand a cushion, and remember that the market's mood is not the same thing as value. What not to copy blindly: buying something only because it looks cheap without understanding why it is cheap."
+        ],
+        links: [
+          {
+            label: "The Intelligent Investor - Harper Academic",
+            href: "https://www.harperacademic.com/book/9780061745171/the-intelligent-investor-rev-ed/"
+          },
+          {
+            label: "Heilbrunn Center for Graham & Dodd Investing",
+            href: "https://business.columbia.edu/heilbrunn"
+          }
         ]
       },
       {
-        heading: "Warren Buffett and Charlie Munger: quality value",
+        heading: "Warren Buffett: business quality and compounding",
         body: [
-          "Warren Buffett extended Graham's value discipline toward durable businesses, strong economics, capable managers, and long holding periods. Charlie Munger pushed the style further by emphasizing mental models, incentives, patience, and avoiding obvious mistakes.",
-          "Style: long-term, business-focused, quality-aware, and selective. Their lesson is not simply buy cheap; it is understand the business, stay within a circle of competence, and let compounding work when the evidence is strong."
+          "Warren Buffett began with Graham's value discipline, then gradually shifted the center of gravity from statistically cheap securities to exceptional businesses bought at sensible prices. The question became not only what is it worth, but how durable is the business engine?",
+          "His style emphasizes owner thinking. A stock is a fractional claim on a business, so the investor should care about management quality, reinvestment opportunities, competitive advantage, capital allocation, and the ability to hold through noise.",
+          "Buffett's most useful idea for learners is the circle of competence. You do not need an opinion on everything. You need to know what you can understand, what evidence you can evaluate, and when the honest answer is I do not know.",
+          "What to learn: patience, selectivity, business literacy, and the power of compounding. What not to copy blindly: concentrating heavily without Buffett's knowledge, temperament, deal access, insurance float, and decades-long time horizon."
+        ],
+        links: [
+          {
+            label: "Berkshire Hathaway Annual Reports",
+            href: "https://www.berkshirehathaway.com/reports.html"
+          },
+          {
+            label: "Berkshire Hathaway Owner's Manual",
+            href: "https://www.berkshirehathaway.com/ownman.pdf"
+          }
         ]
       },
       {
-        heading: "John Bogle: low-cost indexing",
+        heading: "Charlie Munger: mental models and avoiding stupidity",
         body: [
-          "John Bogle changed investing by making broad, low-cost index funds a practical default for ordinary investors. His central argument was that many investors are better served by owning diversified markets at low cost than by constantly trying to beat them.",
-          "Style: passive, diversified, cost-conscious, and behaviorally humble. Bogle's influence is partly philosophical: if you cannot reliably identify winners in advance, control costs, taxes, turnover, and your own behavior."
+          "Charlie Munger made the Buffett style broader and sharper. He pushed Berkshire toward better businesses, deeper thinking about incentives, and a multidisciplinary approach to judgment. In his view, investing was partly a test of worldly wisdom.",
+          "Munger's most famous contribution is the latticework of mental models. He encouraged learning the big ideas from psychology, economics, accounting, biology, engineering, and history, then using them together instead of forcing every problem through one narrow model.",
+          "His style is concentrated, patient, quality-biased, and intensely focused on error prevention. A Munger-like question is not how can I look brilliant, but what obvious mistake could destroy the outcome?",
+          "What to learn: study incentives, invert problems, build checklists, and respect psychological bias. What not to copy blindly: using the language of mental models as decoration without doing the slow work of learning the models."
+        ],
+        links: [
+          {
+            label: "Poor Charlie's Almanack - Stripe Press",
+            href: "https://www.stripe.press/poor-charlies-almanack"
+          },
+          {
+            label: "The Psychology of Human Misjudgment",
+            href: "https://fs.blog/great-talks/psychology-human-misjudgment/"
+          }
         ]
       },
       {
-        heading: "Peter Lynch: knowable growth",
+        heading: "John Bogle: low-cost market ownership",
         body: [
-          "Peter Lynch popularized the idea that everyday observation can sometimes lead to investment insight, especially when paired with research. He looked for understandable companies, growth at a reasonable price, and evidence that a story was becoming real in the numbers.",
-          "Style: active, curious, company-specific, and flexible across categories. The simplified phrase buy what you know is incomplete; Lynch's deeper lesson is to understand what you own and verify the story with fundamentals."
+          "John C. Bogle changed the practical life of investing by making broad, low-cost indexing a serious default for ordinary investors. His message was simple but radical: many people do not need to beat the market to benefit from capitalism.",
+          "Bogle's central focus was the arithmetic of costs. Every fee, tax drag, turnover cost, and behavioral mistake comes out of the investor's return. If the future is uncertain, controlling the controllable becomes a powerful strategy.",
+          "His style is diversified, passive, cost-aware, and behaviorally humble. It accepts that forecasting winners is difficult and that staying the course can matter more than having an impressive opinion.",
+          "What to learn: simplicity, discipline, diversification, and low friction. What not to copy blindly: assuming indexing removes all risk. Market ownership still includes drawdowns, long waiting periods, and the need for a plan you can actually hold."
+        ],
+        links: [
+          {
+            label: "John C. Bogle Center for Financial Literacy",
+            href: "https://boglecenter.net/about/"
+          },
+          {
+            label: "Bogleheads Getting Started",
+            href: "https://www.bogleheads.org/wiki/Getting_started"
+          },
+          {
+            label: "Bogleheads for Non-US Investors",
+            href: "https://www.bogleheads.org/wiki/Getting_started_for_non-US_investors"
+          }
         ]
       },
       {
-        heading: "George Soros and Ray Dalio: macro systems",
+        heading: "Peter Lynch: knowable growth and grounded curiosity",
         body: [
-          "George Soros is associated with reflexivity: the idea that market participants' beliefs can change prices, and changing prices can then change the fundamentals people are reacting to. This makes bubbles, crashes, and feedback loops central to his style.",
-          "Ray Dalio represents a more systematic macro style: balance exposure across economic environments, diversify return streams, and avoid depending on a single forecast. His All Weather and risk-parity ideas focus on what happens if growth and inflation surprise in different directions.",
-          "Style: macro-aware, systems-oriented, and focused on regimes. The lesson is that markets are not only spreadsheets; they are feedback systems shaped by expectations, policy, leverage, and crowd behavior."
+          "Peter Lynch is associated with the idea that useful investment clues can appear in ordinary life, but his approach was much more rigorous than the slogan buy what you know. Observation was only the beginning.",
+          "Lynch looked for understandable companies, growth at a reasonable price, and a clear story that could be checked against earnings, balance sheets, store visits, competitors, and industry conditions. The story had to become visible in the numbers.",
+          "His style is active, curious, flexible, and company-specific. He was willing to study many kinds of businesses rather than forcing every idea into one category. That curiosity is part of the method.",
+          "What to learn: start with what you can understand, then verify it. What not to copy blindly: confusing familiarity with analysis. Liking a product is not the same as understanding the company, valuation, balance sheet, and competitive future."
+        ],
+        links: [
+          {
+            label: "One Up On Wall Street - Simon & Schuster",
+            href: "https://www.simonandschuster.com/books/One-Up-On-Wall-Street/Peter-Lynch/9780743200400"
+          },
+          {
+            label: "Beating the Street - Simon & Schuster",
+            href: "https://www.simonandschuster.com/books/Beating-the-Street/Peter-Lynch/9780671891633"
+          }
         ]
       },
       {
-        heading: "Howard Marks: risk and cycles",
+        heading: "George Soros: reflexivity and market feedback",
         body: [
-          "Howard Marks is known for emphasizing risk control, cycles, market psychology, and second-level thinking. A first-level thinker asks whether something is good. A second-level thinker asks what expectations are already in the price.",
-          "Style: contrarian, cycle-aware, risk-first, and probabilistic. Marks is useful because he treats risk less as volatility on a chart and more as the possibility of permanent loss, poor positioning, or being forced to sell at the wrong time."
+          "George Soros is most closely associated with reflexivity: the idea that market participants do not merely observe reality. Their beliefs, actions, and prices can help change the reality they are trying to understand.",
+          "This matters because markets can create feedback loops. Rising prices can improve confidence, attract financing, and make a story look more true. Falling prices can tighten credit, damage confidence, and make the same story collapse.",
+          "Soros's style is macro, adaptive, psychological, and willing to change when the thesis changes. The emphasis is not on being calm and passive, but on recognizing when a prevailing belief is shaping the facts around it.",
+          "What to learn: watch feedback loops, crowd beliefs, leverage, policy, and turning points. What not to copy blindly: high-conviction macro trading without professional risk controls, liquidity awareness, and the ability to admit error quickly."
+        ],
+        links: [
+          {
+            label: "General Theory of Reflexivity - George Soros",
+            href: "https://www.georgesoros.com/2009/10/26/general_theory_of_reflexivity_lecture/"
+          },
+          {
+            label: "Open Society Lecture Series on Reflexivity",
+            href: "https://www.opensocietyfoundations.org/publications/george-soros-open-society-financial-crisis-and-way-ahead"
+          }
+        ]
+      },
+      {
+        heading: "Ray Dalio: economic machines and all-weather balance",
+        body: [
+          "Ray Dalio represents a more systematic macro tradition. He studies economies as machines made of credit, spending, income, productivity, policy, inflation, and expectations. The goal is to understand how environments change rather than rely on one forecast.",
+          "Dalio's All Weather thinking asks what kind of portfolio might be more balanced across different economic surprises. Growth, recession, inflation, and deflation can affect assets in different ways, so concentration in one environment can be fragile.",
+          "His style is systems-oriented, diversified, rules-aware, and macro-sensitive. It tries to reduce dependence on a single prediction by balancing exposures and learning from repeated historical patterns.",
+          "What to learn: think in scenarios, separate process from ego, and ask how a plan behaves if the world changes. What not to copy blindly: using simplified all-weather formulas without understanding leverage, correlations, costs, taxes, and local market constraints."
+        ],
+        links: [
+          {
+            label: "The All Weather Story - Bridgewater",
+            href: "https://www.bridgewater.com/research-and-insights/the-all-weather-story"
+          },
+          {
+            label: "Principles by Ray Dalio",
+            href: "https://www.principles.com/"
+          }
+        ]
+      },
+      {
+        heading: "Howard Marks: risk, cycles, and second-level thinking",
+        body: [
+          "Howard Marks is one of the clearest writers on risk, cycles, and market psychology. His memos are valuable because they show how an investor can think probabilistically without pretending to know the future.",
+          "Marks emphasizes second-level thinking. A first-level view asks whether something is a good asset. A second-level view asks what expectations are already reflected in the price, how the consensus could be wrong, and what range of outcomes is possible.",
+          "His style is contrarian, cycle-aware, risk-first, and patient. He treats risk less as day-to-day volatility and more as the possibility of permanent loss, poor positioning, excessive optimism, or being forced to sell at the wrong time.",
+          "What to learn: price matters, psychology swings, cycles do not disappear, and humility is part of risk control. What not to copy blindly: being contrarian for its own sake. Disagreeing with the crowd only helps when your reasoning and odds are better."
+        ],
+        links: [
+          {
+            label: "Howard Marks Memos - Oaktree",
+            href: "https://www.oaktreecapital.com/insights/memos"
+          },
+          {
+            label: "The Most Important Thing - Columbia University Press",
+            href: "https://cup.columbia.edu/book/the-most-important-thing/9780231527095/"
+          }
         ]
       },
       {
         heading: "What to learn, not copy",
         body: [
-          "These investors disagree in method. Graham looks for safety in price, Buffett and Munger in business quality, Bogle in market ownership and low cost, Lynch in knowable companies, Soros and Dalio in macro feedback, and Marks in risk and cycles.",
-          "The common thread is process. Each style defines what it will ignore, what evidence matters, what risks are unacceptable, and how decisions should be reviewed. That is more transferable than any single holding, trade, or market call.",
+          "These investors disagree in method. Graham looks for safety in price, Buffett in business quality, Munger in judgment, Bogle in market ownership and low cost, Lynch in knowable companies, Soros in reflexive feedback, Dalio in macro balance, and Marks in risk and cycles.",
+          "The common thread is process. Each style defines what it will ignore, what evidence matters, what risks are unacceptable, and how decisions should be reviewed. That is more transferable than any single holding, trade, fund, or market call.",
+          "A useful learning practice is to keep an investment journal for ideas you study. Write down the thesis, the evidence, the risks, what would change your mind, and a review date. This turns famous-investor reading into self-observation instead of imitation.",
           "This note is for learning and self-reflection. It is not financial advice, investment advice, or a recommendation to buy or sell anything."
         ]
       }

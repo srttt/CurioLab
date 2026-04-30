@@ -20,5 +20,9 @@ export type Note = ContentItem & {
   sections: {
     heading: string;
     body: string[];
+    links?: {
+      label: string;
+      href: string;
+    }[];
   }[];
 };

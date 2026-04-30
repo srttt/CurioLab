@@ -1,6 +1,14 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type CSSProperties,
+  type ReactNode
+} from "react";
 import { getChineseText } from "@/data/translations";
 
 type LanguageMode = "en" | "bilingual";
@@ -19,6 +27,11 @@ const LanguageContext = createContext<{
   mode: "bilingual",
   setMode: () => {}
 });
+
+const wrappingTextStyle: CSSProperties = {
+  overflowWrap: "anywhere",
+  wordBreak: "normal"
+};
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mode, setModeState] = useState<LanguageMode>("bilingual");
@@ -68,11 +81,18 @@ export function BiText({
 }: BilingualTextProps) {
   const { mode } = useLanguage();
   const chinese = zh ?? getChineseText(text);
+  const mergedClassName = ["block min-w-0 max-w-full whitespace-normal", className].filter(Boolean).join(" ");
 
   return (
-    <span className={className}>
-      <span className="block">{text}</span>
-      {mode === "bilingual" && chinese && <span className={zhClassName}>{chinese}</span>}
+    <span className={mergedClassName} style={wrappingTextStyle}>
+      <span className="block min-w-0 max-w-full" style={wrappingTextStyle}>
+        {text}
+      </span>
+      {mode === "bilingual" && chinese && (
+        <span className={`${zhClassName} min-w-0 max-w-full`} style={wrappingTextStyle}>
+          {chinese}
+        </span>
+      )}
     </span>
   );
 }
@@ -82,7 +102,7 @@ export function BiInline({ text, zh, className }: BilingualTextProps) {
   const chinese = zh ?? getChineseText(text);
 
   return (
-    <span className={className}>
+    <span className={className} style={wrappingTextStyle}>
       {text}
       {mode === "bilingual" && chinese && <span className="text-current/70"> / {chinese}</span>}
     </span>
