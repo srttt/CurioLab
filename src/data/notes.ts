@@ -542,6 +542,10 @@ export const notes: Note[] = [
         ],
         links: [
           {
+            label: "Read detailed Benjamin Graham note",
+            href: "/lab-notes/benjamin-graham"
+          },
+          {
             label: "The Intelligent Investor - Harper Academic",
             href: "https://www.harperacademic.com/book/9780061745171/the-intelligent-investor-rev-ed/"
           },
@@ -560,6 +564,10 @@ export const notes: Note[] = [
           "What to learn: patience, selectivity, business literacy, and the power of compounding. What not to copy blindly: concentrating heavily without Buffett's knowledge, temperament, deal access, insurance float, and decades-long time horizon."
         ],
         links: [
+          {
+            label: "Read detailed Warren Buffett note",
+            href: "/lab-notes/warren-buffett"
+          },
           {
             label: "Berkshire Hathaway Annual Reports",
             href: "https://www.berkshirehathaway.com/reports.html"
@@ -580,6 +588,10 @@ export const notes: Note[] = [
         ],
         links: [
           {
+            label: "Read detailed Charlie Munger note",
+            href: "/lab-notes/charlie-munger"
+          },
+          {
             label: "Poor Charlie's Almanack - Stripe Press",
             href: "https://www.stripe.press/poor-charlies-almanack"
           },
@@ -598,6 +610,10 @@ export const notes: Note[] = [
           "What to learn: simplicity, discipline, diversification, and low friction. What not to copy blindly: assuming indexing removes all risk. Market ownership still includes drawdowns, long waiting periods, and the need for a plan you can actually hold."
         ],
         links: [
+          {
+            label: "Read detailed John Bogle note",
+            href: "/lab-notes/john-bogle"
+          },
           {
             label: "John C. Bogle Center for Financial Literacy",
             href: "https://boglecenter.net/about/"
@@ -622,6 +638,10 @@ export const notes: Note[] = [
         ],
         links: [
           {
+            label: "Read detailed Peter Lynch note",
+            href: "/lab-notes/peter-lynch"
+          },
+          {
             label: "One Up On Wall Street - Simon & Schuster",
             href: "https://www.simonandschuster.com/books/One-Up-On-Wall-Street/Peter-Lynch/9780743200400"
           },
@@ -640,6 +660,10 @@ export const notes: Note[] = [
           "What to learn: watch feedback loops, crowd beliefs, leverage, policy, and turning points. What not to copy blindly: high-conviction macro trading without professional risk controls, liquidity awareness, and the ability to admit error quickly."
         ],
         links: [
+          {
+            label: "Read detailed George Soros note",
+            href: "/lab-notes/george-soros"
+          },
           {
             label: "General Theory of Reflexivity - George Soros",
             href: "https://www.georgesoros.com/2009/10/26/general_theory_of_reflexivity_lecture/"
@@ -660,6 +684,10 @@ export const notes: Note[] = [
         ],
         links: [
           {
+            label: "Read detailed Ray Dalio note",
+            href: "/lab-notes/ray-dalio"
+          },
+          {
             label: "The All Weather Story - Bridgewater",
             href: "https://www.bridgewater.com/research-and-insights/the-all-weather-story"
           },
@@ -678,6 +706,10 @@ export const notes: Note[] = [
           "What to learn: price matters, psychology swings, cycles do not disappear, and humility is part of risk control. What not to copy blindly: being contrarian for its own sake. Disagreeing with the crowd only helps when your reasoning and odds are better."
         ],
         links: [
+          {
+            label: "Read detailed Howard Marks note",
+            href: "/lab-notes/howard-marks"
+          },
           {
             label: "Howard Marks Memos - Oaktree",
             href: "https://www.oaktreecapital.com/insights/memos"

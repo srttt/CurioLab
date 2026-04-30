@@ -72,18 +72,32 @@ export default function NoteDetailPage({ params }: { params: { slug: string } })
                     <BiInline text="Learning links" />
                   </h3>
                   <div className="mt-3 flex flex-wrap gap-3">
-                    {section.links.map((link) => (
-                      <a
-                        className="focus-ring inline-flex max-w-full min-w-0 items-center gap-2 whitespace-normal break-words rounded-full border border-ink/12 bg-white px-4 py-2 text-left text-sm font-bold text-ink/72 transition hover:border-ink/28 hover:text-ink"
-                        href={link.href}
-                        key={link.href}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        <BiInline text={link.label} />
-                        <ExternalLink size={14} aria-hidden="true" />
-                      </a>
-                    ))}
+                    {section.links.map((link) => {
+                      const className =
+                        "focus-ring inline-flex max-w-full min-w-0 items-center gap-2 whitespace-normal break-words rounded-full border border-ink/12 bg-white px-4 py-2 text-left text-sm font-bold text-ink/72 transition hover:border-ink/28 hover:text-ink";
+
+                      if (link.href.startsWith("/")) {
+                        return (
+                          <Link className={className} href={link.href} key={link.href}>
+                            <BiInline text={link.label} />
+                            <ArrowRight size={14} aria-hidden="true" />
+                          </Link>
+                        );
+                      }
+
+                      return (
+                        <a
+                          className={className}
+                          href={link.href}
+                          key={link.href}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          <BiInline text={link.label} />
+                          <ExternalLink size={14} aria-hidden="true" />
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               )}
