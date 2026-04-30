@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, BookOpenCheck, ClipboardList, ShieldAlert, UserRound } from "lucide-react";
+import { ArrowRight, BarChart3, BookOpenCheck, ClipboardList, FlaskConical, ShieldAlert, UserRound } from "lucide-react";
 import { BiInline, BiText } from "@/components/BilingualText";
 import { investmentMasters } from "@/data/investmentStyle";
 
@@ -36,6 +36,17 @@ const featuredLinks = [
     cta: "Take assessment",
     ctaZh: "开始测试",
     icon: ClipboardList
+  },
+  {
+    title: "Investment Master Skills",
+    titleZh: "投资大师的 Skills",
+    description:
+      "An experimental lab that translates master investors' behavior into reusable rules, norms, and practice templates.",
+    descriptionZh: "一个实验栏目，把投资大师的行为方式转译成可复用规则、规范和练习模板。",
+    href: "/investing/master-skills",
+    cta: "Open skill lab",
+    ctaZh: "打开 Skill 实验",
+    icon: FlaskConical
   }
 ];
 
@@ -57,7 +68,7 @@ export default function InvestingPage() {
         </p>
       </section>
 
-      <section className="mt-8 grid gap-5 lg:grid-cols-3">
+      <section className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {featuredLinks.map((item) => {
           const Icon = item.icon;
 

@@ -136,6 +136,15 @@ export default function InvestmentMasterPage({ params }: { params: { slug: strin
           <BiInline text="Read Modern Investment Masters" />
           <ArrowRight size={16} aria-hidden="true" />
         </Link>
+        {master.slug === "ray-dalio" && (
+          <Link
+            className="focus-ring inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-bold text-ink"
+            href="/investing/master-skills"
+          >
+            <BiInline text="Open Skill Lab" zh="打开 Skill 实验" />
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        )}
       </section>
     </article>
   );
