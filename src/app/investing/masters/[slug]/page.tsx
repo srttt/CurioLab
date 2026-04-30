@@ -153,6 +153,13 @@ export default function InvestmentMasterPage({ params }: { params: { slug: strin
       <section className="mt-8 flex flex-wrap gap-3">
         <Link
           className="focus-ring inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+          href={`/lab-notes/${master.slug}`}
+        >
+          <BiInline text="Read Lab Note" zh="阅读笔记" />
+          <ArrowRight size={16} aria-hidden="true" />
+        </Link>
+        <Link
+          className="focus-ring inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-bold text-ink"
           href="/assessments/investment-style-profile"
         >
           <BiInline text="Take Investment Style Profile" zh="开始投资风格测评" />
