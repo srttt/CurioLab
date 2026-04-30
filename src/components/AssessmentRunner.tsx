@@ -40,6 +40,7 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
   const isBigFive = assessment.slug === "big-five-personality-profile";
   const isStressRecovery = assessment.slug === "stress-recovery-profile";
   const isDecisionStyle = assessment.slug === "decision-style-profile";
+  const isInvestmentStyle = assessment.slug === "investment-style-profile";
   const isWellBeingCheck = assessment.slug === "well-being-check";
   const isSocialEnergy = assessment.slug === "social-energy-profile";
   const isMotivationNeeds = assessment.slug === "motivation-needs-profile";
@@ -192,6 +193,40 @@ export default function AssessmentRunner({ assessment }: { assessment: Assessmen
             </p>
             <p>
               <BiText text="It is not a label for introversion or extraversion. It is a self-reflection tool for understanding your current social rhythm." />
+            </p>
+          </div>
+          <button
+            className="focus-ring mt-6 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            onClick={() => setStarted(true)}
+            type="button"
+          >
+            <BiInline text="Start Assessment" />
+          </button>
+        </section>
+      );
+    }
+
+    if (isInvestmentStyle) {
+      return (
+        <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+            <BiInline text="Investment Style Profile" zh="投资风格画像" />
+          </p>
+          <h2 className="mt-2 text-3xl font-black">
+            <BiText text="How do you think about investing decisions?" zh="你如何思考投资决策？" />
+          </h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-8 text-ink/68">
+            <p>
+              <BiText
+                text="This assessment maps your tendencies across value, durability, research, diversification, costs, macro context, adaptation, downside discipline, time horizon, and behavior."
+                zh="这个测评会把你的倾向映射到价值、耐久性、研究、分散、成本、宏观环境、适应性、下行纪律、时间跨度和行为纪律上。"
+              />
+            </p>
+            <p>
+              <BiText
+                text="It is not financial advice or a prediction tool. It is a self-reflection map for learning how your investment thinking is currently weighted."
+                zh="它不是金融建议，也不是预测工具。它是一张自我反思地图，用来理解你当前的投资思考更偏向哪些维度。"
+              />
             </p>
           </div>
           <button

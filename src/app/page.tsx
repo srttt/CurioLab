@@ -48,7 +48,7 @@ export default function Home() {
         <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <SectionCard
             cta="Explore Assessments"
-            description="Evidence-informed self-assessments for personality, well-being, stress, social energy, decision style, and motivation."
+            description="Evidence-informed self-assessments for personality, well-being, stress, social energy, decision style, investing, and motivation."
             href="/assessments"
             icon="assessments"
             title="Assessments"

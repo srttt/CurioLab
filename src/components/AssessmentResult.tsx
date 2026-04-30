@@ -1,9 +1,15 @@
 import Link from "next/link";
-import { RotateCcw } from "lucide-react";
+import { ArrowRight, RotateCcw } from "lucide-react";
 import { BiInline, BiText, getZh } from "@/components/BilingualText";
 import BigFiveRadarChart from "@/components/BigFiveRadarChart";
 import DimensionScoreBar from "@/components/DimensionScoreBar";
+import ProfileRadarChart from "@/components/ProfileRadarChart";
 import RelatedNotes from "@/components/RelatedNotes";
+import {
+  getMostComplementaryInvestmentMaster,
+  getMostSimilarInvestmentMaster,
+  investmentStyleBenchmarks
+} from "@/data/investmentStyle";
 import type { AssessmentItem, DimensionScore } from "@/types/assessment";
 
 function describeScore(score: number) {
@@ -818,6 +824,87 @@ function getMotivationReflections(scores: DimensionScore[]) {
   return reflections.slice(0, 3);
 }
 
+function findInvestmentScore(scores: DimensionScore[], id: string) {
+  return scores.find((score) => score.id === id)?.score ?? 0;
+}
+
+function getInvestmentReflections(scores: DimensionScore[]) {
+  const high = (id: string) => findInvestmentScore(scores, id) >= 70;
+  const low = (id: string) => findInvestmentScore(scores, id) < 40;
+  const reflections: { en: string; zh: string }[] = [];
+
+  if (high("valuationAnchor")) {
+    reflections.push({
+      en: "Your valuation anchor is useful; keep separating a good story from a good price.",
+      zh: "你的估值锚定很有用；继续把好故事和好价格区分开。"
+    });
+  }
+
+  if (low("portfolioBreadth")) {
+    reflections.push({
+      en: "Check whether concentration is intentional, sized well, and survivable if you are wrong.",
+      zh: "检查集中是否是有意为之、仓位是否合适，以及如果判断错误是否还能承受。"
+    });
+  }
+
+  if (high("macroRegimeAwareness")) {
+    reflections.push({
+      en: "Use macro context as a risk lens, while keeping it connected to concrete portfolio choices.",
+      zh: "把宏观环境当作风险镜头，同时让它和具体组合选择保持连接。"
+    });
+  }
+
+  if (low("costFrictionAwareness")) {
+    reflections.push({
+      en: "Before adding complexity, estimate the drag from fees, taxes, turnover, spreads, and time.",
+      zh: "在增加复杂度之前，估算费用、税负、换手、价差和时间带来的拖累。"
+    });
+  }
+
+  if (high("downsideDiscipline")) {
+    reflections.push({
+      en: "Your downside focus can protect you; also define what evidence would justify taking enough risk.",
+      zh: "你的下行关注能提供保护；也可以定义什么证据足以支持承担适当风险。"
+    });
+  }
+
+  if (low("adaptability")) {
+    reflections.push({
+      en: "Write down what would change your mind before the position or idea becomes emotionally loaded.",
+      zh: "在持仓或想法变得情绪化之前，先写下什么会改变你的看法。"
+    });
+  }
+
+  if (high("timeHorizon")) {
+    reflections.push({
+      en: "A long horizon is valuable when paired with liquidity needs, review dates, and realistic patience.",
+      zh: "长期视角很有价值，但需要配合流动性需求、复盘日期和现实的耐心。"
+    });
+  }
+
+  if (high("behavioralDiscipline")) {
+    reflections.push({
+      en: "Keep using rules or journals so emotion becomes observable before it becomes action.",
+      zh: "继续使用规则或记录，让情绪在变成行动之前先变得可观察。"
+    });
+  }
+
+  if (reflections.length === 0) {
+    return [
+      {
+        en: "Notice which investment decisions need depth and which only need a simple rule.",
+        zh: "留意哪些投资决策需要深度，哪些只需要一个简单规则。"
+      },
+      {
+        en: "Compare your strongest dimensions with the risks that usually accompany them.",
+        zh: "把你最强的维度和它们通常伴随的风险放在一起比较。"
+      }
+    ];
+  }
+
+  return reflections.slice(0, 3);
+}
+
 export default function AssessmentResult({
   assessment,
   onRetake,
@@ -834,6 +921,7 @@ export default function AssessmentResult({
   const showBigFiveRadar = showBigFiveProfile && scores.length === 5;
   const showStressRecovery = assessment.slug === "stress-recovery-profile";
   const showDecisionProfile = assessment.slug === "decision-style-profile";
+  const showInvestmentStyle = assessment.slug === "investment-style-profile";
   const showWellBeingCheck = assessment.slug === "well-being-check";
   const showSocialEnergy = assessment.slug === "social-energy-profile";
   const showMotivationNeeds = assessment.slug === "motivation-needs-profile";
@@ -1369,6 +1457,174 @@ export default function AssessmentResult({
             href="/assessments"
           >
             <BiInline text="Explore Assessments" />
+          </Link>
+        </div>
+      </section>
+    );
+  }
+
+  if (showInvestmentStyle) {
+    const similar = getMostSimilarInvestmentMaster(scores);
+    const complementary = getMostComplementaryInvestmentMaster(scores);
+    const investmentReflections = getInvestmentReflections(scores);
+
+    return (
+      <section className="rounded-[2rem] border border-ink/10 bg-white/78 p-6 shadow-soft sm:p-8">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
+          <BiInline text="Your Profile" />
+        </p>
+        <h2 className="mt-2 text-3xl font-black">
+          <BiText text="Your Investment Style Profile" zh="你的投资风格画像" />
+        </h2>
+
+        <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          <ProfileRadarChart
+            badge="0-100 profile"
+            badgeZh="0-100 画像"
+            description="Your current pattern across the investment style benchmarks."
+            descriptionZh="你当前在投资风格指标上的分布。"
+            scores={scores}
+            title="Investment Style Radar"
+            titleZh="投资风格雷达"
+          />
+          <div className="grid gap-3">
+            {scores.map((score) => {
+              const benchmark = investmentStyleBenchmarks.find((item) => item.id === score.id);
+
+              return (
+                <div className="rounded-2xl border border-ink/10 bg-white p-4" key={score.id}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-black">
+                        <BiText text={score.label} zh={benchmark?.labelZh} />
+                      </h3>
+                      <p className="mt-1 text-sm font-bold text-ink/50">
+                        <BiInline text={getTendencyBand(score.score)} />
+                      </p>
+                      <p className="mt-1 text-sm leading-6 text-ink/58">
+                        <BiText text={score.description} zh={benchmark?.descriptionZh} />
+                      </p>
+                    </div>
+                    <span className="shrink-0 rounded-full bg-ink px-3 py-1 text-sm font-black text-white">
+                      {score.score} / 100
+                    </span>
+                  </div>
+                  <div className="mt-4 h-3 overflow-hidden rounded-full bg-mist">
+                    <div className="h-full rounded-full bg-coral" style={{ width: `${score.score}%` }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <section className="rounded-[1.5rem] border border-ink/10 bg-mist p-5">
+            <h3 className="font-black">
+              <BiInline text="Profile Summary" />
+            </h3>
+            <p className="mt-3 leading-7 text-ink/70">
+              <BiText
+                text={`Your strongest current emphasis is ${strongest.label}, while ${quietest.label} is quieter. The comparison below shows which investment master profile most resembles your pattern and which one may stretch your quieter dimensions.`}
+                zh={`你当前最强的强调点是 ${getZh(strongest.label) ?? strongest.label}，而 ${getZh(quietest.label) ?? quietest.label} 相对更安静。下面的比较会显示哪位投资大师的画像最接近你的模式，以及哪位可能补足你较弱的维度。`}
+              />
+            </p>
+          </section>
+
+          <section className="rounded-[1.5rem] border border-ink/10 bg-citron/35 p-5">
+            <h3 className="font-black">
+              <BiInline text="Reflection" />
+            </h3>
+            <ul className="mt-3 space-y-2 leading-7 text-ink/70">
+              {investmentReflections.map((reflection) => (
+                <li key={reflection.en}>
+                  - <BiText text={reflection.en} zh={reflection.zh} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
+        <section className="mt-6 grid gap-5 lg:grid-cols-2">
+          <div className="rounded-[1.5rem] border border-ink/10 bg-white p-5">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/46">
+              <BiInline text="Most similar master" zh="最相似的大师" />
+            </p>
+            <h3 className="mt-2 text-2xl font-black">
+              <BiText text={similar.master.name} zh={similar.master.nameZh} />
+            </h3>
+            <p className="mt-1 font-bold text-ink/58">
+              {Math.round(similar.similarity * 100)}% <BiInline text="style similarity" zh="风格相似度" />
+            </p>
+            <p className="mt-3 leading-7 text-ink/70">
+              <BiText text={similar.master.shortStyle} zh={similar.master.shortStyleZh} />
+            </p>
+            <Link
+              className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm font-bold text-white"
+              href={`/investing/masters/${similar.master.slug}`}
+            >
+              <BiInline text="View profile" zh="查看画像" />
+              <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="rounded-[1.5rem] border border-ink/10 bg-white p-5">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/46">
+              <BiInline text="Most complementary master" zh="最互补的大师" />
+            </p>
+            <h3 className="mt-2 text-2xl font-black">
+              <BiText text={complementary.master.name} zh={complementary.master.nameZh} />
+            </h3>
+            <p className="mt-3 leading-7 text-ink/70">
+              <BiText text={complementary.master.shortStyle} zh={complementary.master.shortStyleZh} />
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {complementary.dimensions.map((dimension) => (
+                <span className="rounded-full bg-mist px-3 py-1 text-xs font-bold text-ink/62" key={dimension.id}>
+                  <BiInline text={dimension.label} zh={dimension.labelZh} />
+                </span>
+              ))}
+            </div>
+            <Link
+              className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-bold text-ink"
+              href={`/investing/masters/${complementary.master.slug}`}
+            >
+              <BiInline text="View profile" zh="查看画像" />
+              <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-6 rounded-2xl bg-white p-4 text-sm font-medium leading-7 text-ink/68">
+          <h3 className="font-black text-ink">
+            <BiInline text="Keep in Mind" />
+          </h3>
+          <p className="mt-2">
+            <BiText
+              text="This result is a snapshot for learning and self-reflection, not financial advice or a permanent label. Your answers may change with market conditions, experience, stress, time horizon, and goals."
+              zh="这个结果是用于学习和自我反思的快照，不是金融建议，也不是永久标签。你的回答可能会随市场环境、经验、压力、时间跨度和目标变化。"
+            />
+          </p>
+        </section>
+
+        <div className="mt-6">
+          <RelatedNotes links={assessment.relatedNotes} title="Explore related content" />
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button
+            className="focus-ring inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-bold transition hover:border-ink/35"
+            onClick={onRetake}
+            type="button"
+          >
+            <RotateCcw size={16} aria-hidden="true" />
+            <BiInline text="Retake" />
+          </button>
+          <Link
+            className="focus-ring inline-flex rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+            href="/investing/style-index"
+          >
+            <BiInline text="Explore Investment Style Index" zh="探索投资风格指数" />
           </Link>
         </div>
       </section>

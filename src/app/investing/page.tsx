@@ -122,6 +122,13 @@ export default function InvestingPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white"
+              href="/investing/style-index"
+            >
+              <BiInline text="Explore Investment Style Index" zh="探索投资风格指数" />
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              className="focus-ring inline-flex w-fit items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-bold text-ink"
               href="/lab-notes/modern-investment-masters"
             >
               <BiInline text="Read Modern Investment Masters" />
@@ -129,9 +136,9 @@ export default function InvestingPage() {
             </Link>
             <Link
               className="focus-ring inline-flex w-fit items-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-bold text-ink"
-              href="/assessments/decision-style-profile"
+              href="/assessments/investment-style-profile"
             >
-              <BiInline text="Open Decision Style Profile" />
+              <BiInline text="Take Investment Style Profile" zh="开始投资风格测评" />
               <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>

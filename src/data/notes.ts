@@ -526,6 +526,8 @@ export const notes: Note[] = [
       "Which investor's style feels most natural to you, and what blind spot might come with that attraction?",
     related: [
       { label: "Explore Investing", href: "/investing" },
+      { label: "Explore Investment Style Index", href: "/investing/style-index" },
+      { label: "Start Investment Style Profile", href: "/assessments/investment-style-profile" },
       { label: "Start Decision Style Profile", href: "/assessments/decision-style-profile" },
       { label: "Read Cognitive Biases", href: "/lab-notes/cognitive-biases" }
     ],

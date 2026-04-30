@@ -13,7 +13,10 @@ export default function AssessmentsPage() {
           <BiText text="CurioLab Assessments" />
         </h1>
         <p className="mt-4 max-w-3xl text-lg leading-8 text-ink/68">
-          <BiText text="Evidence-informed self-assessments for personality, well-being, stress, social energy, decision style, and motivation." />
+          <BiText
+            text="Evidence-informed self-assessments for personality, well-being, stress, social energy, decision style, investing, and motivation."
+            zh="基于证据启发的自我测评，涵盖人格、幸福感、压力、社交能量、决策风格、投资和动机。"
+          />
         </p>
         <div className="mt-6 flex flex-wrap gap-2 text-sm font-bold text-ink/62">
           <span className="rounded-full bg-citron/45 px-4 py-2">{assessments.length} assessments / {assessments.length} 项测评</span>

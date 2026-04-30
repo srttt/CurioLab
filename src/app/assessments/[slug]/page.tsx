@@ -18,6 +18,7 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
   const isBigFive = assessment.slug === "big-five-personality-profile";
   const isStressRecovery = assessment.slug === "stress-recovery-profile";
   const isDecisionStyle = assessment.slug === "decision-style-profile";
+  const isInvestmentStyle = assessment.slug === "investment-style-profile";
   const isWellBeingCheck = assessment.slug === "well-being-check";
   const isSocialEnergy = assessment.slug === "social-energy-profile";
   const isMotivationNeeds = assessment.slug === "motivation-needs-profile";
@@ -70,6 +71,13 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
             <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
               <BiText text="This assessment measures five decision tendencies: analytical deliberation, intuitive confidence, loss sensitivity, information load sensitivity, and decision closure." />
             </p>
+          ) : isInvestmentStyle ? (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
+              <BiText
+                text="This assessment measures ten investment style tendencies: valuation anchor, durability preference, research depth, portfolio breadth, cost and friction awareness, macro and regime awareness, adaptability, downside discipline, time horizon, and behavioral discipline."
+                zh="这个测评衡量十种投资风格倾向：估值锚定、耐久性偏好、研究深度、组合广度、成本与摩擦意识、宏观与环境意识、适应与修正、下行纪律、时间跨度和行为纪律。"
+              />
+            </p>
           ) : isWellBeingCheck ? (
             <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
               <BiText text="This assessment measures five recent well-being signals: positive mood, calmness, energy, interest and engagement, and daily functioning." />
@@ -114,6 +122,13 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
             <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
               <BiText text="You will answer 25 short statements using a 5-point scale from Strongly disagree to Strongly agree. Your result shows a profile across five dimensions rather than a single decision type." />
             </p>
+          ) : isInvestmentStyle ? (
+            <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
+              <BiText
+                text="You will answer 30 short statements using a 5-point scale from Strongly disagree to Strongly agree. Your result shows a radar profile and compares it with investment master style maps."
+                zh="你将回答 30 条简短陈述，使用从强烈不同意到强烈同意的 5 点量表。结果会显示雷达画像，并把它与投资大师风格地图进行比较。"
+              />
+            </p>
           ) : isWellBeingCheck ? (
             <p className="mt-4 text-sm font-medium leading-7 text-ink/68">
               <BiText text="You will answer 25 short statements using a 5-point scale from Strongly disagree to Strongly agree. Your result shows a current profile across five dimensions, not a diagnosis or overall life score." />
@@ -146,7 +161,13 @@ export default function AssessmentDetailPage({ params }: { params: { slug: strin
           <p className="mt-4 text-sm font-medium leading-7 text-ink/70">
             <BiText text={assessment.disclaimer} />
           </p>
-          {!isBigFive && !isStressRecovery && !isDecisionStyle && !isWellBeingCheck && !isSocialEnergy && !isMotivationNeeds && (
+          {!isBigFive &&
+            !isStressRecovery &&
+            !isDecisionStyle &&
+            !isInvestmentStyle &&
+            !isWellBeingCheck &&
+            !isSocialEnergy &&
+            !isMotivationNeeds && (
             <p className="mt-4 text-sm font-medium leading-7 text-ink/70">
               <BiText text="Your result is a snapshot, not a permanent label." />
             </p>

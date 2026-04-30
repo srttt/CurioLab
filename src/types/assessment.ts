@@ -4,6 +4,7 @@ export type AssessmentCategory =
   | "Stress"
   | "Social"
   | "Decision"
+  | "Investing"
   | "Motivation";
 
 export type RelatedLink = {

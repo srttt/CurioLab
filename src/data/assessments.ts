@@ -1,4 +1,5 @@
 import type { AssessmentCategory, AssessmentItem } from "@/types/assessment";
+import { investmentStyleBenchmarks } from "@/data/investmentStyle";
 
 export const assessmentCategories: ("All" | AssessmentCategory)[] = [
   "All",
@@ -7,6 +8,7 @@ export const assessmentCategories: ("All" | AssessmentCategory)[] = [
   "Stress",
   "Social",
   "Decision",
+  "Investing",
   "Motivation"
 ];
 
@@ -581,6 +583,191 @@ export const assessments: AssessmentItem[] = [
       { label: "Dual Process Theory", href: "/lab-notes/dual-process-theory" },
       { label: "Cognitive Biases", href: "/lab-notes/cognitive-biases" },
       { label: "Yerkes-Dodson Law", href: "/lab-notes/yerkes-dodson-law" }
+    ]
+  },
+  {
+    title: "Investment Style Profile",
+    slug: "investment-style-profile",
+    category: "Investing",
+    duration: "8 min",
+    description:
+      "A self-assessment for how you tend to think about value, research, risk, time horizon, adaptation, and portfolio construction.",
+    basis:
+      "Inspired by value investing, indexing, behavioral finance, macro investing, risk management, and decision process research.",
+    disclaimer:
+      "CurioLab assessments are for learning and self-reflection. They are not medical, psychological, financial, or professional advice.",
+    type: "assessment",
+    dimensions: investmentStyleBenchmarks.map((benchmark) => ({
+      id: benchmark.id,
+      label: benchmark.label,
+      description: benchmark.description
+    })),
+    questions: [
+      {
+        id: "investment-style-01",
+        dimension: "valuationAnchor",
+        text: "I want a clear estimate of value before making an investment decision."
+      },
+      {
+        id: "investment-style-02",
+        dimension: "valuationAnchor",
+        text: "Price matters to me even when the story sounds exciting."
+      },
+      {
+        id: "investment-style-03",
+        dimension: "valuationAnchor",
+        text: "I am comfortable acting mainly on momentum or narrative without a value anchor.",
+        reverse: true
+      },
+      {
+        id: "investment-style-04",
+        dimension: "durabilityPreference",
+        text: "I prefer assets or businesses that seem resilient across difficult conditions."
+      },
+      {
+        id: "investment-style-05",
+        dimension: "durabilityPreference",
+        text: "I care about balance sheet strength, competitive position, or structural durability."
+      },
+      {
+        id: "investment-style-06",
+        dimension: "durabilityPreference",
+        text: "I am comfortable with fragile opportunities if the upside looks large.",
+        reverse: true
+      },
+      {
+        id: "investment-style-07",
+        dimension: "researchDepth",
+        text: "I like to verify an investment idea from several angles before acting."
+      },
+      {
+        id: "investment-style-08",
+        dimension: "researchDepth",
+        text: "I prefer to understand the main evidence rather than rely on someone else's conviction."
+      },
+      {
+        id: "investment-style-09",
+        dimension: "researchDepth",
+        text: "I often act before I have checked the core assumptions.",
+        reverse: true
+      },
+      {
+        id: "investment-style-10",
+        dimension: "portfolioBreadth",
+        text: "I prefer spreading risk across several positions or asset types."
+      },
+      {
+        id: "investment-style-11",
+        dimension: "portfolioBreadth",
+        text: "I feel better when no single idea can dominate the outcome."
+      },
+      {
+        id: "investment-style-12",
+        dimension: "portfolioBreadth",
+        text: "I prefer a few concentrated bets over broad diversification.",
+        reverse: true
+      },
+      {
+        id: "investment-style-13",
+        dimension: "costFrictionAwareness",
+        text: "I pay attention to fees, taxes, spreads, turnover, and liquidity."
+      },
+      {
+        id: "investment-style-14",
+        dimension: "costFrictionAwareness",
+        text: "I prefer simple implementation when two approaches seem similarly useful."
+      },
+      {
+        id: "investment-style-15",
+        dimension: "costFrictionAwareness",
+        text: "Small costs do not matter much if the idea is interesting.",
+        reverse: true
+      },
+      {
+        id: "investment-style-16",
+        dimension: "macroRegimeAwareness",
+        text: "I consider interest rates, inflation, credit, or policy when thinking about investments."
+      },
+      {
+        id: "investment-style-17",
+        dimension: "macroRegimeAwareness",
+        text: "I ask how a strategy might behave in different economic environments."
+      },
+      {
+        id: "investment-style-18",
+        dimension: "macroRegimeAwareness",
+        text: "I focus almost entirely on the individual asset and ignore macro context.",
+        reverse: true
+      },
+      {
+        id: "investment-style-19",
+        dimension: "adaptability",
+        text: "I update my view when new evidence challenges my original thesis."
+      },
+      {
+        id: "investment-style-20",
+        dimension: "adaptability",
+        text: "I pay attention to feedback from prices, fundamentals, and changing conditions."
+      },
+      {
+        id: "investment-style-21",
+        dimension: "adaptability",
+        text: "Once I form an investment view, I rarely change it.",
+        reverse: true
+      },
+      {
+        id: "investment-style-22",
+        dimension: "downsideDiscipline",
+        text: "I think first about what could cause permanent loss or forced selling."
+      },
+      {
+        id: "investment-style-23",
+        dimension: "downsideDiscipline",
+        text: "I want to know what would make an idea fail before focusing on upside."
+      },
+      {
+        id: "investment-style-24",
+        dimension: "downsideDiscipline",
+        text: "I can tolerate unclear downside if the potential gain is high.",
+        reverse: true
+      },
+      {
+        id: "investment-style-25",
+        dimension: "timeHorizon",
+        text: "I am comfortable waiting a long time for an investment thesis to play out."
+      },
+      {
+        id: "investment-style-26",
+        dimension: "timeHorizon",
+        text: "Short-term noise bothers me less when the long-term case is intact."
+      },
+      {
+        id: "investment-style-27",
+        dimension: "timeHorizon",
+        text: "I need quick feedback to stay comfortable with an investment idea.",
+        reverse: true
+      },
+      {
+        id: "investment-style-28",
+        dimension: "behavioralDiscipline",
+        text: "I use rules or checklists to reduce emotional decisions."
+      },
+      {
+        id: "investment-style-29",
+        dimension: "behavioralDiscipline",
+        text: "I try to notice when fear, excitement, or crowd behavior is influencing me."
+      },
+      {
+        id: "investment-style-30",
+        dimension: "behavioralDiscipline",
+        text: "When markets move quickly, I often feel pulled into immediate action.",
+        reverse: true
+      }
+    ],
+    relatedNotes: [
+      { label: "Explore Investment Style Index", href: "/investing/style-index" },
+      { label: "Read Modern Investment Masters", href: "/lab-notes/modern-investment-masters" },
+      { label: "Read Cognitive Biases", href: "/lab-notes/cognitive-biases" }
     ]
   },
   {
