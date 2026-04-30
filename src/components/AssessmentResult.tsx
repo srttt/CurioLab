@@ -6,7 +6,8 @@ import DimensionScoreBar from "@/components/DimensionScoreBar";
 import ProfileRadarChart from "@/components/ProfileRadarChart";
 import RelatedNotes from "@/components/RelatedNotes";
 import {
-  getMostComplementaryInvestmentMaster,
+  getMasterDimensionScores,
+  getMostOppositeInvestmentMaster,
   getMostSimilarInvestmentMaster,
   investmentStyleBenchmarks
 } from "@/data/investmentStyle";
@@ -1465,7 +1466,7 @@ export default function AssessmentResult({
 
   if (showInvestmentStyle) {
     const similar = getMostSimilarInvestmentMaster(scores);
-    const complementary = getMostComplementaryInvestmentMaster(scores);
+    const opposite = getMostOppositeInvestmentMaster(scores);
     const investmentReflections = getInvestmentReflections(scores);
 
     return (
@@ -1545,6 +1546,59 @@ export default function AssessmentResult({
           </section>
         </div>
 
+        <section className="mt-6 rounded-[1.5rem] border border-ink/10 bg-white/78 p-5 shadow-sm">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/46">
+            <BiInline text="Radar comparison" zh="雷达图对比" />
+          </p>
+          <h3 className="mt-1 text-2xl font-black">
+            <BiText text="Your Style vs. Similar and Opposite Masters" zh="你的风格 vs. 相似与相反的大师" />
+          </h3>
+
+          <div className="mt-5 grid gap-5 xl:grid-cols-3">
+            <div className="rounded-[1.25rem] border border-ink/10 bg-mist/65 p-4">
+              <ProfileRadarChart
+                badge="Your scores"
+                badgeZh="你的分数"
+                compact
+                description="Your result after this assessment."
+                descriptionZh="你完成测评后的结果。"
+                framed={false}
+                scores={scores}
+                title="Your Radar"
+                titleZh="你的雷达图"
+              />
+            </div>
+
+            <div className="rounded-[1.25rem] border border-ink/10 bg-mist/65 p-4">
+              <ProfileRadarChart
+                badge={`${Math.round(similar.similarity * 100)}% similar`}
+                badgeZh={`${Math.round(similar.similarity * 100)}% 相似`}
+                compact
+                description={similar.master.shortStyle}
+                descriptionZh={similar.master.shortStyleZh}
+                framed={false}
+                scores={getMasterDimensionScores(similar.master)}
+                title={`Similar: ${similar.master.name}`}
+                titleZh={`相似：${similar.master.nameZh}`}
+              />
+            </div>
+
+            <div className="rounded-[1.25rem] border border-ink/10 bg-mist/65 p-4">
+              <ProfileRadarChart
+                badge={`${Math.round(opposite.difference * 100)}% different`}
+                badgeZh={`${Math.round(opposite.difference * 100)}% 差异`}
+                compact
+                description={opposite.master.shortStyle}
+                descriptionZh={opposite.master.shortStyleZh}
+                framed={false}
+                scores={getMasterDimensionScores(opposite.master)}
+                title={`Opposite: ${opposite.master.name}`}
+                titleZh={`相反：${opposite.master.nameZh}`}
+              />
+            </div>
+          </div>
+        </section>
+
         <section className="mt-6 grid gap-5 lg:grid-cols-2">
           <div className="rounded-[1.5rem] border border-ink/10 bg-white p-5">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/46">
@@ -1570,16 +1624,19 @@ export default function AssessmentResult({
 
           <div className="rounded-[1.5rem] border border-ink/10 bg-white p-5">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-ink/46">
-              <BiInline text="Most complementary master" zh="最互补的大师" />
+              <BiInline text="Most opposite master" zh="最相反的大师" />
             </p>
             <h3 className="mt-2 text-2xl font-black">
-              <BiText text={complementary.master.name} zh={complementary.master.nameZh} />
+              <BiText text={opposite.master.name} zh={opposite.master.nameZh} />
             </h3>
+            <p className="mt-1 font-bold text-ink/58">
+              {Math.round(opposite.difference * 100)}% <BiInline text="style difference" zh="风格差异度" />
+            </p>
             <p className="mt-3 leading-7 text-ink/70">
-              <BiText text={complementary.master.shortStyle} zh={complementary.master.shortStyleZh} />
+              <BiText text={opposite.master.shortStyle} zh={opposite.master.shortStyleZh} />
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {complementary.dimensions.map((dimension) => (
+              {investmentStyleBenchmarks.map((dimension) => (
                 <span className="rounded-full bg-mist px-3 py-1 text-xs font-bold text-ink/62" key={dimension.id}>
                   <BiInline text={dimension.label} zh={dimension.labelZh} />
                 </span>
@@ -1587,7 +1644,7 @@ export default function AssessmentResult({
             </div>
             <Link
               className="focus-ring mt-4 inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-bold text-ink"
-              href={`/investing/masters/${complementary.master.slug}`}
+              href={`/investing/masters/${opposite.master.slug}`}
             >
               <BiInline text="View profile" zh="查看画像" />
               <ArrowRight size={15} aria-hidden="true" />

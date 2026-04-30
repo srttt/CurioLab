@@ -565,6 +565,25 @@ export function getMostSimilarInvestmentMaster(scores: DimensionScore[]) {
   return ranked[0];
 }
 
+function normalizedDistance(a: InvestmentScoreMap, b: InvestmentScoreMap) {
+  const ids = investmentStyleBenchmarks.map((benchmark) => benchmark.id);
+  const squaredDistance = ids.reduce((sum, id) => sum + (a[id] - b[id]) ** 2, 0);
+
+  return Math.sqrt(squaredDistance / (ids.length * 10000));
+}
+
+export function getMostOppositeInvestmentMaster(scores: DimensionScore[]) {
+  const userScores = toInvestmentScoreMap(scores);
+  const ranked = investmentMasters
+    .map((master) => ({
+      master,
+      difference: normalizedDistance(userScores, master.scores)
+    }))
+    .sort((a, b) => b.difference - a.difference);
+
+  return ranked[0];
+}
+
 export function getMostComplementaryInvestmentMaster(scores: DimensionScore[]) {
   const userScores = toInvestmentScoreMap(scores);
   const quietBenchmarks = investmentStyleBenchmarks
