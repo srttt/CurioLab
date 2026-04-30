@@ -3,12 +3,8 @@ import { ArrowLeft, ArrowRight, ExternalLink, ShieldCheck } from "lucide-react";
 import { notFound } from "next/navigation";
 import { BiInline, BiText } from "@/components/BilingualText";
 import ProfileRadarChart from "@/components/ProfileRadarChart";
-import {
-  getInvestmentMaster,
-  getMasterDimensionScores,
-  investmentMasters,
-  investmentStyleBenchmarks
-} from "@/data/investmentStyle";
+import { getInvestmentMaster, getMasterDimensionScores, investmentMasters } from "@/data/investmentStyle";
+import { getInvestmentMasterProfileSections } from "@/data/investmentMasterProfiles";
 
 export function generateStaticParams() {
   return investmentMasters.map((master) => ({ slug: master.slug }));
@@ -20,6 +16,7 @@ export default function InvestmentMasterPage({ params }: { params: { slug: strin
   if (!master) notFound();
 
   const scores = getMasterDimensionScores(master);
+  const profileSections = getInvestmentMasterProfileSections(master.slug);
 
   return (
     <article className="mx-auto max-w-6xl overflow-hidden px-4 py-12 sm:px-6">
@@ -51,71 +48,38 @@ export default function InvestmentMasterPage({ params }: { params: { slug: strin
         </p>
       </header>
 
-      <section className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <section className="mx-auto mt-8 max-w-4xl">
         <ProfileRadarChart
           badge="0-100 style map"
           badgeZh="0-100 风格图"
-          description="Relative emphasis across the universal investment style benchmarks."
-          descriptionZh="在通用投资风格指标上的相对强调程度。"
+          description="A compact visual snapshot of this investor's style."
+          descriptionZh="这位投资者风格的直观快照。"
           scores={scores}
           title="Style Radar"
           titleZh="风格雷达"
         />
-
-        <div className="grid gap-3">
-          {scores.map((score) => {
-            const benchmark = investmentStyleBenchmarks.find((item) => item.id === score.id);
-
-            return (
-              <div className="rounded-2xl border border-ink/10 bg-white p-4" key={score.id}>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h2 className="font-black">
-                      <BiText text={score.label} zh={benchmark?.labelZh} />
-                    </h2>
-                    <p className="mt-1 text-sm leading-6 text-ink/58">
-                      <BiText text={score.description} zh={benchmark?.descriptionZh} />
-                    </p>
-                  </div>
-                  <span className="shrink-0 rounded-full bg-ink px-3 py-1 text-sm font-black text-white">
-                    {score.score} / 100
-                  </span>
-                </div>
-                <div className="mt-4 h-3 overflow-hidden rounded-full bg-mist">
-                  <div className="h-full rounded-full bg-coral" style={{ width: `${score.score}%` }} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
       </section>
 
-      <section className="mt-8 grid gap-5 lg:grid-cols-2">
-        <div className="rounded-[1.5rem] border border-ink/10 bg-white/78 p-6 shadow-sm">
-          <h2 className="text-2xl font-black">
-            <BiText text="What to Study" zh="可以学习什么" />
-          </h2>
-          <div className="mt-4 grid gap-3">
-            {master.strengths.map((item) => (
-              <p className="rounded-2xl bg-mist px-4 py-3 leading-7 text-ink/72" key={item.en}>
-                <BiText text={item.en} zh={item.zh} />
-              </p>
-            ))}
+      <section className="mt-8 grid gap-5">
+        {profileSections.map((section, index) => (
+          <div className="rounded-[1.5rem] border border-ink/10 bg-white/78 p-6 shadow-sm" key={section.id}>
+            <div className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-ink text-sm font-black text-white">
+                {index + 1}
+              </span>
+              <h2 className="text-2xl font-black">
+                <BiText text={section.heading} zh={section.headingZh} />
+              </h2>
+            </div>
+            <div className="mt-4 space-y-4 text-lg leading-9 text-ink/74">
+              {section.body.map((paragraph) => (
+                <p key={paragraph.en}>
+                  <BiText text={paragraph.en} zh={paragraph.zh} />
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="rounded-[1.5rem] border border-ink/10 bg-citron/35 p-6 shadow-sm">
-          <h2 className="text-2xl font-black">
-            <BiText text="Watch-outs" zh="需要留意的盲点" />
-          </h2>
-          <div className="mt-4 grid gap-3">
-            {master.watchOuts.map((item) => (
-              <p className="rounded-2xl bg-white/70 px-4 py-3 leading-7 text-ink/72" key={item.en}>
-                <BiText text={item.en} zh={item.zh} />
-              </p>
-            ))}
-          </div>
-        </div>
+        ))}
       </section>
 
       <section className="mt-8 rounded-[1.5rem] border border-ink/10 bg-white/78 p-6 shadow-sm">
